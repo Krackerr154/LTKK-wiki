@@ -1,0 +1,20 @@
+.container { margin: 1.5rem 0; }
+.inputGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.field { display: flex; flex-direction: column; gap: 0.25rem; }
+.field label { font-size: 0.8125rem; color: var(--text-secondary); font-weight: 500; }
+.input { background: rgba(255,255,255,0.04); border: 1px solid var(--border-light); border-radius: 6px; padding: 0.5rem 0.75rem; color: var(--text-primary); font-family: 'Inter'; font-size: 0.875rem; }
+.input:focus { outline: none; border-color: var(--accent-primary); }
+.hint { font-size: 0.6875rem; color: var(--text-muted); }
+.resultSection { background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+.equationDisplay { text-align: center; margin-bottom: 1rem; }
+.resultCard { text-align: center; }
+.resultLabel { font-size: 0.8125rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem; }
+.resultValue { font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; color: var(--accent-primary); }
+.comparisonSection { background: rgba(255,255,255,0.03); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.5rem; }
+.compTitle { font-family: 'Outfit'; font-size: 1rem; color: var(--text-primary); margin-bottom: 1rem; }
+.verdict { margin-top: 1rem; }
+.ratioDisplay { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+.ratioDisplay strong { color: var(--text-primary); font-size: 1.125rem; }
+.mechBadge { padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600; text-align: center; }
+.outer { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
+.inner { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; }
