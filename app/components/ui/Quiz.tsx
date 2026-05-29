@@ -74,9 +74,9 @@ function QuizItem({ question, options, explanation }: QuizQuestion) {
         >
           <div className={styles.feedbackHeader}>
             {isCorrect ? (
-              <><CheckCircle size={18} /> Correct!</>
+              <><CheckCircle size={18} /> Benar!</>
             ) : (
-              <><XCircle size={18} /> Incorrect</>
+              <><XCircle size={18} /> Salah</>
             )}
           </div>
           <div className={styles.feedbackBody}>{explanation}</div>
@@ -90,7 +90,7 @@ function QuizItem({ question, options, explanation }: QuizQuestion) {
             setHasAnswered(false);
           }}
         >
-          Try Again
+          Coba Lagi
         </button>
       )}
     </div>
@@ -102,7 +102,7 @@ export function Quiz({ questions }: QuizProps) {
     <div className={styles.quiz}>
       {questions.map((q, i) => (
         <div key={i}>
-          <div className={styles.questionNumber}>Question {i + 1}</div>
+          <div className={styles.questionNumber}>Pertanyaan {i + 1}</div>
           <QuizItem {...q} />
         </div>
       ))}

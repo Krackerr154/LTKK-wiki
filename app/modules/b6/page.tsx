@@ -11,19 +11,19 @@ import { ConnectionLinks } from '../../components/ui/ConnectionLinks';
 import pageStyles from '../[moduleId]/page.module.css';
 
 const CYCLE_STEPS = [
-  { step: 1, title: 'Ligand Dissociation', desc: 'PPh₃ dissociates from [RhCl(PPh₃)₃] to open a coordination site.', oxState: '+1', eCount: 14, type: 'Substitution' },
-  { step: 2, title: 'Oxidative Addition of H₂', desc: 'H₂ adds across the Rh center, forming a dihydride Rh(III) complex.', oxState: '+3', eCount: 16, type: 'Oxidative Addition' },
-  { step: 3, title: 'Alkene Coordination', desc: 'The alkene substrate coordinates to the metal via its π-bond.', oxState: '+3', eCount: 18, type: 'Substitution' },
-  { step: 4, title: 'Migratory Insertion', desc: 'A hydride migrates and inserts into the coordinated alkene, forming an alkyl group.', oxState: '+3', eCount: 16, type: 'Insertion' },
-  { step: 5, title: 'Reductive Elimination', desc: 'The alkyl and remaining hydride couple and depart as the hydrogenated product (alkane).', oxState: '+1', eCount: 14, type: 'Reductive Elimination' },
-  { step: 6, title: 'Catalyst Regeneration', desc: 'PPh₃ re-coordinates and the substrate returns, regenerating the 16e⁻ active catalyst.', oxState: '+1', eCount: 16, type: 'Regeneration' },
+  { step: 1, title: 'Disosiasi Ligan', desc: 'PPh₃ terdisosiasi dari [RhCl(PPh₃)₃] untuk membuka situs koordinasi.', oxState: '+1', eCount: 14, type: 'Substitusi' },
+  { step: 2, title: 'Adisi Oksidatif H₂', desc: 'H₂ bertambah di seberang pusat Rh, membentuk kompleks dihidrida Rh(III).', oxState: '+3', eCount: 16, type: 'Adisi Oksidatif' },
+  { step: 3, title: 'Koordinasi Alkena', desc: 'Substrat alkena berkoordinasi dengan logam melalui ikatan π-nya.', oxState: '+3', eCount: 18, type: 'Substitusi' },
+  { step: 4, title: 'Penyisipan Migrasi', desc: 'Sebuah hidrida bermigrasi dan menyisip ke dalam alkena yang terkoordinasi, membentuk gugus alkil.', oxState: '+3', eCount: 16, type: 'Penyisipan' },
+  { step: 5, title: 'Eliminasi Reduktif', desc: 'Alkil dan hidrida yang tersisa bergabung dan terlepas sebagai produk terhidrogenasi (alkana).', oxState: '+1', eCount: 14, type: 'Eliminasi Reduktif' },
+  { step: 6, title: 'Regenerasi Katalis', desc: 'PPh₃ berkoordinasi kembali dan substrat kembali, meregenerasi katalis aktif 16e⁻.', oxState: '+1', eCount: 16, type: 'Regenerasi' },
 ];
 
 const REACTION_TYPES = [
-  { name: 'Oxidative Addition', delta_ox: '+2', delta_cn: '+2', requirement: '≤16e⁻, electron-rich metal', example: '[IrCl(CO)(PPh₃)₂] + H₂ → [Ir(H)₂Cl(CO)(PPh₃)₂]' },
-  { name: 'Reductive Elimination', delta_ox: '−2', delta_cn: '−2', requirement: 'Two cis ligands, electron-poor or sterically crowded', example: '[Pd(CH₃)(Ph)(PPh₃)₂] → CH₃-Ph + [Pd(PPh₃)₂]' },
-  { name: 'Migratory Insertion', delta_ox: '0', delta_cn: '−1', requirement: 'Cis unsaturated ligand + M–R bond', example: 'M–CH₃ + CO → M–C(O)CH₃' },
-  { name: 'Ligand Substitution', delta_ox: '0', delta_cn: '0', requirement: 'Labile ligand or open site', example: '[Ni(CO)₄] + PPh₃ → [Ni(CO)₃(PPh₃)] + CO' },
+  { name: 'Adisi Oksidatif', delta_ox: '+2', delta_cn: '+2', requirement: '≤16e⁻, logam kaya elektron', example: '[IrCl(CO)(PPh₃)₂] + H₂ → [Ir(H)₂Cl(CO)(PPh₃)₂]' },
+  { name: 'Eliminasi Reduktif', delta_ox: '−2', delta_cn: '−2', requirement: 'Dua ligan cis, miskin elektron atau padat secara sterik', example: '[Pd(CH₃)(Ph)(PPh₃)₂] → CH₃-Ph + [Pd(PPh₃)₂]' },
+  { name: 'Penyisipan Migrasi', delta_ox: '0', delta_cn: '−1', requirement: 'Ligan tak jenuh cis + ikatan M–R', example: 'M–CH₃ + CO → M–C(O)CH₃' },
+  { name: 'Substitusi Ligan', delta_ox: '0', delta_cn: '0', requirement: 'Ligan labil atau situs terbuka', example: '[Ni(CO)₄] + PPh₃ → [Ni(CO)₃(PPh₃)] + CO' },
 ];
 
 export default function ModuleB6() {
@@ -35,19 +35,19 @@ export default function ModuleB6() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Back to Course</span></Link>
+          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
         </div>
       </header>
-      <ModuleLayout moduleCode="Module B6" moduleTitle="Organometallic Catalysis" block="B">
+      <ModuleLayout moduleCode="Modul B6" moduleTitle="Katalisis Organologam" block="B">
         <ConceptOverview>
-          <p>Organometallic compounds serve as powerful <strong>homogeneous catalysts</strong>. Their catalytic power relies on the metal cycling through key reaction steps:</p>
+          <p>Senyawa organologam berfungsi sebagai <strong>katalis homogen</strong> yang kuat. Kekuatan katalitik mereka bergantung pada siklus logam melalui langkah-langkah reaksi utama:</p>
           <ol>
-            <li><strong>Ligand Substitution:</strong> Exchange of ligands (associative for 16e⁻, dissociative for 18e⁻).</li>
-            <li><strong>Oxidative Addition (OA):</strong> Metal inserts into a covalent bond. OS increases by +2, CN increases by +2. Requires ≤16e⁻ and electron-rich center.</li>
-            <li><strong>Reductive Elimination (RE):</strong> Reverse of OA — two cis ligands couple and depart. OS decreases by −2, CN decreases by −2.</li>
-            <li><strong>Migratory Insertion:</strong> An unsaturated ligand inserts into an adjacent M–R bond, generating a vacant site.</li>
+            <li><strong>Substitusi Ligan:</strong> Pertukaran ligan (asosiatif untuk 16e⁻, disosiatif untuk 18e⁻).</li>
+            <li><strong>Adisi Oksidatif (OA):</strong> Logam menyisip ke dalam ikatan kovalen. OS meningkat +2, CN meningkat +2. Membutuhkan ≤16e⁻ dan pusat kaya elektron.</li>
+            <li><strong>Eliminasi Reduktif (RE):</strong> Kebalikan dari OA — dua ligan cis bergabung dan terlepas. OS berkurang -2, CN berkurang -2.</li>
+            <li><strong>Penyisipan Migrasi:</strong> Sebuah ligan tak jenuh menyisip ke dalam ikatan M–R yang berdekatan, menghasilkan situs kosong.</li>
           </ol>
-          <p><strong>Wilkinson&apos;s Catalyst</strong> (<LaTeX>{'[RhCl(PPh_3)_3]'}</LaTeX>) is a 16e⁻ complex for homogeneous hydrogenation of alkenes.</p>
+          <p><strong>Katalis Wilkinson</strong> (<LaTeX>{'[RhCl(PPh_3)_3]'}</LaTeX>) adalah kompleks 16e⁻ untuk hidrogenasi homogen alkena.</p>
         </ConceptOverview>
 
         <KeyEquations>
@@ -55,10 +55,10 @@ export default function ModuleB6() {
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8125rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid var(--border-light)' }}>
-                  <th style={{ textAlign: 'left', padding: '0.5rem', color: 'var(--text-muted)' }}>Reaction</th>
+                  <th style={{ textAlign: 'left', padding: '0.5rem', color: 'var(--text-muted)' }}>Reaksi</th>
                   <th style={{ textAlign: 'center', padding: '0.5rem', color: 'var(--text-muted)' }}>ΔOS</th>
                   <th style={{ textAlign: 'center', padding: '0.5rem', color: 'var(--text-muted)' }}>ΔCN</th>
-                  <th style={{ textAlign: 'left', padding: '0.5rem', color: 'var(--text-muted)' }}>Requirement</th>
+                  <th style={{ textAlign: 'left', padding: '0.5rem', color: 'var(--text-muted)' }}>Persyaratan</th>
                 </tr>
               </thead>
               <tbody>
@@ -77,45 +77,45 @@ export default function ModuleB6() {
 
         <WorkedExamples>
           <WorkedExample
-            title="Identifying Reaction Steps"
-            problem={<p>Classify: <LaTeX>{'[IrCl(CO)(PPh_3)_2] + H_2 \\rightarrow [Ir(H)_2Cl(CO)(PPh_3)_2]'}</LaTeX></p>}
+            title="Mengidentifikasi Langkah-Langkah Reaksi"
+            problem={<p>Klasifikasikan: <LaTeX>{'[IrCl(CO)(PPh_3)_2] + H_2 \\rightarrow [Ir(H)_2Cl(CO)(PPh_3)_2]'}</LaTeX></p>}
             steps={[
-              { title: 'Analyze reactant', content: <p>Ir(I) (16e⁻, coordination number 4).</p> },
-              { title: 'Analyze product', content: <p>Ir(III) (18e⁻, coordination number 6).</p> },
-              { title: 'Classify', content: <p>OS increased by +2, CN increased by +2 → <strong>Oxidative Addition</strong>.</p> },
+              { title: 'Analisis reaktan', content: <p>Ir(I) (16e⁻, bilangan koordinasi 4).</p> },
+              { title: 'Analisis produk', content: <p>Ir(III) (18e⁻, bilangan koordinasi 6).</p> },
+              { title: 'Klasifikasikan', content: <p>OS meningkat +2, CN meningkat +2 → <strong>Adisi Oksidatif</strong>.</p> },
             ]}
           />
         </WorkedExamples>
 
         <Misconceptions>
           <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '1rem', marginBottom: '1rem' }}>
-            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Misconception</p>
-            <p>Oxidative addition can occur at any metal center.</p>
+            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Miskonsepsi</p>
+            <p>Adisi oksidatif dapat terjadi pada pusat logam mana pun.</p>
           </div>
           <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '8px', padding: '1rem' }}>
-            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Correction</p>
-            <p>OA requires the metal to have a stable OS +2 higher, and space for two new ligands. 18e⁻ complexes must lose a ligand first.</p>
+            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Koreksi</p>
+            <p>OA mensyaratkan logam untuk memiliki OS stabil +2 lebih tinggi, dan ruang untuk dua ligan baru. Kompleks 18e⁻ harus melepaskan ligan terlebih dahulu.</p>
           </div>
         </Misconceptions>
 
         <InteractiveVisual>
-          <p style={{ marginBottom: '1rem' }}>Step through the Wilkinson catalytic cycle for alkene hydrogenation:</p>
+          <p style={{ marginBottom: '1rem' }}>Telusuri siklus katalitik Wilkinson untuk hidrogenasi alkena:</p>
 
           {/* Cycle Step Display */}
           <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '1.5rem', marginBottom: '1rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Step {current.step} of 6</span>
+              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Langkah {current.step} dari 6</span>
               <span style={{ fontSize: '0.75rem', padding: '0.25rem 0.75rem', borderRadius: '20px', background: 'rgba(139,92,246,0.15)', color: '#a78bfa', fontWeight: 600 }}>{current.type}</span>
             </div>
             <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '1.25rem', color: 'var(--text-primary)', marginBottom: '0.75rem' }}>{current.title}</h4>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>{current.desc}</p>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <div style={{ background: 'rgba(59,130,246,0.08)', borderRadius: '8px', padding: '0.5rem 1rem', textAlign: 'center', flex: 1 }}>
-                <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>Rh OS</div>
+                <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>OS Rh</div>
                 <div style={{ fontWeight: 700, color: '#60a5fa', fontSize: '1.125rem' }}>{current.oxState}</div>
               </div>
               <div style={{ background: current.eCount === 18 ? 'rgba(16,185,129,0.08)' : current.eCount === 16 ? 'rgba(245,158,11,0.08)' : 'rgba(239,68,68,0.08)', borderRadius: '8px', padding: '0.5rem 1rem', textAlign: 'center', flex: 1 }}>
-                <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>VE Count</div>
+                <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>Jumlah VE</div>
                 <div style={{ fontWeight: 700, color: current.eCount === 18 ? '#6ee7b7' : current.eCount === 16 ? '#fbbf24' : '#fca5a5', fontSize: '1.125rem' }}>{current.eCount}e⁻</div>
               </div>
             </div>
@@ -138,10 +138,10 @@ export default function ModuleB6() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem' }}>
             <button onClick={() => setCycleStep(p => (p - 1 + 6) % 6)} style={{ padding: '0.5rem 1.25rem', borderRadius: '8px', border: '1px solid var(--border-light)', background: 'transparent', color: 'var(--text-muted)', cursor: 'pointer', fontFamily: "'Inter', sans-serif", fontSize: '0.8125rem' }}>
-              ← Prev
+              ← Sebel.
             </button>
             <button onClick={() => setCycleStep(p => (p + 1) % 6)} style={{ padding: '0.5rem 1.25rem', borderRadius: '8px', border: '1px solid rgba(139,92,246,0.3)', background: 'rgba(139,92,246,0.15)', color: '#a78bfa', cursor: 'pointer', fontFamily: "'Inter', sans-serif", fontSize: '0.8125rem', fontWeight: 600 }}>
-              Next →
+              Lanjut →
             </button>
           </div>
         </InteractiveVisual>
@@ -149,14 +149,14 @@ export default function ModuleB6() {
         <FormativeQuiz>
           <Quiz questions={[
             {
-              question: <span>What happens to the metal oxidation state during reductive elimination?</span>,
+              question: <span>Apa yang terjadi pada keadaan oksidasi logam selama eliminasi reduktif?</span>,
               options: [
-                { text: 'It increases by 2.', isCorrect: false },
-                { text: 'It decreases by 2.', isCorrect: true },
-                { text: 'It remains unchanged.', isCorrect: false },
-                { text: 'It drops to zero.', isCorrect: false },
+                { text: 'Ia meningkat sebanyak 2.', isCorrect: false },
+                { text: 'Ia menurun sebanyak 2.', isCorrect: true },
+                { text: 'Ia tetap tidak berubah.', isCorrect: false },
+                { text: 'Ia turun menjadi nol.', isCorrect: false },
               ],
-              explanation: <span>Reductive elimination is the reverse of oxidative addition — two ligands couple and depart, reducing the OS by 2.</span>,
+              explanation: <span>Eliminasi reduktif adalah kebalikan dari adisi oksidatif — dua ligan bergabung dan terlepas, mengurangi OS sebanyak 2.</span>,
             },
           ]} />
         </FormativeQuiz>
@@ -164,9 +164,9 @@ export default function ModuleB6() {
         <Connections>
           <ConnectionLinks
             buildsOn={[
-              { label: 'B3', moduleId: 'b3', moduleTitle: 'The 18-Electron Rule' },
-              { label: 'B4', moduleId: 'b4', moduleTitle: 'Metal Carbonyl Compounds' },
-              { label: 'B5', moduleId: 'b5', moduleTitle: 'Metallocenes' },
+              { label: 'B3', moduleId: 'b3', moduleTitle: 'Aturan 18-Elektron' },
+              { label: 'B4', moduleId: 'b4', moduleTitle: 'Senyawa Logam Karbonil' },
+              { label: 'B5', moduleId: 'b5', moduleTitle: 'Metalosena' },
             ]}
             feedsInto={[]}
           />

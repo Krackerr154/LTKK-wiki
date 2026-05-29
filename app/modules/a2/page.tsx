@@ -16,95 +16,95 @@ export default function ModuleA2() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Back to Course</span></Link>
+          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
         </div>
       </header>
-      <ModuleLayout moduleCode="Module A2" moduleTitle="Labile and Inert Complexes" block="A">
+      <ModuleLayout moduleCode="Modul A2" moduleTitle="Kompleks Labil dan Lembam" block="A">
         <ConceptOverview>
-          <p>The terms <strong>labile</strong> and <strong>inert</strong> are purely kinetic descriptions coined by Henry Taube:</p>
+          <p>Istilah <strong>labil</strong> dan <strong>lembam</strong> murni merupakan deskripsi kinetik yang diciptakan oleh Henry Taube:</p>
           <ul>
-            <li><strong>Labile complexes:</strong> Undergo rapid ligand exchange, typically with <LaTeX>{'t_{1/2} < 1\\ \\text{min}'}</LaTeX> at 25°C.</li>
-            <li><strong>Inert complexes:</strong> Undergo slow ligand exchange, with <LaTeX>{'t_{1/2} > 1\\ \\text{min}'}</LaTeX>, often taking hours or days.</li>
+            <li><strong>Kompleks labil:</strong> Mengalami pertukaran ligan yang cepat, biasanya dengan <LaTeX>{'t_{1/2} < 1\\ \\text{menit}'}</LaTeX> pada 25°C.</li>
+            <li><strong>Kompleks lembam:</strong> Mengalami pertukaran ligan yang lambat, dengan <LaTeX>{'t_{1/2} > 1\\ \\text{menit}'}</LaTeX>, seringkali memakan waktu berjam-jam atau berhari-hari.</li>
           </ul>
-          <p>The kinetic lability is primarily determined by the <strong>Crystal Field Stabilization Energy (CFSE)</strong> and the specific <LaTeX>{'d'}</LaTeX>-electron configuration. When a 6-coordinate octahedral complex reacts, it must deform into either a 5-coordinate or 7-coordinate transition state. If this deformation causes a massive loss of CFSE, the complex is inert.</p>
+          <p>Kelabilan kinetik utamanya ditentukan oleh <strong>Energi Stabilisasi Medan Kristal (CFSE)</strong> dan konfigurasi elektron <LaTeX>{'d'}</LaTeX> yang spesifik. Ketika kompleks oktahedral berkoordinasi 6 bereaksi, ia harus berubah bentuk menjadi keadaan transisi berkoordinasi 5 atau berkoordinasi 7. Jika deformasi ini menyebabkan hilangnya CFSE dalam jumlah besar, maka kompleks tersebut bersifat lembam.</p>
           <ul>
-            <li><strong>Inert:</strong> Octahedral <LaTeX>{'d^3'}</LaTeX> (e.g., <LaTeX>{'Cr^{3+}'}</LaTeX>) and low-spin <LaTeX>{'d^6'}</LaTeX> (e.g., <LaTeX>{'Co^{3+}'}</LaTeX>). These possess highly stabilized ground states.</li>
-            <li><strong>Labile:</strong> <LaTeX>{'d^1, d^2'}</LaTeX>, high-spin <LaTeX>{'d^4, d^5, d^6'}</LaTeX>, and <LaTeX>{'d^7, d^9, d^{10}'}</LaTeX>. Low or zero CFSE barriers.</li>
+            <li><strong>Lembam:</strong> Oktahedral <LaTeX>{'d^3'}</LaTeX> (misalnya, <LaTeX>{'Cr^{3+}'}</LaTeX>) dan spin rendah <LaTeX>{'d^6'}</LaTeX> (misalnya, <LaTeX>{'Co^{3+}'}</LaTeX>). Keduanya memiliki keadaan dasar yang sangat stabil.</li>
+            <li><strong>Labil:</strong> <LaTeX>{'d^1, d^2'}</LaTeX>, spin tinggi <LaTeX>{'d^4, d^5, d^6'}</LaTeX>, dan <LaTeX>{'d^7, d^9, d^{10}'}</LaTeX>. Penghalang CFSE yang rendah atau nol.</li>
           </ul>
         </ConceptOverview>
 
         <KeyEquations>
           <EquationBlock
-            label="Crystal Field Stabilization Energy"
+            label="Energi Stabilisasi Medan Kristal"
             latex="\\text{CFSE} = (-0.4 \\cdot n_{t_{2g}} + 0.6 \\cdot n_{e_g})\\Delta_o + P \\cdot n_{\\text{pair}}"
             variables={[
-              { symbol: 'n_{t_{2g}}', definition: 'number of electrons in the lower-energy t₂g orbitals' },
-              { symbol: 'n_{e_g}', definition: 'number of electrons in the higher-energy eg orbitals' },
-              { symbol: '\\Delta_o', definition: 'octahedral crystal field splitting energy' },
-              { symbol: 'P', definition: 'spin-pairing energy' },
+              { symbol: 'n_{t_{2g}}', definition: 'jumlah elektron pada orbital t₂g yang berenergi lebih rendah' },
+              { symbol: 'n_{e_g}', definition: 'jumlah elektron pada orbital eg yang berenergi lebih tinggi' },
+              { symbol: '\\Delta_o', definition: 'energi pembelahan medan kristal oktahedral' },
+              { symbol: 'P', definition: 'energi pemasangan spin' },
             ]}
           />
         </KeyEquations>
 
         <WorkedExamples>
           <WorkedExample
-            title="The Thermodynamic vs. Kinetic Stability Trap"
-            problem={<p>Analyze the stability and lability of <LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> and <LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> in acidic media.</p>}
+            title="Jebakan Kestabilan Termodinamika vs. Kinetika"
+            problem={<p>Analisis kestabilan dan kelabilan <LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> dan <LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> dalam media asam.</p>}
             steps={[
-              { title: 'Analyze [Ni(CN)₄]²⁻', content: <p><LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> has <LaTeX>{'K_f \\approx 10^{30}'}</LaTeX> — <strong>thermodynamically highly stable</strong>. However, as a <LaTeX>{'d^8'}</LaTeX> square planar complex, it undergoes associative ligand exchange with a negligible kinetic barrier, making it <strong>kinetically labile</strong>.</p> },
-              { title: 'Analyze [Co(NH₃)₆]³⁺', content: <p><LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> is thermodynamically unstable in acid (<LaTeX>{'K_{eq} \\approx 10^{25}'}</LaTeX> for decomposition). However, <LaTeX>{'Co^{3+}'}</LaTeX> is low-spin <LaTeX>{'d^6'}</LaTeX> (<LaTeX>{'t_{2g}^6 e_g^0'}</LaTeX>) with maximum CFSE (<LaTeX>{'-2.4\\Delta_o'}</LaTeX>). This makes it <strong>kinetically inert</strong>.</p> },
-              { title: 'Key Takeaway', content: <p>Thermodynamic stability ≠ kinetic lability. A complex can be thermodynamically unstable yet kinetically inert (or vice versa).</p> },
+              { title: 'Analisis [Ni(CN)₄]²⁻', content: <p><LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> memiliki <LaTeX>{'K_f \\approx 10^{30}'}</LaTeX> — <strong>sangat stabil secara termodinamika</strong>. Namun, sebagai kompleks bujur sangkar <LaTeX>{'d^8'}</LaTeX>, ia mengalami pertukaran ligan asosiatif dengan penghalang kinetik yang dapat diabaikan, menjadikannya <strong>labil secara kinetik</strong>.</p> },
+              { title: 'Analisis [Co(NH₃)₆]³⁺', content: <p><LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> tidak stabil secara termodinamika dalam asam (<LaTeX>{'K_{eq} \\approx 10^{25}'}</LaTeX> untuk penguraian). Namun, <LaTeX>{'Co^{3+}'}</LaTeX> adalah spin rendah <LaTeX>{'d^6'}</LaTeX> (<LaTeX>{'t_{2g}^6 e_g^0'}</LaTeX>) dengan CFSE maksimum (<LaTeX>{'-2.4\\Delta_o'}</LaTeX>). Hal ini membuatnya <strong>lembam secara kinetik</strong>.</p> },
+              { title: 'Poin Penting', content: <p>Kestabilan termodinamika ≠ kelabilan kinetik. Suatu kompleks bisa saja tidak stabil secara termodinamika namun lembam secara kinetik (atau sebaliknya).</p> },
             ]}
           />
         </WorkedExamples>
 
         <Misconceptions>
           <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '1rem', marginBottom: '1rem' }}>
-            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Critical Trap</p>
-            <p>&quot;Thermodynamically stable&quot; is equivalent to &quot;kinetically inert.&quot;</p>
+            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Jebakan Kritis</p>
+            <p>&quot;Stabil secara termodinamika&quot; setara dengan &quot;lembam secara kinetik.&quot;</p>
           </div>
           <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '8px', padding: '1rem' }}>
-            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Correction</p>
-            <p>Thermodynamics dictates equilibrium (<LaTeX>{'\\Delta G^\\circ, K_f'}</LaTeX>). Kinetics dictates speed (<LaTeX>{'E_a, k'}</LaTeX>). A compound can be extremely unstable thermodynamically but survive indefinitely due to kinetic inertness.</p>
+            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Koreksi</p>
+            <p>Termodinamika menentukan kesetimbangan (<LaTeX>{'\\Delta G^\\circ, K_f'}</LaTeX>). Kinetika menentukan kecepatan (<LaTeX>{'E_a, k'}</LaTeX>). Senyawa dapat menjadi sangat tidak stabil secara termodinamika namun bertahan tanpa batas waktu akibat kelembaman kinetik.</p>
           </div>
         </Misconceptions>
 
         <InteractiveVisual>
-          <p style={{ marginBottom: '1rem' }}>Click any transition metal ion to see its d-electron configuration, CFSE, and labile/inert classification. Toggle between high-spin and low-spin to see how the ligand field strength changes the prediction.</p>
+          <p style={{ marginBottom: '1rem' }}>Klik ion logam transisi apa pun untuk melihat konfigurasi elektron d, CFSE, dan klasifikasi labil/lembam. Alihkan antara spin tinggi dan spin rendah untuk melihat bagaimana kekuatan medan ligan mengubah prediksi.</p>
           <DBlockPeriodicTable />
         </InteractiveVisual>
 
         <FormativeQuiz>
           <Quiz questions={[
             {
-              question: <span>Why is <LaTeX>{'[Cr(OH_2)_6]^{3+}'}</LaTeX> highly kinetically inert compared to <LaTeX>{'[Fe(OH_2)_6]^{3+}'}</LaTeX>?</span>,
+              question: <span>Mengapa <LaTeX>{'[Cr(OH_2)_6]^{3+}'}</LaTeX> sangat lembam secara kinetik dibandingkan dengan <LaTeX>{'[Fe(OH_2)_6]^{3+}'}</LaTeX>?</span>,
               options: [
-                { text: <span><LaTeX>{'Cr^{3+}'}</LaTeX> is d³ with strong CFSE, whereas <LaTeX>{'Fe^{3+}'}</LaTeX> is high-spin d⁵ with zero CFSE.</span>, isCorrect: true },
-                { text: 'Water binds much more tightly to chromium than iron.', isCorrect: false },
-                { text: 'Iron is larger than chromium, accelerating substitution.', isCorrect: false },
-                { text: 'Chromium undergoes associative substitution exclusively.', isCorrect: false },
+                { text: <span><LaTeX>{'Cr^{3+}'}</LaTeX> adalah d³ dengan CFSE yang kuat, sedangkan <LaTeX>{'Fe^{3+}'}</LaTeX> adalah d⁵ spin tinggi dengan CFSE nol.</span>, isCorrect: true },
+                { text: 'Air berikatan jauh lebih kuat dengan kromium daripada besi.', isCorrect: false },
+                { text: 'Besi lebih besar dari kromium, yang mempercepat substitusi.', isCorrect: false },
+                { text: 'Kromium mengalami substitusi asosiatif secara eksklusif.', isCorrect: false },
               ],
-              explanation: <span>Octahedral d³ has a stable <LaTeX>{'t_{2g}^3'}</LaTeX> ground state with CFSE of <LaTeX>{'-1.2\\Delta_o'}</LaTeX>. High-spin d⁵ has zero CFSE, meaning no electronic barrier to ligand dissociation.</span>,
+              explanation: <span>Oktahedral d³ memiliki keadaan dasar <LaTeX>{'t_{2g}^3'}</LaTeX> yang stabil dengan CFSE sebesar <LaTeX>{'-1.2\\Delta_o'}</LaTeX>. d⁵ spin tinggi memiliki CFSE nol, artinya tidak ada penghalang elektronik untuk disosiasi ligan.</span>,
             },
             {
-              question: <span>A complex has a half-life of 10⁻⁶ seconds for water exchange. How is it classified?</span>,
+              question: <span>Suatu kompleks memiliki waktu paruh pertukaran air 10⁻⁶ detik. Bagaimana klasifikasinya?</span>,
               options: [
-                { text: 'Thermodynamically stable.', isCorrect: false },
-                { text: 'Kinetically inert.', isCorrect: false },
-                { text: 'Kinetically labile.', isCorrect: true },
-                { text: 'Thermodynamically unstable.', isCorrect: false },
+                { text: 'Stabil secara termodinamika.', isCorrect: false },
+                { text: 'Lembam secara kinetik.', isCorrect: false },
+                { text: 'Labil secara kinetik.', isCorrect: true },
+                { text: 'Tidak stabil secara termodinamika.', isCorrect: false },
               ],
-              explanation: <span>Any complex with t₁/₂ &lt; 1 minute at room temperature is classified as kinetically labile.</span>,
+              explanation: <span>Kompleks apapun dengan t₁/₂ &lt; 1 menit pada suhu kamar diklasifikasikan sebagai labil secara kinetik.</span>,
             },
           ]} />
         </FormativeQuiz>
 
         <Connections>
           <ConnectionLinks
-            buildsOn={[{ label: 'A1', moduleId: 'a1', moduleTitle: 'Kinetics Foundations' }]}
+            buildsOn={[{ label: 'A1', moduleId: 'a1', moduleTitle: 'Dasar-dasar Kinetika' }]}
             feedsInto={[
-              { label: 'A6', moduleId: 'a6', moduleTitle: 'Substitution in Octahedral Complexes' },
-              { label: 'A7', moduleId: 'a7', moduleTitle: 'Electron Transfer Reactions' },
+              { label: 'A6', moduleId: 'a6', moduleTitle: 'Substitusi pada Kompleks Oktahedral' },
+              { label: 'A7', moduleId: 'a7', moduleTitle: 'Reaksi Transfer Elektron' },
             ]}
           />
         </Connections>

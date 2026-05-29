@@ -42,7 +42,7 @@ export default function Error({
         color: 'var(--text-primary)',
         marginBottom: '0.75rem',
       }}>
-        Something went wrong
+        Terjadi kesalahan
       </h2>
       <p style={{
         color: 'var(--text-muted)',
@@ -50,7 +50,7 @@ export default function Error({
         marginBottom: '1.5rem',
         maxWidth: '400px',
       }}>
-        An error occurred while loading this module. Please try again.
+        Terjadi kesalahan saat memuat modul ini. Silakan coba lagi.
       </p>
       <button
         onClick={reset}
@@ -66,7 +66,7 @@ export default function Error({
           cursor: 'pointer',
         }}
       >
-        Try Again
+        Coba Lagi
       </button>
     </div>
   );

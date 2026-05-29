@@ -14,19 +14,19 @@ interface AnimationStep {
 
 const STEPS: Record<MechanismType, AnimationStep[]> = {
   D: [
-    { label: 'Start', description: '6-coordinate octahedral complex [ML₅X]', coordNumber: 6 },
-    { label: 'Dissociation (slow)', description: 'Leaving group X departs → 5-coordinate intermediate [ML₅]', coordNumber: 5 },
-    { label: 'Association (fast)', description: 'Entering group Y coordinates → product [ML₅Y]', coordNumber: 6 },
+    { label: 'Mulai', description: 'Kompleks oktahedral berkoordinasi 6 [ML₅X]', coordNumber: 6 },
+    { label: 'Disosiasi (lambat)', description: 'Gugus pergi X terlepas → zat antara berkoordinasi 5 [ML₅]', coordNumber: 5 },
+    { label: 'Asosiasi (cepat)', description: 'Gugus masuk Y berkoordinasi → produk [ML₅Y]', coordNumber: 6 },
   ],
   A: [
-    { label: 'Start', description: '6-coordinate octahedral complex [ML₅X]', coordNumber: 6 },
-    { label: 'Association (slow)', description: 'Entering group Y attacks → 7-coordinate intermediate [ML₅XY]', coordNumber: 7 },
-    { label: 'Dissociation (fast)', description: 'Leaving group X departs → product [ML₅Y]', coordNumber: 6 },
+    { label: 'Mulai', description: 'Kompleks oktahedral berkoordinasi 6 [ML₅X]', coordNumber: 6 },
+    { label: 'Asosiasi (lambat)', description: 'Gugus masuk Y menyerang → zat antara berkoordinasi 7 [ML₅XY]', coordNumber: 7 },
+    { label: 'Disosiasi (cepat)', description: 'Gugus pergi X terlepas → produk [ML₅Y]', coordNumber: 6 },
   ],
   I: [
-    { label: 'Start', description: '6-coordinate octahedral complex [ML₅X]', coordNumber: 6 },
-    { label: 'Interchange', description: 'Concerted swap: X leaves as Y enters via single transition state', coordNumber: 6 },
-    { label: 'Product', description: 'Product [ML₅Y] formed — no intermediate', coordNumber: 6 },
+    { label: 'Mulai', description: 'Kompleks oktahedral berkoordinasi 6 [ML₅X]', coordNumber: 6 },
+    { label: 'Pertukaran', description: 'Pertukaran serempak: X terlepas saat Y masuk melalui keadaan transisi tunggal', coordNumber: 6 },
+    { label: 'Produk', description: 'Produk [ML₅Y] terbentuk — tanpa zat antara', coordNumber: 6 },
   ],
 };
 
@@ -52,7 +52,7 @@ function MechanismColumn({ type, step }: { type: MechanismType; step: number }) 
   return (
     <div className={styles.column}>
       <div className={styles.columnHeader} style={{ borderColor: color }}>
-        <span className={styles.mechLabel} style={{ color }}>{type === 'D' ? 'Dissociative (D)' : type === 'A' ? 'Associative (A)' : 'Interchange (I)'}</span>
+        <span className={styles.mechLabel} style={{ color }}>{type === 'D' ? 'Disosiatif (D)' : type === 'A' ? 'Asosiatif (A)' : 'Pertukaran (I)'}</span>
       </div>
       <div className={styles.svgWrap}>
         <svg viewBox="0 0 200 200" className={styles.svg}>
@@ -126,11 +126,11 @@ export function MechanismAnimator() {
         <MechanismColumn type="I" step={step} />
       </div>
       <div className={styles.controls}>
-        <button className={styles.controlBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={isPlaying}>⏮ Prev</button>
+        <button className={styles.controlBtn} onClick={() => setStep(Math.max(0, step - 1))} disabled={isPlaying}>⏮ Sebel.</button>
         <button className={`${styles.controlBtn} ${styles.playBtn}`} onClick={play} disabled={isPlaying}>
-          {isPlaying ? '⏳ Playing...' : '▶ Play'}
+          {isPlaying ? '⏳ Memutar...' : '▶ Putar'}
         </button>
-        <button className={styles.controlBtn} onClick={() => setStep(Math.min(maxStep, step + 1))} disabled={isPlaying}>Next ⏭</button>
+        <button className={styles.controlBtn} onClick={() => setStep(Math.min(maxStep, step + 1))} disabled={isPlaying}>Lanjut ⏭</button>
       </div>
       <div className={styles.stepIndicator}>
         {[0, 1, 2].map(s => (

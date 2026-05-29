@@ -50,7 +50,7 @@ export function EyringCalculator() {
     const lnKbH = Math.log(kB / h);
     const dS = (intercept - lnKbH) * R; // J/(mol·K)
 
-    const mechanism = dS > 0 ? 'Dissociative (D/Id)' : dS < -50 ? 'Associative (A/Ia)' : 'Interchange (I)';
+    const mechanism = dS > 0 ? 'Disosiatif (D/Id)' : dS < -50 ? 'Asosiatif (A/Ia)' : 'Pertukaran (I)';
 
     return { slope, intercept, dH, dS, mechanism, xs, ys };
   }, [data]);
@@ -62,7 +62,7 @@ export function EyringCalculator() {
   return (
     <div className={styles.container}>
       <div className={styles.inputSection}>
-        <h4 className={styles.inputTitle}>Data Input (T, k)</h4>
+        <h4 className={styles.inputTitle}>Input Data (T, k)</h4>
         <div className={styles.tableWrap}>
           <table className={styles.dataTable}>
             <thead>
@@ -82,14 +82,14 @@ export function EyringCalculator() {
               ))}
             </tbody>
           </table>
-          <button className={styles.addBtn} onClick={addRow}>+ Add Row</button>
+          <button className={styles.addBtn} onClick={addRow}>+ Tambah Baris</button>
         </div>
       </div>
 
       {results && (
         <>
           <div className={styles.plotSection}>
-            <h4 className={styles.plotTitle}>Eyring Plot: ln(k/T) vs 1/T</h4>
+            <h4 className={styles.plotTitle}>Plot Eyring: ln(k/T) vs 1/T</h4>
             <div className={styles.svgWrap}>
               <svg viewBox={`0 0 ${W} ${H}`} className={styles.svg}>
                 {(() => {
@@ -132,7 +132,7 @@ export function EyringCalculator() {
               <span className={styles.resultValue}>{results.dS.toFixed(1)} J/(mol·K)</span>
             </div>
             <div className={`${styles.resultCard} ${styles.mechCard}`}>
-              <span className={styles.resultLabel}>Mechanism</span>
+              <span className={styles.resultLabel}>Mekanisme</span>
               <span className={styles.resultValue}>{results.mechanism}</span>
             </div>
           </div>

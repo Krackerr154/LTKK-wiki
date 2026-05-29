@@ -35,7 +35,7 @@ export function SectionWrapper({ id, title, icon, children }: ModuleSection) {
 
 export function ConceptOverview({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="concept-overview" title="Concept Overview" icon={<BookOpen size={20} />}>
+    <SectionWrapper id="concept-overview" title="Ringkasan Konsep" icon={<BookOpen size={20} />}>
       {children}
     </SectionWrapper>
   );
@@ -43,7 +43,7 @@ export function ConceptOverview({ children }: { children: React.ReactNode }) {
 
 export function KeyEquations({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="key-equations" title="Key Equations" icon={<Calculator size={20} />}>
+    <SectionWrapper id="key-equations" title="Persamaan Utama" icon={<Calculator size={20} />}>
       {children}
     </SectionWrapper>
   );
@@ -51,7 +51,7 @@ export function KeyEquations({ children }: { children: React.ReactNode }) {
 
 export function WorkedExamples({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="worked-examples" title="Worked Examples" icon={<Lightbulb size={20} />}>
+    <SectionWrapper id="worked-examples" title="Contoh Soal" icon={<Lightbulb size={20} />}>
       {children}
     </SectionWrapper>
   );
@@ -59,7 +59,7 @@ export function WorkedExamples({ children }: { children: React.ReactNode }) {
 
 export function Misconceptions({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="misconceptions" title="Common Misconceptions" icon={<AlertTriangle size={20} />}>
+    <SectionWrapper id="misconceptions" title="Miskonsepsi Umum" icon={<AlertTriangle size={20} />}>
       {children}
     </SectionWrapper>
   );
@@ -67,7 +67,7 @@ export function Misconceptions({ children }: { children: React.ReactNode }) {
 
 export function InteractiveVisual({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="interactive-visual" title="Interactive Visual" icon={<Puzzle size={20} />}>
+    <SectionWrapper id="interactive-visual" title="Visual Interaktif" icon={<Puzzle size={20} />}>
       {children}
     </SectionWrapper>
   );
@@ -75,7 +75,7 @@ export function InteractiveVisual({ children }: { children: React.ReactNode }) {
 
 export function FormativeQuiz({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="formative-quiz" title="Formative Quiz" icon={<HelpCircle size={20} />}>
+    <SectionWrapper id="formative-quiz" title="Kuis Formatif" icon={<HelpCircle size={20} />}>
       {children}
     </SectionWrapper>
   );
@@ -83,27 +83,27 @@ export function FormativeQuiz({ children }: { children: React.ReactNode }) {
 
 export function Connections({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="connections" title="Connections" icon={<Link2 size={20} />}>
+    <SectionWrapper id="connections" title="Koneksi" icon={<Link2 size={20} />}>
       {children}
     </SectionWrapper>
   );
 }
 
 const SECTION_NAV = [
-  { id: 'concept-overview', label: 'Overview' },
-  { id: 'key-equations', label: 'Equations' },
-  { id: 'worked-examples', label: 'Examples' },
-  { id: 'misconceptions', label: 'Misconceptions' },
-  { id: 'interactive-visual', label: 'Interactive' },
-  { id: 'formative-quiz', label: 'Quiz' },
-  { id: 'connections', label: 'Connections' },
+  { id: 'concept-overview', label: 'Ringkasan' },
+  { id: 'key-equations', label: 'Persamaan' },
+  { id: 'worked-examples', label: 'Contoh' },
+  { id: 'misconceptions', label: 'Miskonsepsi' },
+  { id: 'interactive-visual', label: 'Interaktif' },
+  { id: 'formative-quiz', label: 'Kuis' },
+  { id: 'connections', label: 'Koneksi' },
 ];
 
 export function ModuleLayout({ moduleCode, moduleTitle, block, children }: ModuleLayoutProps) {
   const blockClass = block === 'A' ? styles.blockA : styles.blockB;
   
-  // Extract module id from moduleCode (e.g., "Module A1" -> "a1")
-  const moduleId = moduleCode.replace(/^Module\s+/i, '').toLowerCase();
+  // Extract module id from moduleCode (e.g., "Modul A1" -> "a1")
+  const moduleId = moduleCode.replace(/^Modul\s+/i, '').toLowerCase();
   const { completedModules } = useProgress();
   const isCompleted = completedModules.includes(moduleId);
 
@@ -145,12 +145,12 @@ export function ModuleLayout({ moduleCode, moduleTitle, block, children }: Modul
           {isCompleted ? (
             <div className={styles.completedBadge}>
               <CheckCircle size={20} />
-              <span>Module Completed</span>
+              <span>Modul Selesai</span>
             </div>
           ) : (
             <button className={`${styles.completeBtn} ${blockClass}`} onClick={handleMarkComplete}>
               <CheckCircle size={18} />
-              <span>Mark Module as Complete</span>
+              <span>Tandai Modul Selesai</span>
             </button>
           )}
         </div>

@@ -55,12 +55,12 @@ export function DBlockPeriodicTable() {
 
       <div className={styles.controls}>
         <div className={styles.toggleGroup}>
-          <button className={`${styles.toggleBtn} ${!isLowSpin ? styles.active : ''}`} onClick={() => setIsLowSpin(false)}>High-Spin</button>
-          <button className={`${styles.toggleBtn} ${isLowSpin ? styles.active : ''}`} onClick={() => setIsLowSpin(true)}>Low-Spin</button>
+          <button className={`${styles.toggleBtn} ${!isLowSpin ? styles.active : ''}`} onClick={() => setIsLowSpin(false)}>Spin Tinggi</button>
+          <button className={`${styles.toggleBtn} ${isLowSpin ? styles.active : ''}`} onClick={() => setIsLowSpin(true)}>Spin Rendah</button>
         </div>
         <div className={styles.legendRow}>
-          <span className={styles.legendItem}><span className={`${styles.legendDot} ${styles.labileDot}`}></span>Labile</span>
-          <span className={styles.legendItem}><span className={`${styles.legendDot} ${styles.inertDot}`}></span>Inert</span>
+          <span className={styles.legendItem}><span className={`${styles.legendDot} ${styles.labileDot}`}></span>Labil</span>
+          <span className={styles.legendItem}><span className={`${styles.legendDot} ${styles.inertDot}`}></span>Lembam</span>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export function DBlockPeriodicTable() {
           <div className={styles.popupInfo}>
             <div>CFSE: <strong><LaTeX>{config.cfse}</LaTeX></strong></div>
             <div className={`${styles.classification} ${config.classification === 'inert' ? styles.classInert : styles.classLabile}`}>
-              {config.classification === 'inert' ? '🔴 INERT' : '🟢 LABILE'}
+              {config.classification === 'inert' ? '🔴 LEMBAM' : '🟢 LABIL'}
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@ export function WorkedExample({ title, problem, steps }: WorkedExampleProps) {
       <div className={styles.header}>
         <h4 className={styles.title}>{title}</h4>
         <button className={styles.toggleAll} onClick={toggleAll}>
-          {showAll ? 'Hide All' : 'Show All'}
+          {showAll ? 'Sembunyikan Semua' : 'Tampilkan Semua'}
         </button>
       </div>
 
@@ -62,7 +62,7 @@ export function WorkedExample({ title, problem, steps }: WorkedExampleProps) {
                 className={`${styles.stepButton} ${isExpanded ? styles.expanded : ''}`}
                 onClick={() => toggleStep(index)}
               >
-                <span className={styles.stepNumber}>Step {index + 1}</span>
+                <span className={styles.stepNumber}>Langkah {index + 1}</span>
                 <span className={styles.stepTitle}>{step.title}</span>
                 {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
               </button>

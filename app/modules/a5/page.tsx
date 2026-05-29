@@ -15,26 +15,26 @@ export default function ModuleA5() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Back to Course</span></Link>
+          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
         </div>
       </header>
-      <ModuleLayout moduleCode="Module A5" moduleTitle="Substitution in Square Planar Complexes" block="A">
+      <ModuleLayout moduleCode="Modul A5" moduleTitle="Substitusi pada Kompleks Bujur Sangkar" block="A">
         <ConceptOverview>
-          <p>Ligand substitution in 4-coordinate square planar <LaTeX>{'d^8'}</LaTeX> complexes (typically <LaTeX>{'Pt(II), Pd(II), Au(III)'}</LaTeX>) occurs exclusively via the <strong>Associative (A)</strong> or <strong>Interchange-associative (I<sub>a</sub>)</strong> mechanisms.</p>
-          <p>The reaction kinetics follow a two-pathway rate law driven by competing routes:</p>
+          <p>Substitusi ligan dalam kompleks bujur sangkar <LaTeX>{'d^8'}</LaTeX> berkoordinasi 4 (biasanya <LaTeX>{'Pt(II), Pd(II), Au(III)'}</LaTeX>) terjadi secara eksklusif melalui mekanisme <strong>Asosiatif (A)</strong> atau <strong>Pertukaran-asosiatif (I<sub>a</sub>)</strong>.</p>
+          <p>Kinetika reaksi mengikuti hukum laju dua jalur yang didorong oleh rute yang bersaing:</p>
           <ol>
-            <li><strong>Solvent-assisted pathway (<LaTeX>{'k_1'}</LaTeX>):</strong> Solvent coordinates first, then leaving group is displaced.</li>
-            <li><strong>Direct attack pathway (<LaTeX>{'k_2'}</LaTeX>):</strong> The nucleophile Y attacks directly to form a 5-coordinate trigonal bipyramidal intermediate.</li>
+            <li><strong>Jalur berbantuan pelarut (<LaTeX>{'k_1'}</LaTeX>):</strong> Pelarut berkoordinasi terlebih dahulu, kemudian gugus pergi digantikan.</li>
+            <li><strong>Jalur serangan langsung (<LaTeX>{'k_2'}</LaTeX>):</strong> Nukleofil Y menyerang langsung membentuk zat antara bipiramida trigonal berkoordinasi 5.</li>
           </ol>
-          <p>Four major factors control the rate:</p>
+          <p>Empat faktor utama yang mengendalikan laju:</p>
           <ol>
-            <li><strong>Entering Ligand (Y):</strong> Higher nucleophilicity increases rate (HSAB soft-soft).</li>
-            <li><strong>Leaving Group (X):</strong> Weak M–X bonds facilitate departure.</li>
-            <li><strong>Stereochemistry:</strong> Retention of configuration via trigonal bipyramidal intermediate.</li>
-            <li><strong>The Trans Effect:</strong> A spectator ligand can facilitate substitution of the ligand <em>trans</em> to itself.
+            <li><strong>Ligan yang Masuk (Y):</strong> Nukleofilisitas yang lebih tinggi meningkatkan laju (HSAB lunak-lunak).</li>
+            <li><strong>Gugus Pergi (X):</strong> Ikatan M–X yang lemah memudahkan kepergian.</li>
+            <li><strong>Stereokimia:</strong> Retensi konfigurasi melalui zat antara bipiramida trigonal.</li>
+            <li><strong>Efek Trans:</strong> Ligan spektator dapat memfasilitasi substitusi ligan yang <em>trans</em> terhadap dirinya sendiri.
               <ul>
-                <li><strong>σ-bonding (trans-influence):</strong> Ground-state bond weakening.</li>
-                <li><strong>π-bonding (trans-effect):</strong> Transition-state stabilization by π-acceptors.</li>
+                <li><strong>Ikatan σ (pengaruh trans):</strong> Pelemahan ikatan pada keadaan dasar.</li>
+                <li><strong>Ikatan π (efek trans):</strong> Stabilisasi keadaan transisi oleh akseptor π.</li>
               </ul>
             </li>
           </ol>
@@ -42,68 +42,68 @@ export default function ModuleA5() {
 
         <KeyEquations>
           <EquationBlock
-            label="Two-Pathway Rate Law"
+            label="Hukum Laju Dua Jalur"
             latex="k_{\\text{obs}} = k_1 + k_2[Y]"
             variables={[
-              { symbol: 'k_1', definition: 'first-order rate constant for solvent attack' },
-              { symbol: 'k_2', definition: 'second-order rate constant for direct nucleophilic attack' },
+              { symbol: 'k_1', definition: 'konstanta laju orde pertama untuk serangan pelarut' },
+              { symbol: 'k_2', definition: 'konstanta laju orde kedua untuk serangan nukleofilik langsung' },
             ]}
           />
           <EquationBlock
-            label="Trans Effect Series"
+            label="Deret Efek Trans"
             latex="CO \\approx CN^- \\approx C_2H_4 > PR_3 \\approx H^- > CH_3^- \\approx I^- > Br^- > Cl^- > py > NH_3 > OH^- > H_2O"
           />
         </KeyEquations>
 
         <WorkedExamples>
-          <p style={{ color: 'var(--text-secondary)' }}>Use the interactive Trans Effect Visualizer below to build square planar complexes and observe how different trans-directing ligands weaken specific bonds.</p>
+          <p style={{ color: 'var(--text-secondary)' }}>Gunakan Visualisator Efek Trans interaktif di bawah ini untuk membangun kompleks bujur sangkar dan mengamati bagaimana berbagai ligan pengarah trans melemahkan ikatan tertentu.</p>
         </WorkedExamples>
 
         <Misconceptions>
           <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '1rem', marginBottom: '1rem' }}>
-            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Misconception</p>
-            <p>The trans effect and trans influence are identical.</p>
+            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Miskonsepsi</p>
+            <p>Efek trans dan pengaruh trans adalah identik.</p>
           </div>
           <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '8px', padding: '1rem' }}>
-            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Correction</p>
-            <p>The <strong>trans influence</strong> is a ground-state thermodynamic phenomenon (bond lengths, coupling constants). The <strong>trans effect</strong> is a kinetic phenomenon (rate of substitution via transition state stabilization).</p>
+            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Koreksi</p>
+            <p><strong>Pengaruh trans</strong> adalah fenomena termodinamika keadaan dasar (panjang ikatan, konstanta kopling). <strong>Efek trans</strong> adalah fenomena kinetik (laju substitusi melalui stabilisasi keadaan transisi).</p>
           </div>
         </Misconceptions>
 
         <InteractiveVisual>
-          <p style={{ marginBottom: '1rem' }}>Click on any ligand position to assign a different ligand. The bond trans to the strongest trans-directing ligand will glow red to indicate it has been weakened.</p>
+          <p style={{ marginBottom: '1rem' }}>Klik pada posisi ligan mana pun untuk menetapkan ligan yang berbeda. Ikatan trans ke ligan pengarah trans terkuat akan bersinar merah untuk menunjukkan bahwa ia telah melemah.</p>
           <TransEffectVisualizer />
         </InteractiveVisual>
 
         <FormativeQuiz>
           <Quiz questions={[
             {
-              question: <span>Which ligand will exert the strongest kinetic trans effect?</span>,
+              question: <span>Ligan mana yang akan memberikan efek trans kinetik terkuat?</span>,
               options: [
                 { text: <span><LaTeX>{'Cl^-'}</LaTeX></span>, isCorrect: false },
                 { text: <span><LaTeX>{'NH_3'}</LaTeX></span>, isCorrect: false },
                 { text: <span><LaTeX>{'CN^-'}</LaTeX></span>, isCorrect: true },
                 { text: <span><LaTeX>{'H_2O'}</LaTeX></span>, isCorrect: false },
               ],
-              explanation: <span>Cyanide is an excellent π-acceptor, stabilizing the 5-coordinate intermediate and accelerating trans substitution.</span>,
+              explanation: <span>Sianida adalah akseptor π yang sangat baik, yang menstabilkan zat antara berkoordinasi 5 dan mempercepat substitusi trans.</span>,
             },
             {
-              question: <span>What is the geometry of the intermediate formed during square planar substitution?</span>,
+              question: <span>Apa geometri zat antara yang terbentuk selama substitusi bujur sangkar?</span>,
               options: [
-                { text: 'Square pyramidal.', isCorrect: false },
-                { text: 'Pentagonal bipyramidal.', isCorrect: false },
-                { text: 'Trigonal bipyramidal.', isCorrect: true },
+                { text: 'Piramida bujur sangkar.', isCorrect: false },
+                { text: 'Bipiramida pentagonal.', isCorrect: false },
+                { text: 'Bipiramida trigonal.', isCorrect: true },
                 { text: 'Tetrahedral.', isCorrect: false },
               ],
-              explanation: <span>Square planar complexes undergo associative substitution to form a 5-coordinate trigonal bipyramidal intermediate.</span>,
+              explanation: <span>Kompleks bujur sangkar mengalami substitusi asosiatif membentuk zat antara bipiramida trigonal berkoordinasi 5.</span>,
             },
           ]} />
         </FormativeQuiz>
 
         <Connections>
           <ConnectionLinks
-            buildsOn={[{ label: 'A3', moduleId: 'a3', moduleTitle: 'Substitution Mechanisms' }]}
-            feedsInto={[{ label: 'B6', moduleId: 'b6', moduleTitle: 'Organometallic Catalysis' }]}
+            buildsOn={[{ label: 'A3', moduleId: 'a3', moduleTitle: 'Mekanisme Substitusi: D, A, dan I' }]}
+            feedsInto={[{ label: 'B6', moduleId: 'b6', moduleTitle: 'Katalisis Organologam' }]}
           />
         </Connections>
       </ModuleLayout>

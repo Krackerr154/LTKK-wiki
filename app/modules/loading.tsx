@@ -22,7 +22,7 @@ export default function Loading() {
         fontSize: '0.875rem',
         fontFamily: "'Inter', sans-serif",
       }}>
-        Loading module...
+        Memuat modul...
       </p>
       <style>{`
         @keyframes spin {

@@ -6,20 +6,20 @@ export const metadata: Metadata = {
     default: "KI 3231 - LTKK Wiki",
     template: "%s | KI 3231 - LTKK Wiki",
   },
-  description: "Interactive Chemistry Education Platform for Transition Metals & Complex Chemistry. Explore reaction mechanisms, organometallics, and more with interactive calculators and quizzes.",
+  description: "Platform Edukasi Kimia Interaktif untuk Logam Transisi & Kimia Kompleks. Pelajari mekanisme reaksi, organologam, dan lainnya dengan kalkulator dan kuis interaktif.",
   metadataBase: new URL("https://ltkk.g-labs.my.id"),
   openGraph: {
     title: "KI 3231 - LTKK Wiki",
-    description: "Interactive Chemistry Education Platform for Transition Metals & Complex Chemistry",
+    description: "Platform Edukasi Kimia Interaktif untuk Logam Transisi & Kimia Kompleks",
     url: "https://ltkk.g-labs.my.id",
     siteName: "LTKK Wiki",
     type: "website",
-    locale: "en_US",
+    locale: "id_ID",
   },
   twitter: {
     card: "summary_large_image",
     title: "KI 3231 - LTKK Wiki",
-    description: "Interactive Chemistry Education Platform for Transition Metals & Complex Chemistry",
+    description: "Platform Edukasi Kimia Interaktif untuk Logam Transisi & Kimia Kompleks",
   },
   robots: { index: true, follow: true },
   other: {
@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

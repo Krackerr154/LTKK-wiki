@@ -15,28 +15,28 @@ export default function ModuleA7() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Back to Course</span></Link>
+          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
         </div>
       </header>
-      <ModuleLayout moduleCode="Module A7" moduleTitle="Electron Transfer Reactions" block="A">
+      <ModuleLayout moduleCode="Modul A7" moduleTitle="Reaksi Transfer Elektron" block="A">
         <ConceptOverview>
-          <p>Electron transfer (redox) reactions in coordination chemistry occur via two distinct mechanistic pathways:</p>
+          <p>Reaksi transfer elektron (redoks) dalam kimia koordinasi terjadi melalui dua jalur mekanistik yang berbeda:</p>
           <ol>
-            <li><strong>Inner-Sphere Mechanism:</strong>
+            <li><strong>Mekanisme Bola Dalam (Inner-Sphere):</strong>
               <ul>
-                <li>Requires a bridged binuclear intermediate — one ligand bonds to both metals simultaneously.</li>
-                <li>One reactant must be <strong>labile</strong> (to form the bridge), the other <strong>inert</strong>.</li>
-                <li>Electron transfer occurs through the covalent bridge, which is often transferred to the newly inert center.</li>
+                <li>Memerlukan zat antara binuklear berjembatan — satu ligan berikatan dengan kedua logam secara bersamaan.</li>
+                <li>Satu reaktan harus <strong>labil</strong> (untuk membentuk jembatan), yang lainnya <strong>lembam</strong>.</li>
+                <li>Transfer elektron terjadi melalui jembatan kovalen, yang sering ditransfer ke pusat yang baru menjadi lembam.</li>
               </ul>
-              <p style={{ marginTop: '0.5rem' }}>Classic example:</p>
+              <p style={{ marginTop: '0.5rem' }}>Contoh klasik:</p>
               <LaTeX display>{'[Co^{III}(NH_3)_5Cl]^{2+} + [Cr^{II}(H_2O)_6]^{2+} \\rightarrow [Cr^{III}(H_2O)_5Cl]^{2+} + Co^{2+}_{(aq)}'}</LaTeX>
             </li>
-            <li><strong>Outer-Sphere Mechanism:</strong>
+            <li><strong>Mekanisme Bola Luar (Outer-Sphere):</strong>
               <ul>
-                <li>Both reactants are <strong>inert</strong> — no bridge can form.</li>
-                <li>The electron tunnels through space from donor to acceptor.</li>
-                <li>Metal-ligand bonds must reorganize (Frank-Condon principle) before transfer.</li>
-                <li><strong>Marcus-Hush Theory</strong> provides the quantitative framework.</li>
+                <li>Kedua reaktan bersifat <strong>lembam</strong> — tidak ada jembatan yang dapat terbentuk.</li>
+                <li>Elektron menerowong (tunnels) melalui ruang dari donor ke akseptor.</li>
+                <li>Ikatan logam-ligan harus mereorganisasi (prinsip Frank-Condon) sebelum transfer.</li>
+                <li><strong>Teori Marcus-Hush</strong> menyediakan kerangka kerja kuantitatif.</li>
               </ul>
             </li>
           </ol>
@@ -44,58 +44,58 @@ export default function ModuleA7() {
 
         <KeyEquations>
           <EquationBlock
-            label="Marcus Cross-Relation Equation"
+            label="Persamaan Relasi Silang Marcus"
             latex="k_{12} = (k_{11} \\cdot k_{22} \\cdot K_{12} \\cdot f_{12})^{1/2}"
             variables={[
-              { symbol: 'k_{12}', definition: 'calculated rate constant for the cross-reaction' },
-              { symbol: 'k_{11}, k_{22}', definition: 'self-exchange rate constants for the two redox couples' },
-              { symbol: 'K_{12}', definition: 'equilibrium constant for the overall cross-reaction' },
-              { symbol: 'f_{12}', definition: 'correction factor (≈ 1.0 for structurally similar systems)' },
+              { symbol: 'k_{12}', definition: 'konstanta laju terhitung untuk reaksi silang' },
+              { symbol: 'k_{11}, k_{22}', definition: 'konstanta laju pertukaran sendiri untuk kedua pasangan redoks' },
+              { symbol: 'K_{12}', definition: 'konstanta kesetimbangan untuk reaksi silang keseluruhan' },
+              { symbol: 'f_{12}', definition: 'faktor koreksi (≈ 1.0 untuk sistem yang mirip secara struktural)' },
             ]}
           />
         </KeyEquations>
 
         <WorkedExamples>
-          <p style={{ color: 'var(--text-secondary)' }}>Use the Marcus-Hush Calculator below to input self-exchange rates and equilibrium constants, compute the theoretical cross-rate, and compare with experimental values to confirm the mechanism.</p>
+          <p style={{ color: 'var(--text-secondary)' }}>Gunakan Kalkulator Marcus-Hush di bawah ini untuk memasukkan laju pertukaran sendiri dan konstanta kesetimbangan, menghitung laju silang teoretis, dan membandingkannya dengan nilai eksperimental untuk mengonfirmasi mekanismenya.</p>
         </WorkedExamples>
 
         <Misconceptions>
           <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '1rem', marginBottom: '1rem' }}>
-            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Misconception</p>
-            <p>Electron transfer always involves a ligand transfer.</p>
+            <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Miskonsepsi</p>
+            <p>Transfer elektron selalu melibatkan transfer ligan.</p>
           </div>
           <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '8px', padding: '1rem' }}>
-            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Correction</p>
-            <p>Ligand transfer only occurs in specific inner-sphere mechanisms. In outer-sphere mechanisms, <strong>no bonds are broken or formed</strong> — the electron tunnels through space.</p>
+            <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Koreksi</p>
+            <p>Transfer ligan hanya terjadi pada mekanisme bola dalam tertentu. Pada mekanisme bola luar, <strong>tidak ada ikatan yang putus atau terbentuk</strong> — elektron menerowong melalui ruang.</p>
           </div>
         </Misconceptions>
 
         <InteractiveVisual>
-          <p style={{ marginBottom: '1rem' }}>Input self-exchange rates and equilibrium constant to compute the theoretical cross-rate using the Marcus equation. Compare with experimental values to determine if the reaction follows an outer-sphere mechanism.</p>
+          <p style={{ marginBottom: '1rem' }}>Masukkan laju pertukaran sendiri dan konstanta kesetimbangan untuk menghitung laju silang teoretis menggunakan persamaan Marcus. Bandingkan dengan nilai eksperimental untuk menentukan apakah reaksi tersebut mengikuti mekanisme bola luar.</p>
           <MarcusCalculator />
         </InteractiveVisual>
 
         <FormativeQuiz>
           <Quiz questions={[
             {
-              question: <span>Why can <LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> only react via an outer-sphere electron transfer mechanism?</span>,
+              question: <span>Mengapa <LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> hanya dapat bereaksi melalui mekanisme transfer elektron bola luar?</span>,
               options: [
-                { text: 'Ammonia is too large.', isCorrect: false },
-                { text: 'Ammonia has no free lone pairs to form a bridge.', isCorrect: true },
-                { text: 'It is thermodynamically unstable.', isCorrect: false },
-                { text: 'It contains a transition metal.', isCorrect: false },
+                { text: 'Amonia terlalu besar.', isCorrect: false },
+                { text: 'Amonia tidak memiliki pasangan elektron bebas untuk membentuk jembatan.', isCorrect: true },
+                { text: 'Ia tidak stabil secara termodinamika.', isCorrect: false },
+                { text: 'Ia mengandung logam transisi.', isCorrect: false },
               ],
-              explanation: <span>To form a bridge, a ligand must have at least two lone pairs (e.g., halides, azide). Ammonia has only one lone pair, already bonded to cobalt.</span>,
+              explanation: <span>Untuk membentuk jembatan, sebuah ligan harus memiliki setidaknya dua pasangan elektron bebas (misalnya halida, azida). Amonia hanya memiliki satu pasangan elektron bebas, yang sudah berikatan dengan kobalt.</span>,
             },
             {
-              question: <span>In Marcus theory, what is the significance of <LaTeX>{'k_{11}'}</LaTeX> and <LaTeX>{'k_{22}'}</LaTeX>?</span>,
+              question: <span>Dalam teori Marcus, apa signifikansi dari <LaTeX>{'k_{11}'}</LaTeX> dan <LaTeX>{'k_{22}'}</LaTeX>?</span>,
               options: [
-                { text: 'They are the rates of ligand exchange.', isCorrect: false },
-                { text: 'They are the self-exchange rates, reflecting the energy required for bond reorganization.', isCorrect: true },
-                { text: 'They represent equilibrium constants.', isCorrect: false },
-                { text: 'They are pressure factors.', isCorrect: false },
+                { text: 'Mereka adalah laju pertukaran ligan.', isCorrect: false },
+                { text: 'Mereka adalah laju pertukaran sendiri, yang mencerminkan energi yang dibutuhkan untuk reorganisasi ikatan.', isCorrect: true },
+                { text: 'Mereka mewakili konstanta kesetimbangan.', isCorrect: false },
+                { text: 'Mereka adalah faktor tekanan.', isCorrect: false },
               ],
-              explanation: <span>Self-exchange rates reflect the internal activation barrier (bond length adjustments) for electron transfer with no thermodynamic driving force.</span>,
+              explanation: <span>Laju pertukaran sendiri mencerminkan penghalang aktivasi internal (penyesuaian panjang ikatan) untuk transfer elektron tanpa gaya dorong termodinamika.</span>,
             },
           ]} />
         </FormativeQuiz>
@@ -103,10 +103,10 @@ export default function ModuleA7() {
         <Connections>
           <ConnectionLinks
             buildsOn={[
-              { label: 'A2', moduleId: 'a2', moduleTitle: 'Labile and Inert Complexes' },
-              { label: 'A6', moduleId: 'a6', moduleTitle: 'Octahedral Substitution' },
+              { label: 'A2', moduleId: 'a2', moduleTitle: 'Kompleks Labil dan Lembam' },
+              { label: 'A6', moduleId: 'a6', moduleTitle: 'Substitusi pada Kompleks Oktahedral' },
             ]}
-            feedsInto={[{ label: 'B6', moduleId: 'b6', moduleTitle: 'Organometallic Catalysis (Redox in catalytic cycles)' }]}
+            feedsInto={[{ label: 'B6', moduleId: 'b6', moduleTitle: 'Katalisis Organologam (Redoks dalam siklus katalitik)' }]}
           />
         </Connections>
       </ModuleLayout>

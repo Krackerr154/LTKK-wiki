@@ -27,89 +27,88 @@ export default function ModuleA1() {
         <div className={pageStyles.headerContent}>
           <Link href="/" className={pageStyles.backLink}>
             <ArrowLeft size={16} />
-            <span>Back to Course</span>
+            <span>Kembali ke Kursus</span>
           </Link>
         </div>
       </header>
 
-      <ModuleLayout moduleCode="Module A1" moduleTitle="Kinetics Foundations" block="A">
+      <ModuleLayout moduleCode="Modul A1" moduleTitle="Dasar-dasar Kinetika" block="A">
         {/* ===================== CONCEPT OVERVIEW ===================== */}
         <ConceptOverview>
           <p>
-            Chemical kinetics is the study of the rates of chemical processes and the molecular pathways
-            by which reactants are converted into products. While thermodynamics dictates whether a reaction
-            is spontaneous (<LaTeX>{'\\Delta G^\\circ < 0'}</LaTeX>) and defines the equilibrium state,
-            it is <strong>kinetics</strong> that governs the real-time velocity of a chemical change.
+            Kinetika kimia adalah ilmu yang mempelajari laju proses kimia dan jalur molekuler
+            yang mengubah reaktan menjadi produk. Sementara termodinamika menentukan apakah reaksi tersebut
+            spontan (<LaTeX>{'\\Delta G^\\circ < 0'}</LaTeX>) dan menentukan keadaan kesetimbangan,
+            kinetika lah yang mengatur kecepatan waktu-nyata dari perubahan kimia.
           </p>
           <p>
-            A <strong>reaction mechanism</strong> is the step-by-step sequence of elementary reactions
-            by which an overall chemical change occurs. Within any multi-step mechanism, the individual
-            elementary steps occur at different rates. The slowest elementary step is designated as
-            the <strong>rate-determining step (RDS)</strong>, acting as the kinetic bottleneck for the
-            entire reaction.
+            <strong>Mekanisme reaksi</strong> adalah urutan tahap demi tahap dari reaksi elementer di mana
+            perubahan kimia keseluruhan terjadi. Dalam setiap mekanisme multi-tahap, setiap tahap elementer
+            terjadi dengan laju yang berbeda. Tahap elementer paling lambat disebut sebagai
+            <strong> tahap penentu laju (Rate-Determining Step / RDS)</strong>, yang bertindak sebagai
+            hambatan kinetik untuk keseluruhan reaksi.
           </p>
           <p>
-            It is crucial to distinguish between two key concepts:
+            Sangat penting untuk membedakan dua konsep utama berikut:
           </p>
           <ol>
             <li>
-              <strong>Transition State (Activated Complex):</strong> A state corresponding to a local
-              potential energy <em>maximum</em> along the reaction coordinate. It represents a highly
-              unstable, fleeting arrangement of atoms (lifetime ≈ <LaTeX>{'10^{-13}\\ \\text{s}'}</LaTeX>)
-              where bonds are simultaneously breaking and forming. It <strong>cannot be isolated</strong>.
+              <strong>Keadaan Transisi (Kompleks Teraktivasi):</strong> Suatu keadaan yang berkorespondensi
+              dengan energi potensial lokal maksimum di sepanjang koordinat reaksi. Ini mewakili susunan
+              atom yang sangat tidak stabil dan sekilas (waktu paruh ≈ <LaTeX>{'10^{-13}\\ \\text{s}'}</LaTeX>)
+              di mana ikatan diputus dan dibentuk secara bersamaan. Ini <strong>tidak dapat diisolasi</strong>.
             </li>
             <li>
-              <strong>Reaction Intermediate:</strong> A distinct chemical species that lies in a local
-              potential energy <em>minimum</em> (a &quot;valley&quot;) along the reaction coordinate.
-              Intermediates have fully formed bonds, possess a finite lifetime, and can sometimes be
-              spectroscopically detected, trapped, or even isolated.
+              <strong>Zat Antara (Intermediet) Reaksi:</strong> Spesies kimia berbeda yang terletak pada
+              energi potensial lokal minimum (sebuah &quot;lembah&quot;) di sepanjang koordinat reaksi.
+              Zat antara memiliki ikatan yang terbentuk sempurna, memiliki waktu paruh yang terhingga, dan terkadang
+              dapat dideteksi secara spektroskopi, ditangkap, atau bahkan diisolasi.
             </li>
           </ol>
           <p>
-            The mathematical relationship between the rate of reaction and the concentration of the
-            reactants is expressed by the <strong>rate law</strong>. The reaction order (zeroth, first,
-            or second order) provides deep mechanistic insights into the molecularity of the
-            rate-determining step.
+            Hubungan matematis antara laju reaksi dan konsentrasi reaktan dinyatakan dengan <strong>hukum laju</strong>.
+            Orde reaksi (orde nol, pertama, atau kedua) memberikan wawasan mekanistik yang mendalam
+            tentang molekularitas tahap penentu laju.
           </p>
         </ConceptOverview>
 
         {/* ===================== KEY EQUATIONS ===================== */}
         <KeyEquations>
           <EquationBlock
-            label="General Rate Law"
-            latex="\\text{Rate} = k [A]^m [B]^n"
+            label="Hukum Laju Umum"
+            latex="\\text{Laju} = k [A]^m [B]^n"
             variables={[
-              { symbol: 'k', definition: 'rate constant, temperature-dependent via the Arrhenius equation k = Ae^{-E_a/RT}' },
-              { symbol: '[A], [B]', definition: 'molar concentrations of the reactants' },
-              { symbol: 'm, n', definition: 'partial orders of the reaction, determined experimentally' },
+              { symbol: 'k', definition: 'konstanta laju, bergantung pada suhu melalui persamaan Arrhenius k = Ae^{-E_a/RT}' },
+              { symbol: '[A], [B]', definition: 'konsentrasi molar reaktan' },
+              { symbol: 'm, n', definition: 'orde parsial reaksi, ditentukan secara eksperimental' },
             ]}
           />
           <EquationBlock
-            label="First-order (Unimolecular)"
-            latex="\\text{Rate} = k[A]"
+            label="Orde pertama (Unimolekuler)"
+            latex="\\text{Laju} = k[A]"
           />
           <EquationBlock
-            label="Second-order (Bimolecular)"
-            latex="\\text{Rate} = k[A][B] \\quad \\text{or} \\quad \\text{Rate} = k[A]^2"
+            label="Orde kedua (Bimolekuler)"
+            latex="\\text{Laju} = k[A][B] \\quad \\text{atau} \\quad \\text{Laju} = k[A]^2"
           />
         </KeyEquations>
 
         {/* ===================== WORKED EXAMPLES ===================== */}
         <WorkedExamples>
           <WorkedExample
-            title="Determination of Rate Law and Mechanism"
+            title="Penentuan Hukum Laju dan Mekanisme"
             problem={
               <div>
-                <p>For the ligand substitution reaction:</p>
+                <p>Untuk reaksi substitusi ligan:</p>
                 <LaTeX display>{'[ML_5X]^{n+} + Y^- \\rightarrow [ML_5Y]^{n+} + X^-'}</LaTeX>
-                <p>The following initial rates were measured at 298 K:</p>
+                <p>Laju awal berikut diukur pada 298 K:</p>
                 <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '0.75rem', fontSize: '0.875rem' }}>
                   <thead>
                     <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>Run</th>
+                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>Percobaan</th>
                       <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>[ML₅X]ⁿ⁺ (M)</th>
                       <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>[Y⁻] (M)</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>Rate (M·s⁻¹)</th>
+                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>Laju (M·s⁻¹)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -137,43 +136,43 @@ export default function ModuleA1() {
             }
             steps={[
               {
-                title: 'Compare Run 1 and Run 2',
+                title: 'Bandingkan Percobaan 1 dan 2',
                 content: (
                   <p>
-                    The concentration of <LaTeX>{'[Y^-]'}</LaTeX> is held constant. When{' '}
-                    <LaTeX>{'[ML_5X]^{n+}'}</LaTeX> is doubled (1.0×10⁻³ → 2.0×10⁻³ M), the rate
-                    doubles (1.5×10⁻⁵ → 3.0×10⁻⁵ M·s⁻¹). The reaction is <strong>first-order</strong> with
-                    respect to the complex (<LaTeX>{'m = 1'}</LaTeX>).
+                    Konsentrasi <LaTeX>{'[Y^-]'}</LaTeX> dijaga konstan. Saat{' '}
+                    <LaTeX>{'[ML_5X]^{n+}'}</LaTeX> digandakan (1.0×10⁻³ → 2.0×10⁻³ M), laju
+                    menjadi dua kali lipat (1.5×10⁻⁵ → 3.0×10⁻⁵ M·s⁻¹). Reaksi ber<strong>orde pertama</strong> terhadap
+                    kompleks (<LaTeX>{'m = 1'}</LaTeX>).
                   </p>
                 ),
               },
               {
-                title: 'Compare Run 1 and Run 3',
+                title: 'Bandingkan Percobaan 1 dan 3',
                 content: (
                   <p>
-                    The concentration of <LaTeX>{'[ML_5X]^{n+}'}</LaTeX> is held constant. When{' '}
-                    <LaTeX>{'[Y^-]'}</LaTeX> is doubled (0.10 → 0.20 M), the rate stays
-                    at 1.5×10⁻⁵ M·s⁻¹. The reaction is <strong>zeroth-order</strong> with respect
-                    to the entering ligand (<LaTeX>{'n = 0'}</LaTeX>).
+                    Konsentrasi <LaTeX>{'[ML_5X]^{n+}'}</LaTeX> dijaga konstan. Saat{' '}
+                    <LaTeX>{'[Y^-]'}</LaTeX> digandakan (0.10 → 0.20 M), laju tetap
+                    pada 1.5×10⁻⁵ M·s⁻¹. Reaksi ber<strong>orde nol</strong> terhadap ligan
+                    yang masuk (<LaTeX>{'n = 0'}</LaTeX>).
                   </p>
                 ),
               },
               {
-                title: 'Write the rate law',
+                title: 'Tuliskan hukum laju',
                 content: (
                   <div>
-                    <LaTeX display>{'\\text{Rate} = k[ML_5X]^{n+}'}</LaTeX>
+                    <LaTeX display>{'\\text{Laju} = k[ML_5X]^{n+}'}</LaTeX>
                   </div>
                 ),
               },
               {
-                title: 'Mechanistic Conclusion',
+                title: 'Kesimpulan Mekanistik',
                 content: (
                   <p>
-                    Because the rate depends exclusively on the complex concentration and is independent
-                    of the entering ligand, the RDS must involve only the parent complex. This strongly
-                    points to a <strong>dissociative mechanism (D)</strong> where the slow step is the
-                    dissociation of the leaving group X⁻.
+                    Karena laju secara eksklusif bergantung pada konsentrasi kompleks dan tidak bergantung
+                    pada ligan yang masuk, maka RDS hanya melibatkan kompleks induk. Hal ini secara kuat
+                    menunjukkan <strong>mekanisme disosiatif (D)</strong> di mana tahap lambatnya adalah
+                    disosiasi gugus pergi X⁻.
                   </p>
                 ),
               },
@@ -185,19 +184,19 @@ export default function ModuleA1() {
         <Misconceptions>
           <div style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.2)', borderRadius: '8px', padding: '1rem', marginBottom: '1rem' }}>
             <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>
-              ❌ Misconception
+              ❌ Miskonsepsi
             </p>
-            <p>A large negative Gibbs free energy (<LaTeX>{'\\Delta G^\\circ \\ll 0'}</LaTeX>) guarantees a fast reaction.</p>
+            <p>Energi bebas Gibbs negatif yang besar (<LaTeX>{'\\Delta G^\\circ \\ll 0'}</LaTeX>) menjamin reaksi yang cepat.</p>
           </div>
           <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)', borderRadius: '8px', padding: '1rem' }}>
             <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>
-              ✅ Correction
+              ✅ Koreksi
             </p>
             <p>
-              Thermodynamics only dictates the energy difference between reactants and products
-              (<LaTeX>{'K_{eq}'}</LaTeX>). It says nothing about the activation energy barrier
-              (<LaTeX>{'E_a'}</LaTeX>). A reaction can be highly spontaneous thermodynamically but
-              kinetically <strong>inert</strong> due to a massive activation barrier.
+              Termodinamika hanya menentukan perbedaan energi antara reaktan dan produk
+              (<LaTeX>{'K_{eq}'}</LaTeX>). Ia tidak menjelaskan apa pun mengenai penghalang energi aktivasi
+              (<LaTeX>{'E_a'}</LaTeX>). Suatu reaksi bisa saja sangat spontan secara termodinamika namun
+              lembam secara kinetik akibat penghalang aktivasi yang sangat besar.
             </p>
           </div>
         </Misconceptions>
@@ -205,9 +204,9 @@ export default function ModuleA1() {
         {/* ===================== INTERACTIVE VISUAL ===================== */}
         <InteractiveVisual>
           <p style={{ marginBottom: '1rem' }}>
-            Explore how activation energy affects reaction rate. Drag the slider to adjust{' '}
-            <LaTeX>{'E_a'}</LaTeX>, and toggle between a single-step and two-step energy profile
-            to see the difference between a transition state and a reaction intermediate.
+            Jelajahi bagaimana energi aktivasi memengaruhi laju reaksi. Geser tuas untuk menyesuaikan{' '}
+            <LaTeX>{'E_a'}</LaTeX>, dan alihkan antara profil energi satu tahap dan dua tahap
+            untuk melihat perbedaan antara keadaan transisi dan zat antara reaksi.
           </p>
           <EnergyProfileDiagram />
         </InteractiveVisual>
@@ -218,40 +217,40 @@ export default function ModuleA1() {
             questions={[
               {
                 question: (
-                  <span>In an energy profile, what does a local minimum (a valley) between two transition states represent?</span>
+                  <span>Dalam profil energi, apa yang direpresentasikan oleh minimum lokal (lembah) di antara dua keadaan transisi?</span>
                 ),
                 options: [
-                  { text: 'The activation energy barrier.', isCorrect: false },
-                  { text: 'The transition state.', isCorrect: false },
-                  { text: 'The reaction intermediate.', isCorrect: true },
-                  { text: 'The catalyst.', isCorrect: false },
+                  { text: 'Penghalang energi aktivasi.', isCorrect: false },
+                  { text: 'Keadaan transisi.', isCorrect: false },
+                  { text: 'Zat antara (intermediet) reaksi.', isCorrect: true },
+                  { text: 'Katalis.', isCorrect: false },
                 ],
                 explanation: (
                   <span>
-                    An intermediate resides in a local energy minimum, meaning it has a finite
-                    lifetime and stable, fully formed bonds. This distinguishes it from a transition
-                    state, which sits at an energy maximum.
+                    Zat antara berada pada energi minimum lokal, artinya ia memiliki waktu paruh
+                    terhingga dan ikatan yang stabil dan terbentuk sempurna. Hal ini membedakannya
+                    dengan keadaan transisi, yang berada pada batas energi maksimum.
                   </span>
                 ),
               },
               {
                 question: (
                   <span>
-                    If the rate law for a substitution is <LaTeX>{'\\text{Rate} = k[\\text{Complex}][\\text{Ligand}]'}</LaTeX>,
-                    what is the molecularity of the rate-determining step?
+                    Jika hukum laju substitusi adalah <LaTeX>{'\\text{Laju} = k[\\text{Kompleks}][\\text{Ligan}]'}</LaTeX>,
+                    berapakah molekularitas dari tahap penentu laju?
                   </span>
                 ),
                 options: [
-                  { text: 'Unimolecular.', isCorrect: false },
-                  { text: 'Bimolecular.', isCorrect: true },
-                  { text: 'Termolecular.', isCorrect: false },
-                  { text: 'Zeroth-order.', isCorrect: false },
+                  { text: 'Unimolekuler.', isCorrect: false },
+                  { text: 'Bimolekuler.', isCorrect: true },
+                  { text: 'Termolekuler.', isCorrect: false },
+                  { text: 'Orde nol.', isCorrect: false },
                 ],
                 explanation: (
                   <span>
-                    Since both the complex and the entering ligand appear in the rate law with a
-                    partial order of 1, the rate-determining step is bimolecular — it requires
-                    simultaneous participation of both species.
+                    Karena kompleks dan ligan yang masuk muncul dalam hukum laju dengan orde parsial
+                    1, tahap penentu lajunya adalah bimolekuler — ini memerlukan partisipasi simultan
+                    dari kedua spesies.
                   </span>
                 ),
               },
@@ -263,11 +262,11 @@ export default function ModuleA1() {
         <Connections>
           <ConnectionLinks
             buildsOn={[
-              { label: 'Prerequisites', moduleId: 'a1', moduleTitle: 'Standard university kinetics (reaction coordinate diagrams, rate laws)' },
+              { label: 'Prasyarat', moduleId: 'a1', moduleTitle: 'Kinetika universitas standar (diagram koordinat reaksi, hukum laju)' },
             ]}
             feedsInto={[
-              { label: 'A3', moduleId: 'a3', moduleTitle: 'Substitution Mechanisms: D, A, and I' },
-              { label: 'A4', moduleId: 'a4', moduleTitle: 'Activation Parameters' },
+              { label: 'A3', moduleId: 'a3', moduleTitle: 'Mekanisme Substitusi: D, A, dan I' },
+              { label: 'A4', moduleId: 'a4', moduleTitle: 'Parameter Aktivasi' },
             ]}
           />
         </Connections>

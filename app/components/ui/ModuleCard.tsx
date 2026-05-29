@@ -34,7 +34,7 @@ export function ModuleCard({ id, title, code, isLocked, block }: ModuleCardProps
       <h3 className={styles.title}>{title}</h3>
       <div className={styles.footer}>
         <div className={styles.progressRing}>
-          {isCompleted ? 'Completed' : isLocked ? 'Locked' : 'Available'}
+          {isCompleted ? 'Selesai' : isLocked ? 'Terkunci' : 'Tersedia'}
         </div>
       </div>
     </Link>

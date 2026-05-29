@@ -80,7 +80,7 @@ export function TransEffectVisualizer() {
 
           {weakestBond && (
             <text x={140} y={270} textAnchor="middle" fill="#ef4444" fontSize={10} fontWeight={600}>
-              ⚡ Weakened bond (trans to strongest director)
+              ⚡ Ikatan melemah (trans terhadap pengarah terkuat)
             </text>
           )}
         </svg>
@@ -88,7 +88,7 @@ export function TransEffectVisualizer() {
 
       {selectedPos && (
         <div className={styles.ligandPicker}>
-          <p className={styles.pickerLabel}>Select ligand for {selectedPos} position:</p>
+          <p className={styles.pickerLabel}>Pilih ligan untuk posisi {selectedPos}:</p>
           <div className={styles.ligandGrid}>
             {TRANS_SERIES.map(l => (
               <button key={l.ligand} className={styles.ligandBtn} onClick={() => assignLigand(l.ligand)}>
@@ -101,7 +101,7 @@ export function TransEffectVisualizer() {
       )}
 
       <div className={styles.transSeriesBar}>
-        <p className={styles.barLabel}>Trans Effect Strength →</p>
+        <p className={styles.barLabel}>Kekuatan Efek Trans →</p>
         <div className={styles.barTrack}>
           {TRANS_SERIES.slice().reverse().map(l => (
             <div key={l.ligand} className={styles.barItem} style={{ flex: l.strength }}>

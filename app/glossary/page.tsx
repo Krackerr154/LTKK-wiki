@@ -19,22 +19,22 @@ export default function GlossaryPage() {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Link href="/" className={styles.backLink}>
-            <ArrowLeft size={16} /><span>Back to Course</span>
+            <ArrowLeft size={16} /><span>Kembali ke Kursus</span>
           </Link>
         </div>
       </header>
       <div className={styles.container}>
         <div className={styles.titleRow}>
           <BookOpen size={28} className={styles.icon} />
-          <h1 className={styles.title}>Glossary</h1>
+          <h1 className={styles.title}>Glosarium</h1>
         </div>
-        <p className={styles.subtitle}>Key terms from KI 3231 — Transition Metals & Complex Chemistry</p>
+        <p className={styles.subtitle}>Istilah utama dari KI 3231 — Logam Transisi & Kimia Kompleks</p>
 
         <div className={styles.searchBox}>
           <Search size={16} className={styles.searchIcon} />
           <input
             type="text"
-            placeholder="Search terms..."
+            placeholder="Cari istilah..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className={styles.searchInput}
@@ -49,7 +49,7 @@ export default function GlossaryPage() {
             </div>
           ))}
           {filtered.length === 0 && (
-            <p className={styles.noResults}>No terms found matching &quot;{search}&quot;</p>
+            <p className={styles.noResults}>Tidak ada istilah yang cocok dengan &quot;{search}&quot;</p>
           )}
         </div>
       </div>

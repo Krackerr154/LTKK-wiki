@@ -94,10 +94,10 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
           {/* Axis labels */}
           <text x={pad.left - 10} y={H / 2} textAnchor="middle" fill="var(--text-muted)" fontSize={11}
             transform={`rotate(-90, ${pad.left - 35}, ${H / 2})`}>
-            Potential Energy
+            Energi Potensial
           </text>
           <text x={W / 2} y={H - 10} textAnchor="middle" fill="var(--text-muted)" fontSize={11}>
-            Reaction Coordinate →
+            Koordinat Reaksi →
           </text>
 
           {/* Energy profile curve */}
@@ -134,12 +134,12 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
           {/* Reactant / Product labels */}
           <circle cx={xScale(0.05)} cy={yScale(reactantE)} r={6} fill="#d4a017" opacity={0.9} />
           <text x={xScale(0.05)} y={yScale(reactantE) - 12} textAnchor="middle" fill="#d4a017" fontSize={10} fontWeight={600}>
-            Reactants
+            Reaktan
           </text>
 
           <circle cx={xScale(0.95)} cy={yScale(productE)} r={6} fill="#10b981" opacity={0.9} />
           <text x={xScale(0.95)} y={yScale(productE) - 12} textAnchor="middle" fill="#10b981" fontSize={10} fontWeight={600}>
-            Products
+            Produk
           </text>
 
           {/* Transition state marker */}
@@ -151,11 +151,11 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
             >
               <circle cx={xScale(0.5)} cy={yScale(peakE)} r={8} fill="none" stroke="#ef4444" strokeWidth={2} />
               <text x={xScale(0.5)} y={yScale(peakE) - 14} textAnchor="middle" fill="#ef4444" fontSize={10} fontWeight={600}>
-                Transition State ‡
+                Keadaan Transisi ‡
               </text>
               {hoveredPoint === 'ts' && (
                 <text x={xScale(0.5)} y={yScale(peakE) + 22} textAnchor="middle" fill="var(--text-muted)" fontSize={9}>
-                  M···X···Y (bonds stretching)
+                  M···X···Y (ikatan meregang)
                 </text>
               )}
             </g>
@@ -182,12 +182,12 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
                   fill="none" stroke="#3b82f6" strokeWidth={2} />
                 <text x={xScale(0.5)} y={yScale(intermediateE) - 14}
                   textAnchor="middle" fill="#3b82f6" fontSize={9} fontWeight={600}>
-                  Intermediate
+                  Zat Antara
                 </text>
                 {hoveredPoint === 'int' && (
                   <text x={xScale(0.5)} y={yScale(intermediateE) + 22}
                     textAnchor="middle" fill="var(--text-muted)" fontSize={9}>
-                    5-coordinate [ML₅] species
+                    Spesies [ML₅] berkoordinasi 5
                   </text>
                 )}
               </g>
@@ -208,7 +208,7 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
       <div className={styles.controls}>
         <div className={styles.controlGroup}>
           <label className={styles.sliderLabel}>
-            Activation Energy (E<sub>a</sub>): <strong>{ea.toFixed(0)} kJ/mol</strong>
+            Energi Aktivasi (E<sub>a</sub>): <strong>{ea.toFixed(0)} kJ/mol</strong>
           </label>
           <input
             type="range"
@@ -222,26 +222,26 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
         </div>
 
         <div className={styles.controlGroup}>
-          <label className={styles.toggleLabel}>Reaction Profile:</label>
+          <label className={styles.toggleLabel}>Profil Reaksi:</label>
           <div className={styles.toggleGroup}>
             <button
               className={`${styles.toggleBtn} ${!isTwoStep ? styles.active : ''}`}
               onClick={() => setIsTwoStep(false)}
             >
-              Single Step
+              Satu Tahap
             </button>
             <button
               className={`${styles.toggleBtn} ${isTwoStep ? styles.active : ''}`}
               onClick={() => setIsTwoStep(true)}
             >
-              Two Step (Intermediate)
+              Dua Tahap (Zat Antara)
             </button>
           </div>
         </div>
 
         {/* Rate Speedometer */}
         <div className={styles.speedometer}>
-          <div className={styles.speedLabel}>Relative Reaction Rate</div>
+          <div className={styles.speedLabel}>Laju Reaksi Relatif</div>
           <div className={styles.speedGauge}>
             <svg viewBox="0 0 120 70" className={styles.gaugeSvg}>
               <path d="M 10 65 A 50 50 0 0 1 110 65" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={8} strokeLinecap="round" />
@@ -263,7 +263,7 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
               </defs>
             </svg>
             <div className={styles.speedValue}>
-              {ea <= 20 ? 'Very Fast' : ea <= 40 ? 'Fast' : ea <= 60 ? 'Moderate' : 'Slow'}
+              {ea <= 20 ? 'Sangat Cepat' : ea <= 40 ? 'Cepat' : ea <= 60 ? 'Sedang' : 'Lambat'}
             </div>
           </div>
         </div>
@@ -273,19 +273,19 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
       <div className={styles.legend}>
         <div className={styles.legendItem}>
           <span className={styles.legendDot} style={{ background: '#d4a017' }}></span>
-          <span>Metal center (Au)</span>
+          <span>Pusat logam (Au)</span>
         </div>
         <div className={styles.legendItem}>
           <span className={styles.legendDot} style={{ background: '#ef4444' }}></span>
-          <span>Leaving group (X)</span>
+          <span>Gugus pergi (X)</span>
         </div>
         <div className={styles.legendItem}>
           <span className={styles.legendDot} style={{ background: '#10b981' }}></span>
-          <span>Entering group (Y)</span>
+          <span>Gugus masuk (Y)</span>
         </div>
         <div className={styles.legendItem}>
           <span className={styles.legendDot} style={{ background: '#3b82f6' }}></span>
-          <span>Intermediate species</span>
+          <span>Spesies zat antara</span>
         </div>
       </div>
     </div>
