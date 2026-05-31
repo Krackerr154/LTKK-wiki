@@ -7,10 +7,10 @@ import styles from './page.module.css';
 export default function Home() {
   const blockAModules = [
     { id: 'a1', code: 'A1', title: 'Dasar-dasar Kinetika', isLocked: false },
-    { id: 'a2', code: 'A2', title: 'Kompleks Labil dan Lembam', isLocked: false },
+    { id: 'a2', code: 'A2', title: 'Kompleks Labil dan Inert', isLocked: false },
     { id: 'a3', code: 'A3', title: 'Mekanisme Substitusi: D, A, dan I', isLocked: false },
     { id: 'a4', code: 'A4', title: 'Parameter Aktivasi', isLocked: false },
-    { id: 'a5', code: 'A5', title: 'Substitusi pada Kompleks Bujur Sangkar', isLocked: false },
+    { id: 'a5', code: 'A5', title: 'Substitusi pada Kompleks Square Planar', isLocked: false },
     { id: 'a6', code: 'A6', title: 'Substitusi pada Kompleks Oktahedral', isLocked: false },
     { id: 'a7', code: 'A7', title: 'Reaksi Transfer Elektron', isLocked: false },
   ];

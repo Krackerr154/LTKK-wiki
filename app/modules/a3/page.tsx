@@ -37,7 +37,7 @@ export default function ModuleA3() {
         <KeyEquations>
           <EquationBlock
             label="Disosiatif (D) — Kinetika Saturasi"
-            latex="\\text{Laju} = \\frac{k_1 k_2 [ML_nX][Y]}{k_{-1}[X] + k_2[Y]}"
+            latex={'\\text{Laju} = \\frac{k_1 k_2 [ML_nX][Y]}{k_{-1}[X] + k_2[Y]}'}
             variables={[
               { symbol: 'k_1', definition: 'konstanta laju disosiasi X' },
               { symbol: 'k_2', definition: 'konstanta laju asosiasi Y' },
@@ -48,7 +48,7 @@ export default function ModuleA3() {
           </p>
           <EquationBlock
             label="Asosiatif (A) — Orde Kedua"
-            latex="\\text{Laju} = k_1[ML_nX][Y]"
+            latex={'\\text{Laju} = k_1[ML_nX][Y]'}
           />
         </KeyEquations>
 
@@ -109,7 +109,7 @@ export default function ModuleA3() {
           <ConnectionLinks
             buildsOn={[{ label: 'A1', moduleId: 'a1', moduleTitle: 'Dasar-dasar Kinetika' }]}
             feedsInto={[
-              { label: 'A5', moduleId: 'a5', moduleTitle: 'Substitusi pada Kompleks Bujur Sangkar' },
+              { label: 'A5', moduleId: 'a5', moduleTitle: 'Substitusi pada Kompleks Square Planar' },
               { label: 'A6', moduleId: 'a6', moduleTitle: 'Substitusi pada Kompleks Oktahedral' },
             ]}
           />

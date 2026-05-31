@@ -30,7 +30,7 @@ export default function ModuleB1() {
         <ConceptOverview>
           <p>Kimia organologam mempelajari senyawa yang mengandung setidaknya satu <strong>ikatan kovalen Logam–Karbon langsung</strong>. Ini menjembatani kimia koordinasi anorganik klasik dan kimia organik.</p>
           <p>Berbeda dengan kompleks klasik (keadaan oksidasi tinggi, donor N/O/halogen), kompleks organologam sering menstabilkan <strong>keadaan oksidasi rendah</strong> (0, -1, atau nilai positif rendah) melalui ligan donor-σ dan akseptor-π yang kuat (CO, fosfin, siklopentadienil).</p>
-          <p>Karena logam dengan keadaan oksidasi rendah sangat kaya elektron, banyak senyawa organologam bersifat <strong>piroforik</strong> (menyala jika terkena udara/kelembaban) dan memerlukan sintesis di bawah atmosfer lembam (jalur Schlenk, glovebox).</p>
+          <p>Karena logam dengan keadaan oksidasi rendah sangat kaya elektron, banyak senyawa organologam bersifat <strong>piroforik</strong> (menyala jika terkena udara/kelembaban) dan memerlukan sintesis di bawah atmosfer inert (jalur Schlenk, glovebox).</p>
         </ConceptOverview>
 
         <KeyEquations>
@@ -93,7 +93,7 @@ export default function ModuleB1() {
               explanation: <span>Cl⁻ bersifat anionik, CO dan PPh₃ netral. Untuk kompleks netral: Ir + (-1) = 0, sehingga Ir = +1.</span>,
             },
             {
-              question: <span>Mengapa banyak senyawa organologam disintesis di bawah atmosfer lembam?</span>,
+              question: <span>Mengapa banyak senyawa organologam disintesis di bawah atmosfer inert?</span>,
               options: [
                 { text: 'Nitrogen bertindak sebagai katalis.', isCorrect: false },
                 { text: 'Logam dengan keadaan oksidasi rendah sangat sensitif terhadap udara dan piroforik.', isCorrect: true },

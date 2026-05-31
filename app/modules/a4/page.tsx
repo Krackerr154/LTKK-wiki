@@ -41,7 +41,7 @@ export default function ModuleA4() {
         <KeyEquations>
           <EquationBlock
             label="Persamaan Eyring"
-            latex="\\ln\\left(\\frac{k}{T}\\right) = -\\frac{\\Delta H^\\ddagger}{R} \\cdot \\frac{1}{T} + \\left[ \\ln\\left(\\frac{k_B}{h}\\right) + \\frac{\\Delta S^\\ddagger}{R} \\right]"
+            latex={'\\ln\\left(\\frac{k}{T}\\right) = -\\frac{\\Delta H^\\ddagger}{R} \\cdot \\frac{1}{T} + \\left[ \\ln\\left(\\frac{k_B}{h}\\right) + \\frac{\\Delta S^\\ddagger}{R} \\right]'}
             variables={[
               { symbol: 'k_B', definition: 'konstanta Boltzmann (1.381 × 10⁻²³ J/K)' },
               { symbol: 'h', definition: "konstanta Planck (6.626 × 10⁻³⁴ J·s)" },
@@ -50,7 +50,7 @@ export default function ModuleA4() {
           />
           <EquationBlock
             label="Volume Aktivasi"
-            latex="\\ln(k) = -\\frac{\\Delta V^\\ddagger}{RT} \\cdot P + \\ln(k_0)"
+            latex={'\\ln(k) = -\\frac{\\Delta V^\\ddagger}{RT} \\cdot P + \\ln(k_0)'}
           />
         </KeyEquations>
 
@@ -105,7 +105,7 @@ export default function ModuleA4() {
           <ConnectionLinks
             buildsOn={[{ label: 'A3', moduleId: 'a3', moduleTitle: 'Mekanisme Substitusi: D, A, dan I' }]}
             feedsInto={[
-              { label: 'A5', moduleId: 'a5', moduleTitle: 'Substitusi pada Kompleks Bujur Sangkar' },
+              { label: 'A5', moduleId: 'a5', moduleTitle: 'Substitusi pada Kompleks Square Planar' },
               { label: 'A6', moduleId: 'a6', moduleTitle: 'Substitusi pada Kompleks Oktahedral' },
             ]}
           />

@@ -1,0 +1,104 @@
+.container { margin: 1.5rem 0; }
+
+.toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 0.35rem;
+}
+.toggleBtn {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8125rem;
+  font-family: 'Inter';
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.toggleBtn:hover { color: var(--text-primary); }
+.toggleActive {
+  background: var(--gradient-primary);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.stage {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+.svgWrap {
+  background: rgba(0,0,0,0.25);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.svg { width: 100%; height: auto; display: block; }
+
+.stepBadge {
+  display: inline-block;
+  font-size: 0.8125rem;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 0.25rem 0.85rem;
+  margin-bottom: 0.65rem;
+}
+.stepDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 46ch;
+  margin: 0 auto;
+  min-height: 4.5rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.legendItem { display: inline-flex; align-items: center; gap: 0.4rem; }
+.swatch { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+.controls { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 1rem; }
+.controlBtn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8125rem;
+  font-family: 'Inter';
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.controlBtn:hover:not(:disabled) { background: rgba(255,255,255,0.05); color: var(--text-primary); }
+.controlBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.playBtn { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.3); color: #60a5fa; }
+.playBtn:hover:not(:disabled) { background: rgba(59,130,246,0.25); }
+
+.stepIndicator { display: flex; justify-content: center; gap: 0.5rem; }
+.dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.dot:hover { background: rgba(255,255,255,0.3); }
+.activeDot { background: var(--accent-primary); box-shadow: 0 0 8px rgba(59,130,246,0.5); }

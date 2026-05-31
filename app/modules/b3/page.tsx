@@ -26,7 +26,7 @@ export default function ModuleB3() {
             <li><strong>Metode Atom Netral (Kovalen):</strong> Logam diperlakukan sebagai netral (keadaan oksidasi 0). Ligan sebagai radikal netral.</li>
             <li><strong>Metode Pasangan-Donor (Ionik):</strong> Logam diberi keadaan oksidasi formalnya. Ligan sebagai ion kulit tertutup.</li>
           </ol>
-          <p><strong>Pengecualian penting:</strong> Kompleks 16-elektron sangat stabil untuk logam <LaTeX>{'d^8'}</LaTeX> dalam geometri bujur sangkar (<LaTeX>{'Pt(II), Pd(II), Rh(I), Ir(I)'}</LaTeX>).</p>
+          <p><strong>Pengecualian penting:</strong> Kompleks 16-elektron sangat stabil untuk logam <LaTeX>{'d^8'}</LaTeX> dalam geometri square planar (<LaTeX>{'Pt(II), Pd(II), Rh(I), Ir(I)'}</LaTeX>).</p>
         </ConceptOverview>
 
         <KeyEquations>
@@ -80,7 +80,7 @@ export default function ModuleB3() {
           </div>
           <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '8px', padding: '1rem' }}>
             <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Koreksi</p>
-            <p>Aturan 18e adalah sebuah pedoman. Banyak kompleks stabil ada dengan 16e (katalis bujur sangkar) atau bahkan 19-20e (metalosena dengan okupansi anti-ikatan).</p>
+            <p>Aturan 18e adalah sebuah pedoman. Banyak kompleks stabil ada dengan 16e (katalis square planar) atau bahkan 19-20e (metalosena dengan okupansi anti-ikatan).</p>
           </div>
         </Misconceptions>
 
@@ -99,7 +99,7 @@ export default function ModuleB3() {
                 { text: '14', isCorrect: false },
                 { text: '12', isCorrect: false },
               ],
-              explanation: <span>Ionik: Ir(I) d⁸ = 8e⁻, Cl⁻ = 2e⁻, CO = 2e⁻, 2×PPh₃ = 4e⁻. Total = 8+2+2+4 = 16e⁻ (stabil untuk bujur sangkar d⁸).</span>,
+              explanation: <span>Ionik: Ir(I) d⁸ = 8e⁻, Cl⁻ = 2e⁻, CO = 2e⁻, 2×PPh₃ = 4e⁻. Total = 8+2+2+4 = 16e⁻ (stabil untuk square planar d⁸).</span>,
             },
             {
               question: <span>Berapa banyak elektron yang dikontribusikan oleh karbonil penjembatan μ₂ terhadap jumlah elektron keseluruhan?</span>,

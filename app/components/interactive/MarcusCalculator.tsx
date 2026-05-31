@@ -72,8 +72,8 @@ export function MarcusCalculator() {
             </div>
             <div className={`${styles.mechBadge} ${isOuterSphere ? styles.outer : styles.inner}`}>
               {isOuterSphere
-                ? '✅ Konsisten dengan mekanisme Bola Luar'
-                : '⚠️ Tidak konsisten — kemungkinan mekanisme Bola Dalam'}
+                ? '✅ Konsisten dengan mekanisme Outer Sphere'
+                : '⚠️ Tidak konsisten — kemungkinan mekanisme Inner Sphere'}
             </div>
           </div>
         )}

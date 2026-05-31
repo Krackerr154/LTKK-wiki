@@ -60,7 +60,7 @@ export function DBlockPeriodicTable() {
         </div>
         <div className={styles.legendRow}>
           <span className={styles.legendItem}><span className={`${styles.legendDot} ${styles.labileDot}`}></span>Labil</span>
-          <span className={styles.legendItem}><span className={`${styles.legendDot} ${styles.inertDot}`}></span>Lembam</span>
+          <span className={styles.legendItem}><span className={`${styles.legendDot} ${styles.inertDot}`}></span>Inert</span>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export function DBlockPeriodicTable() {
           <div className={styles.popupInfo}>
             <div>CFSE: <strong><LaTeX>{config.cfse}</LaTeX></strong></div>
             <div className={`${styles.classification} ${config.classification === 'inert' ? styles.classInert : styles.classLabile}`}>
-              {config.classification === 'inert' ? '🔴 LEMBAM' : '🟢 LABIL'}
+              {config.classification === 'inert' ? '🔴 INERT' : '🟢 LABIL'}
             </div>
           </div>
         </div>

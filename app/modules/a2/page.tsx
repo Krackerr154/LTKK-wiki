@@ -19,16 +19,16 @@ export default function ModuleA2() {
           <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
         </div>
       </header>
-      <ModuleLayout moduleCode="Modul A2" moduleTitle="Kompleks Labil dan Lembam" block="A">
+      <ModuleLayout moduleCode="Modul A2" moduleTitle="Kompleks Labil dan Inert" block="A">
         <ConceptOverview>
-          <p>Istilah <strong>labil</strong> dan <strong>lembam</strong> murni merupakan deskripsi kinetik yang diciptakan oleh Henry Taube:</p>
+          <p>Istilah <strong>labil</strong> dan <strong>inert</strong> murni merupakan deskripsi kinetik yang diciptakan oleh Henry Taube:</p>
           <ul>
             <li><strong>Kompleks labil:</strong> Mengalami pertukaran ligan yang cepat, biasanya dengan <LaTeX>{'t_{1/2} < 1\\ \\text{menit}'}</LaTeX> pada 25°C.</li>
-            <li><strong>Kompleks lembam:</strong> Mengalami pertukaran ligan yang lambat, dengan <LaTeX>{'t_{1/2} > 1\\ \\text{menit}'}</LaTeX>, seringkali memakan waktu berjam-jam atau berhari-hari.</li>
+            <li><strong>Kompleks inert:</strong> Mengalami pertukaran ligan yang lambat, dengan <LaTeX>{'t_{1/2} > 1\\ \\text{menit}'}</LaTeX>, seringkali memakan waktu berjam-jam atau berhari-hari.</li>
           </ul>
-          <p>Kelabilan kinetik utamanya ditentukan oleh <strong>Energi Stabilisasi Medan Kristal (CFSE)</strong> dan konfigurasi elektron <LaTeX>{'d'}</LaTeX> yang spesifik. Ketika kompleks oktahedral berkoordinasi 6 bereaksi, ia harus berubah bentuk menjadi keadaan transisi berkoordinasi 5 atau berkoordinasi 7. Jika deformasi ini menyebabkan hilangnya CFSE dalam jumlah besar, maka kompleks tersebut bersifat lembam.</p>
+          <p>Kelabilan kinetik utamanya ditentukan oleh <strong>Energi Stabilisasi Medan Kristal (CFSE)</strong> dan konfigurasi elektron <LaTeX>{'d'}</LaTeX> yang spesifik. Ketika kompleks oktahedral berkoordinasi 6 bereaksi, ia harus berubah bentuk menjadi keadaan transisi berkoordinasi 5 atau berkoordinasi 7. Jika deformasi ini menyebabkan hilangnya CFSE dalam jumlah besar, maka kompleks tersebut bersifat inert.</p>
           <ul>
-            <li><strong>Lembam:</strong> Oktahedral <LaTeX>{'d^3'}</LaTeX> (misalnya, <LaTeX>{'Cr^{3+}'}</LaTeX>) dan spin rendah <LaTeX>{'d^6'}</LaTeX> (misalnya, <LaTeX>{'Co^{3+}'}</LaTeX>). Keduanya memiliki keadaan dasar yang sangat stabil.</li>
+            <li><strong>Inert:</strong> Oktahedral <LaTeX>{'d^3'}</LaTeX> (misalnya, <LaTeX>{'Cr^{3+}'}</LaTeX>) dan spin rendah <LaTeX>{'d^6'}</LaTeX> (misalnya, <LaTeX>{'Co^{3+}'}</LaTeX>). Keduanya memiliki keadaan dasar yang sangat stabil.</li>
             <li><strong>Labil:</strong> <LaTeX>{'d^1, d^2'}</LaTeX>, spin tinggi <LaTeX>{'d^4, d^5, d^6'}</LaTeX>, dan <LaTeX>{'d^7, d^9, d^{10}'}</LaTeX>. Penghalang CFSE yang rendah atau nol.</li>
           </ul>
         </ConceptOverview>
@@ -36,7 +36,7 @@ export default function ModuleA2() {
         <KeyEquations>
           <EquationBlock
             label="Energi Stabilisasi Medan Kristal"
-            latex="\\text{CFSE} = (-0.4 \\cdot n_{t_{2g}} + 0.6 \\cdot n_{e_g})\\Delta_o + P \\cdot n_{\\text{pair}}"
+            latex={'\\text{CFSE} = (-0.4 \\cdot n_{t_{2g}} + 0.6 \\cdot n_{e_g})\\Delta_o + P \\cdot n_{\\text{pair}}'}
             variables={[
               { symbol: 'n_{t_{2g}}', definition: 'jumlah elektron pada orbital t₂g yang berenergi lebih rendah' },
               { symbol: 'n_{e_g}', definition: 'jumlah elektron pada orbital eg yang berenergi lebih tinggi' },
@@ -51,9 +51,9 @@ export default function ModuleA2() {
             title="Jebakan Kestabilan Termodinamika vs. Kinetika"
             problem={<p>Analisis kestabilan dan kelabilan <LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> dan <LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> dalam media asam.</p>}
             steps={[
-              { title: 'Analisis [Ni(CN)₄]²⁻', content: <p><LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> memiliki <LaTeX>{'K_f \\approx 10^{30}'}</LaTeX> — <strong>sangat stabil secara termodinamika</strong>. Namun, sebagai kompleks bujur sangkar <LaTeX>{'d^8'}</LaTeX>, ia mengalami pertukaran ligan asosiatif dengan penghalang kinetik yang dapat diabaikan, menjadikannya <strong>labil secara kinetik</strong>.</p> },
-              { title: 'Analisis [Co(NH₃)₆]³⁺', content: <p><LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> tidak stabil secara termodinamika dalam asam (<LaTeX>{'K_{eq} \\approx 10^{25}'}</LaTeX> untuk penguraian). Namun, <LaTeX>{'Co^{3+}'}</LaTeX> adalah spin rendah <LaTeX>{'d^6'}</LaTeX> (<LaTeX>{'t_{2g}^6 e_g^0'}</LaTeX>) dengan CFSE maksimum (<LaTeX>{'-2.4\\Delta_o'}</LaTeX>). Hal ini membuatnya <strong>lembam secara kinetik</strong>.</p> },
-              { title: 'Poin Penting', content: <p>Kestabilan termodinamika ≠ kelabilan kinetik. Suatu kompleks bisa saja tidak stabil secara termodinamika namun lembam secara kinetik (atau sebaliknya).</p> },
+              { title: 'Analisis [Ni(CN)₄]²⁻', content: <p><LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> memiliki <LaTeX>{'K_f \\approx 10^{30}'}</LaTeX> — <strong>sangat stabil secara termodinamika</strong>. Namun, sebagai kompleks square planar <LaTeX>{'d^8'}</LaTeX>, ia mengalami pertukaran ligan asosiatif dengan penghalang kinetik yang dapat diabaikan, menjadikannya <strong>labil secara kinetik</strong>.</p> },
+              { title: 'Analisis [Co(NH₃)₆]³⁺', content: <p><LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> tidak stabil secara termodinamika dalam asam (<LaTeX>{'K_{eq} \\approx 10^{25}'}</LaTeX> untuk penguraian). Namun, <LaTeX>{'Co^{3+}'}</LaTeX> adalah spin rendah <LaTeX>{'d^6'}</LaTeX> (<LaTeX>{'t_{2g}^6 e_g^0'}</LaTeX>) dengan CFSE maksimum (<LaTeX>{'-2.4\\Delta_o'}</LaTeX>). Hal ini membuatnya <strong>inert secara kinetik</strong>.</p> },
+              { title: 'Poin Penting', content: <p>Kestabilan termodinamika ≠ kelabilan kinetik. Suatu kompleks bisa saja tidak stabil secara termodinamika namun inert secara kinetik (atau sebaliknya).</p> },
             ]}
           />
         </WorkedExamples>
@@ -61,23 +61,23 @@ export default function ModuleA2() {
         <Misconceptions>
           <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '1rem', marginBottom: '1rem' }}>
             <p style={{ color: '#fca5a5', fontWeight: 600, marginBottom: '0.5rem' }}>❌ Jebakan Kritis</p>
-            <p>&quot;Stabil secara termodinamika&quot; setara dengan &quot;lembam secara kinetik.&quot;</p>
+            <p>&quot;Stabil secara termodinamika&quot; setara dengan &quot;inert secara kinetik.&quot;</p>
           </div>
           <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '8px', padding: '1rem' }}>
             <p style={{ color: '#6ee7b7', fontWeight: 600, marginBottom: '0.5rem' }}>✅ Koreksi</p>
-            <p>Termodinamika menentukan kesetimbangan (<LaTeX>{'\\Delta G^\\circ, K_f'}</LaTeX>). Kinetika menentukan kecepatan (<LaTeX>{'E_a, k'}</LaTeX>). Senyawa dapat menjadi sangat tidak stabil secara termodinamika namun bertahan tanpa batas waktu akibat kelembaman kinetik.</p>
+            <p>Termodinamika menentukan kesetimbangan (<LaTeX>{'\\Delta G^\\circ, K_f'}</LaTeX>). Kinetika menentukan kecepatan (<LaTeX>{'E_a, k'}</LaTeX>). Senyawa dapat menjadi sangat tidak stabil secara termodinamika namun bertahan tanpa batas waktu akibat sifat inert kinetik.</p>
           </div>
         </Misconceptions>
 
         <InteractiveVisual>
-          <p style={{ marginBottom: '1rem' }}>Klik ion logam transisi apa pun untuk melihat konfigurasi elektron d, CFSE, dan klasifikasi labil/lembam. Alihkan antara spin tinggi dan spin rendah untuk melihat bagaimana kekuatan medan ligan mengubah prediksi.</p>
+          <p style={{ marginBottom: '1rem' }}>Klik ion logam transisi apa pun untuk melihat konfigurasi elektron d, CFSE, dan klasifikasi labil/inert. Alihkan antara spin tinggi dan spin rendah untuk melihat bagaimana kekuatan medan ligan mengubah prediksi.</p>
           <DBlockPeriodicTable />
         </InteractiveVisual>
 
         <FormativeQuiz>
           <Quiz questions={[
             {
-              question: <span>Mengapa <LaTeX>{'[Cr(OH_2)_6]^{3+}'}</LaTeX> sangat lembam secara kinetik dibandingkan dengan <LaTeX>{'[Fe(OH_2)_6]^{3+}'}</LaTeX>?</span>,
+              question: <span>Mengapa <LaTeX>{'[Cr(OH_2)_6]^{3+}'}</LaTeX> sangat inert secara kinetik dibandingkan dengan <LaTeX>{'[Fe(OH_2)_6]^{3+}'}</LaTeX>?</span>,
               options: [
                 { text: <span><LaTeX>{'Cr^{3+}'}</LaTeX> adalah d³ dengan CFSE yang kuat, sedangkan <LaTeX>{'Fe^{3+}'}</LaTeX> adalah d⁵ spin tinggi dengan CFSE nol.</span>, isCorrect: true },
                 { text: 'Air berikatan jauh lebih kuat dengan kromium daripada besi.', isCorrect: false },
@@ -90,7 +90,7 @@ export default function ModuleA2() {
               question: <span>Suatu kompleks memiliki waktu paruh pertukaran air 10⁻⁶ detik. Bagaimana klasifikasinya?</span>,
               options: [
                 { text: 'Stabil secara termodinamika.', isCorrect: false },
-                { text: 'Lembam secara kinetik.', isCorrect: false },
+                { text: 'Inert secara kinetik.', isCorrect: false },
                 { text: 'Labil secara kinetik.', isCorrect: true },
                 { text: 'Tidak stabil secara termodinamika.', isCorrect: false },
               ],

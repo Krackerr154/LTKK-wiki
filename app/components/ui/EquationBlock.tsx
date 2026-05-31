@@ -1,11 +1,12 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { LaTeX } from './LaTeX';
 import styles from './EquationBlock.module.css';
 
 interface Variable {
   symbol: string;
-  definition: string;
+  definition: ReactNode;
 }
 
 interface EquationBlockProps {

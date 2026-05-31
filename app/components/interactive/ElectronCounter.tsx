@@ -136,7 +136,7 @@ export function ElectronCounter() {
         </div>
         <div className={styles.statusBadge}>
           {status === 'stable' && '✅ 18e⁻ — Stabil (kulit tertutup)'}
-          {status === 'allowed' && '🟡 16e⁻ — Stabil untuk bujur sangkar d⁸'}
+          {status === 'allowed' && '🟡 16e⁻ — Stabil untuk square planar d⁸'}
           {status === 'over' && `⚠️ ${totalE}e⁻ — Elektron anti-ikatan terisi`}
           {status === 'under' && `🔵 ${totalE}e⁻ — Kekurangan elektron (reaktif)`}
         </div>

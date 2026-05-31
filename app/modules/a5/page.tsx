@@ -18,19 +18,19 @@ export default function ModuleA5() {
           <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
         </div>
       </header>
-      <ModuleLayout moduleCode="Modul A5" moduleTitle="Substitusi pada Kompleks Bujur Sangkar" block="A">
+      <ModuleLayout moduleCode="Modul A5" moduleTitle="Substitusi pada Kompleks Square Planar" block="A">
         <ConceptOverview>
-          <p>Substitusi ligan dalam kompleks bujur sangkar <LaTeX>{'d^8'}</LaTeX> berkoordinasi 4 (biasanya <LaTeX>{'Pt(II), Pd(II), Au(III)'}</LaTeX>) terjadi secara eksklusif melalui mekanisme <strong>Asosiatif (A)</strong> atau <strong>Pertukaran-asosiatif (I<sub>a</sub>)</strong>.</p>
+          <p>Substitusi ligan dalam kompleks square planar <LaTeX>{'d^8'}</LaTeX> berkoordinasi 4 (biasanya <LaTeX>{'Pt(II), Pd(II), Au(III)'}</LaTeX>) terjadi secara eksklusif melalui mekanisme <strong>Asosiatif (A)</strong> atau <strong>Pertukaran-asosiatif (I<sub>a</sub>)</strong>.</p>
           <p>Kinetika reaksi mengikuti hukum laju dua jalur yang didorong oleh rute yang bersaing:</p>
           <ol>
             <li><strong>Jalur berbantuan pelarut (<LaTeX>{'k_1'}</LaTeX>):</strong> Pelarut berkoordinasi terlebih dahulu, kemudian gugus pergi digantikan.</li>
-            <li><strong>Jalur serangan langsung (<LaTeX>{'k_2'}</LaTeX>):</strong> Nukleofil Y menyerang langsung membentuk zat antara bipiramida trigonal berkoordinasi 5.</li>
+            <li><strong>Jalur serangan langsung (<LaTeX>{'k_2'}</LaTeX>):</strong> Nukleofil Y menyerang langsung membentuk zat antara trigonal bipyramidal berkoordinasi 5.</li>
           </ol>
           <p>Empat faktor utama yang mengendalikan laju:</p>
           <ol>
             <li><strong>Ligan yang Masuk (Y):</strong> Nukleofilisitas yang lebih tinggi meningkatkan laju (HSAB lunak-lunak).</li>
             <li><strong>Gugus Pergi (X):</strong> Ikatan M–X yang lemah memudahkan kepergian.</li>
-            <li><strong>Stereokimia:</strong> Retensi konfigurasi melalui zat antara bipiramida trigonal.</li>
+            <li><strong>Stereokimia:</strong> Retensi konfigurasi melalui zat antara trigonal bipyramidal.</li>
             <li><strong>Efek Trans:</strong> Ligan spektator dapat memfasilitasi substitusi ligan yang <em>trans</em> terhadap dirinya sendiri.
               <ul>
                 <li><strong>Ikatan σ (pengaruh trans):</strong> Pelemahan ikatan pada keadaan dasar.</li>
@@ -43,7 +43,7 @@ export default function ModuleA5() {
         <KeyEquations>
           <EquationBlock
             label="Hukum Laju Dua Jalur"
-            latex="k_{\\text{obs}} = k_1 + k_2[Y]"
+            latex={'k_{\\text{obs}} = k_1 + k_2[Y]'}
             variables={[
               { symbol: 'k_1', definition: 'konstanta laju orde pertama untuk serangan pelarut' },
               { symbol: 'k_2', definition: 'konstanta laju orde kedua untuk serangan nukleofilik langsung' },
@@ -51,12 +51,12 @@ export default function ModuleA5() {
           />
           <EquationBlock
             label="Deret Efek Trans"
-            latex="CO \\approx CN^- \\approx C_2H_4 > PR_3 \\approx H^- > CH_3^- \\approx I^- > Br^- > Cl^- > py > NH_3 > OH^- > H_2O"
+            latex={'CO \\approx CN^- \\approx C_2H_4 > PR_3 \\approx H^- > CH_3^- \\approx I^- > Br^- > Cl^- > py > NH_3 > OH^- > H_2O'}
           />
         </KeyEquations>
 
         <WorkedExamples>
-          <p style={{ color: 'var(--text-secondary)' }}>Gunakan Visualisator Efek Trans interaktif di bawah ini untuk membangun kompleks bujur sangkar dan mengamati bagaimana berbagai ligan pengarah trans melemahkan ikatan tertentu.</p>
+          <p style={{ color: 'var(--text-secondary)' }}>Gunakan Visualisator Efek Trans interaktif di bawah ini untuk membangun kompleks square planar dan mengamati bagaimana berbagai ligan pengarah trans melemahkan ikatan tertentu.</p>
         </WorkedExamples>
 
         <Misconceptions>
@@ -88,14 +88,14 @@ export default function ModuleA5() {
               explanation: <span>Sianida adalah akseptor π yang sangat baik, yang menstabilkan zat antara berkoordinasi 5 dan mempercepat substitusi trans.</span>,
             },
             {
-              question: <span>Apa geometri zat antara yang terbentuk selama substitusi bujur sangkar?</span>,
+              question: <span>Apa geometri zat antara yang terbentuk selama substitusi square planar?</span>,
               options: [
-                { text: 'Piramida bujur sangkar.', isCorrect: false },
-                { text: 'Bipiramida pentagonal.', isCorrect: false },
-                { text: 'Bipiramida trigonal.', isCorrect: true },
+                { text: 'Square pyramidal.', isCorrect: false },
+                { text: 'Pentagonal bipyramidal.', isCorrect: false },
+                { text: 'Trigonal bipyramidal.', isCorrect: true },
                 { text: 'Tetrahedral.', isCorrect: false },
               ],
-              explanation: <span>Kompleks bujur sangkar mengalami substitusi asosiatif membentuk zat antara bipiramida trigonal berkoordinasi 5.</span>,
+              explanation: <span>Kompleks square planar mengalami substitusi asosiatif membentuk zat antara trigonal bipyramidal berkoordinasi 5.</span>,
             },
           ]} />
         </FormativeQuiz>

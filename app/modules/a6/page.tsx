@@ -15,7 +15,7 @@ const FACTORS = [
   { id: 'spectator', label: '2. Ligan Spektator', content: 'Ligan spektator donor σ yang kuat meningkatkan rapatan elektron pada pusat logam, menstabilkan keadaan transisi selama disosiasi dan mempercepat laju.' },
   { id: 'steric', label: '3. Efek Sterik', content: 'Ligan yang besar menjejali keadaan dasar berkoordinasi 6. Disosiasi gugus pergi mengurangi kesesakan, menyebabkan percepatan laju yang signifikan (pelepasan sterik).' },
   { id: 'charge', label: '4. Muatan Ion', content: 'Muatan positif yang lebih tinggi pada logam memperkuat tarikan elektrostatik terhadap gugus pergi, sehingga menyulitkan disosiasi. Laju menurun seiring peningkatan muatan: M+ > M²⁺ > M³⁺.' },
-  { id: 'stereo', label: '5. Stereokimia', content: 'Disosiasi dapat menghasilkan zat antara piramida bujur sangkar (mempertahankan cis/trans) atau zat antara bipiramida trigonal (memungkinkan isomerisasi, menghasilkan rasio cis:trans ~2:1).' },
+  { id: 'stereo', label: '5. Stereokimia', content: 'Disosiasi dapat menghasilkan zat antara square pyramidal (mempertahankan cis/trans) atau zat antara trigonal bipyramidal (memungkinkan isomerisasi, menghasilkan rasio cis:trans ~2:1).' },
   { id: 'base', label: '6. Hidrolisis Basa (SN1cb)', content: 'Di hadapan OH⁻, substitusi terjadi melalui jalur yang sangat cepat: OH⁻ bertindak sebagai basa Brønsted untuk mendeprotonasi ligan amina, menciptakan basa konjugat (NH₂⁻) yang dengan cepat mengeluarkan gugus pergi melalui donasi π.' },
 ];
 
@@ -39,7 +39,7 @@ export default function ModuleA6() {
         <KeyEquations>
           <EquationBlock
             label="Hukum Laju Basa Konjugat (SN1cb)"
-            latex="\\text{Laju} = kK[Co(NH_3)_5Cl^{2+}][OH^-] = k_{\\text{obs}}[\\text{Kompleks}][OH^-]"
+            latex={'\\text{Laju} = kK[Co(NH_3)_5Cl^{2+}][OH^-] = k_{\\text{obs}}[\\text{Kompleks}][OH^-]'}
             variables={[
               { symbol: 'K', definition: 'konstanta kesetimbangan untuk pra-kesetimbangan deprotonasi' },
               { symbol: 'k', definition: 'konstanta laju untuk RDS disosiasi basa konjugat' },
@@ -121,7 +121,7 @@ export default function ModuleA6() {
 
         <Connections>
           <ConnectionLinks
-            buildsOn={[{ label: 'A2', moduleId: 'a2', moduleTitle: 'Kompleks Labil dan Lembam' }]}
+            buildsOn={[{ label: 'A2', moduleId: 'a2', moduleTitle: 'Kompleks Labil dan Inert' }]}
             feedsInto={[{ label: 'A7', moduleId: 'a7', moduleTitle: 'Reaksi Transfer Elektron' }]}
           />
         </Connections>

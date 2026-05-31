@@ -76,20 +76,20 @@ export default function ModuleA1() {
         <KeyEquations>
           <EquationBlock
             label="Hukum Laju Umum"
-            latex="\\text{Laju} = k [A]^m [B]^n"
+            latex={'\\text{Laju} = k [A]^m [B]^n'}
             variables={[
-              { symbol: 'k', definition: 'konstanta laju, bergantung pada suhu melalui persamaan Arrhenius k = Ae^{-E_a/RT}' },
+              { symbol: 'k', definition: <>konstanta laju, bergantung pada suhu melalui persamaan Arrhenius <LaTeX>{'k = Ae^{-E_a/RT}'}</LaTeX></> },
               { symbol: '[A], [B]', definition: 'konsentrasi molar reaktan' },
               { symbol: 'm, n', definition: 'orde parsial reaksi, ditentukan secara eksperimental' },
             ]}
           />
           <EquationBlock
             label="Orde pertama (Unimolekuler)"
-            latex="\\text{Laju} = k[A]"
+            latex={'\\text{Laju} = k[A]'}
           />
           <EquationBlock
             label="Orde kedua (Bimolekuler)"
-            latex="\\text{Laju} = k[A][B] \\quad \\text{atau} \\quad \\text{Laju} = k[A]^2"
+            latex={'\\text{Laju} = k[A][B] \\quad \\text{atau} \\quad \\text{Laju} = k[A]^2'}
           />
         </KeyEquations>
 
@@ -196,7 +196,7 @@ export default function ModuleA1() {
               Termodinamika hanya menentukan perbedaan energi antara reaktan dan produk
               (<LaTeX>{'K_{eq}'}</LaTeX>). Ia tidak menjelaskan apa pun mengenai penghalang energi aktivasi
               (<LaTeX>{'E_a'}</LaTeX>). Suatu reaksi bisa saja sangat spontan secara termodinamika namun
-              lembam secara kinetik akibat penghalang aktivasi yang sangat besar.
+              inert secara kinetik akibat penghalang aktivasi yang sangat besar.
             </p>
           </div>
         </Misconceptions>
