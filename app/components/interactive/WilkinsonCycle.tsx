@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion, AnimatePresence, type Transition } from 'framer-motion';
-import { Complex3D, type Geo3D } from './Complex3D';
+import { Complex3D, type Geo3D, type ReactionKind } from './Complex3D';
 import styles from './WilkinsonCycle.module.css';
 
 interface CycleStep {
@@ -20,15 +20,17 @@ interface CycleStep {
   /** coordination geometry + ligand labels for the structure diagram */
   geometry: Geo3D;
   ligands: string[];
+  /** reaction type that produces THIS species (drives the entry animation) */
+  reaction: ReactionKind;
 }
 
 const STEPS: CycleStep[] = [
-  { step: 1, title: 'Disosiasi Ligan', desc: 'PPh₃ terdisosiasi dari [RhCl(PPh₃)₃] untuk membuka situs koordinasi.', oxState: '+1', eCount: 14, type: 'Substitusi', species: '[RhCl(PPh₃)₂]', reagentOut: '−PPh₃', geometry: 'trigonal', ligands: ['PPh₃', 'PPh₃', 'Cl'] },
-  { step: 2, title: 'Adisi Oksidatif H₂', desc: 'H₂ bertambah di seberang pusat Rh, membentuk kompleks dihidrida Rh(III).', oxState: '+3', eCount: 16, type: 'Adisi Oksidatif', species: '[RhH₂Cl(PPh₃)₂]', reagentIn: '+H₂', geometry: 'trigonalbipyramidal', ligands: ['H', 'H', 'PPh₃', 'PPh₃', 'Cl'] },
-  { step: 3, title: 'Koordinasi Alkena', desc: 'Substrat alkena berkoordinasi dengan logam melalui ikatan π-nya.', oxState: '+3', eCount: 18, type: 'Substitusi', species: '[RhH₂Cl(η²-alkena)(PPh₃)₂]', reagentIn: '+alkena', geometry: 'octahedral', ligands: ['H', 'PPh₃', 'alkena', 'PPh₃', 'Cl', 'H'] },
-  { step: 4, title: 'Penyisipan Migrasi', desc: 'Sebuah hidrida bermigrasi dan menyisip ke dalam alkena yang terkoordinasi, membentuk gugus alkil.', oxState: '+3', eCount: 16, type: 'Penyisipan', species: '[RhH(alkil)Cl(PPh₃)₂]', geometry: 'trigonalbipyramidal', ligands: ['H', 'alkil', 'PPh₃', 'PPh₃', 'Cl'] },
-  { step: 5, title: 'Eliminasi Reduktif', desc: 'Alkil dan hidrida yang tersisa bergabung dan terlepas sebagai produk terhidrogenasi (alkana).', oxState: '+1', eCount: 14, type: 'Eliminasi Reduktif', species: '[RhCl(PPh₃)₂]', reagentOut: '−alkana', geometry: 'trigonal', ligands: ['PPh₃', 'PPh₃', 'Cl'] },
-  { step: 6, title: 'Regenerasi Katalis', desc: 'PPh₃ berkoordinasi kembali dan substrat kembali, meregenerasi katalis aktif 16e⁻.', oxState: '+1', eCount: 16, type: 'Regenerasi', species: '[RhCl(PPh₃)₃]', reagentIn: '+PPh₃', geometry: 'squareplanar', ligands: ['PPh₃', 'PPh₃', 'Cl', 'PPh₃'] },
+  { step: 1, title: 'Disosiasi Ligan', desc: 'PPh₃ terdisosiasi dari [RhCl(PPh₃)₃] untuk membuka situs koordinasi.', oxState: '+1', eCount: 14, type: 'Substitusi', species: '[RhCl(PPh₃)₂]', reagentOut: '−PPh₃', geometry: 'trigonal', ligands: ['PPh₃', 'PPh₃', 'Cl'], reaction: 'dissociation' },
+  { step: 2, title: 'Adisi Oksidatif H₂', desc: 'H₂ mendekat sebagai molekul, lalu ikatan H–H terputus dan kedua H menempel cis pada Rh — keadaan oksidasi naik +2.', oxState: '+3', eCount: 16, type: 'Adisi Oksidatif', species: '[RhH₂Cl(PPh₃)₂]', reagentIn: '+H₂', geometry: 'trigonalbipyramidal', ligands: ['H', 'H', 'PPh₃', 'PPh₃', 'Cl'], reaction: 'oxidative-addition' },
+  { step: 3, title: 'Koordinasi Alkena', desc: 'Substrat alkena berkoordinasi dengan logam melalui ikatan π-nya.', oxState: '+3', eCount: 18, type: 'Substitusi', species: '[RhH₂Cl(η²-alkena)(PPh₃)₂]', reagentIn: '+alkena', geometry: 'octahedral', ligands: ['H', 'PPh₃', 'alkena', 'PPh₃', 'Cl', 'H'], reaction: 'association' },
+  { step: 4, title: 'Penyisipan Migrasi', desc: 'Sebuah hidrida bermigrasi dan menyisip ke dalam alkena yang terkoordinasi, membentuk gugus alkil baru.', oxState: '+3', eCount: 16, type: 'Penyisipan', species: '[RhH(alkil)Cl(PPh₃)₂]', geometry: 'trigonalbipyramidal', ligands: ['H', 'alkil', 'PPh₃', 'PPh₃', 'Cl'], reaction: 'migratory-insertion' },
+  { step: 5, title: 'Eliminasi Reduktif', desc: 'Alkil dan hidrida bergabung lebih dulu, lalu terlepas bersama sebagai produk alkana — keadaan oksidasi turun −2.', oxState: '+1', eCount: 14, type: 'Eliminasi Reduktif', species: '[RhCl(PPh₃)₂]', reagentOut: '−alkana', geometry: 'trigonal', ligands: ['PPh₃', 'PPh₃', 'Cl'], reaction: 'reductive-elimination' },
+  { step: 6, title: 'Regenerasi Katalis', desc: 'PPh₃ berkoordinasi kembali dan substrat kembali, meregenerasi katalis aktif 16e⁻.', oxState: '+1', eCount: 16, type: 'Regenerasi', species: '[RhCl(PPh₃)₃]', reagentIn: '+PPh₃', geometry: 'squareplanar', ligands: ['PPh₃', 'PPh₃', 'Cl', 'PPh₃'], reaction: 'association' },
 ];
 
 const N = STEPS.length;
@@ -170,6 +172,7 @@ export function WilkinsonCycle() {
               geometry={current.geometry}
               metal="Rh"
               ligands={current.ligands}
+              reaction={current.reaction}
               stepKey={active}
             />
           </div>
