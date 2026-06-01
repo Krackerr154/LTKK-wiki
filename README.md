@@ -1,10 +1,34 @@
 # LTKK Wiki — KI 3231 Interactive Chemistry Platform
 
-Interactive education platform for **KI 3231: Transition Metals & Complex Chemistry**, featuring 13 modules across two blocks with interactive calculators, quizzes, and visualizations.
+Interactive education platform for **KI 3231: Transition Metals & Complex Chemistry**, featuring 27 modules across 3 parts with interactive calculators, quizzes, and visualizations.
 
 ## 🧪 Modules
 
-### Block A — Reaction Mechanisms
+### Part 1 — Kimia Koordinasi & Ikatan (Coordination Chemistry & Bonding)
+| Module | Topic |
+|--------|-------|
+| 1.1 (C1) | Senyawa Koordinasi & Teori Werner |
+| 1.2 (C2) | Isomerisme dalam Kompleks Koordinasi |
+| 1.3 (C3) | Teori Ikatan Valensi (VBT) |
+| 1.4 (C4) | Teori Medan Kristal (CFT) |
+| 1.5 (C5) | Faktor Penentu Pembelahan Medan Kristal (Δ) |
+| 1.6 (C6) | Distorsi Jahn-Teller |
+| 1.7 (C7) | Teori Medan Ligan (LFT) |
+| 1.8 (C8) | Spektroskopi Elektronik & Warna Kompleks |
+| 1.9 (C9) | Senyawa Spin Crossover (SCO) |
+
+### Part 2 — Kimia Anorganik Deskriptif (Descriptive Inorganic Chemistry)
+| Module | Topic |
+|--------|-------|
+| 2.1 (D1) | Tren Periodik & Karakteristik Logam Transisi |
+| 2.2 (D2) | Metalurgi & Proses Ekstraksi Industri |
+| 2.3 (D3) | Kimia Deskriptif Logam 3d (Sc–Zn) |
+| 2.4 (D4) | Kimia Deskriptif Logam 4d & 5d (PGM) |
+| 2.5 (D5) | Analisis Kualitatif & Skema Pemisahan |
+
+### Part 3 — Mekanisme Reaksi & Organologam (Reaction Mechanisms & Organometallics)
+
+#### Block A — Reaction Mechanisms
 | Module | Topic | Interactive Feature |
 |--------|-------|---------------------|
 | A1 | Kinetics Foundations | Energy profile diagram with Eₐ slider |
@@ -15,7 +39,7 @@ Interactive education platform for **KI 3231: Transition Metals & Complex Chemis
 | A6 | Octahedral Substitution | 6-factor interactive dashboard |
 | A7 | Electron Transfer | Marcus-Hush calculator |
 
-### Block B — Organometallics
+#### Block B — Organometallics
 | Module | Topic | Interactive Feature |
 |--------|-------|---------------------|
 | B1 | History & Characteristics | Interactive timeline |
@@ -63,11 +87,14 @@ app/
 │   └── ui/             # ModuleLayout, Quiz, etc.
 ├── glossary/           # Searchable glossary page
 ├── modules/
-│   ├── a1–a7/          # Block A module pages
-│   ├── b1–b6/          # Block B module pages
+│   ├── a1–a7/          # Part 3 Block A module pages
+│   ├── b1–b6/          # Part 3 Block B module pages
+│   ├── c1–c9/          # Part 1 module pages
+│   ├── d1–d5/          # Part 2 module pages
 │   └── [moduleId]/     # Dynamic route (fallback)
 lib/
 ├── glossary.ts         # Term definitions
+├── modules.ts          # Module structure & definitions
 └── progress.ts         # localStorage persistence
 ```
 
