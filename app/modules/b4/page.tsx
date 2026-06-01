@@ -5,7 +5,6 @@ import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { ModuleLayout, ConceptOverview, KeyEquations, WorkedExamples, Misconceptions, InteractiveVisual, FormativeQuiz, Connections } from '../../components/ui/ModuleLayout';
 import { LaTeX } from '../../components/ui/LaTeX';
-import { EquationBlock } from '../../components/ui/EquationBlock';
 import { Quiz } from '../../components/ui/Quiz';
 import { ConnectionLinks } from '../../components/ui/ConnectionLinks';
 import pageStyles from '../[moduleId]/page.module.css';
@@ -31,7 +30,7 @@ export default function ModuleB4() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul B4" moduleTitle="Senyawa Logam Karbonil" block="B">
@@ -103,7 +102,7 @@ export default function ModuleB4() {
           </div>
           <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '1.5rem', textAlign: 'center' }}>
             <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>{IR_DATA[selectedCharge].label}</div>
-            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: '2.5rem', fontWeight: 700, color: selectedCharge <= 1 ? '#6ee7b7' : selectedCharge >= 3 ? '#fca5a5' : '#60a5fa' }}>
+            <div style={{ fontFamily: 'var(--font-outfit), sans-serif', fontSize: '2.5rem', fontWeight: 700, color: selectedCharge <= 1 ? '#6ee7b7' : selectedCharge >= 3 ? '#fca5a5' : '#60a5fa' }}>
               {IR_DATA[selectedCharge].vCO} cm⁻¹
             </div>
             <div style={{ marginTop: '0.75rem' }}>

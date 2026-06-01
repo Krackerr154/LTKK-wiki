@@ -16,7 +16,7 @@ export default function ModuleA7() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul A7" moduleTitle="Reaksi Transfer Elektron" block="A">

@@ -1,6 +1,6 @@
 .container { margin: 1.5rem 0; }
 .tableGrid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-.ionCell { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid var(--border-light); background: rgba(255,255,255,0.02); cursor: pointer; transition: all var(--transition-fast); font-family: 'Inter'; min-width: 72px; }
+.ionCell { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid var(--border-light); background: rgba(255,255,255,0.02); cursor: pointer; transition: all var(--transition-fast); font-family: var(--font-inter), sans-serif; min-width: 72px; }
 .ionCell:hover { transform: translateY(-2px); }
 .ionCell.labile { border-color: rgba(16,185,129,0.3); }
 .ionCell.labile:hover { background: rgba(16,185,129,0.08); box-shadow: 0 0 12px rgba(16,185,129,0.2); }
@@ -13,7 +13,7 @@
 .ionD { font-size: 0.75rem; color: var(--text-muted); }
 .controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
 .toggleGroup { display: flex; gap: 0.5rem; }
-.toggleBtn { padding: 0.4rem 0.75rem; font-size: 0.8125rem; font-family: 'Inter'; border: 1px solid var(--border-light); border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; transition: all var(--transition-fast); }
+.toggleBtn { padding: 0.4rem 0.75rem; font-size: 0.8125rem; font-family: var(--font-inter), sans-serif; border: 1px solid var(--border-light); border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; transition: all var(--transition-fast); }
 .toggleBtn:hover { background: rgba(255,255,255,0.05); color: var(--text-secondary); }
 .toggleBtn.active { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); color: #60a5fa; font-weight: 600; }
 .legendRow { display: flex; gap: 1rem; }
@@ -22,7 +22,7 @@
 .labileDot { background: #10b981; }
 .inertDot { background: #ef4444; }
 .popup { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.5rem; }
-.popupTitle { font-family: 'Outfit'; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 1rem; }
+.popupTitle { font-family: var(--font-outfit), sans-serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 1rem; }
 .orbitalDiagram { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; }
 .orbitalLevel { display: flex; align-items: center; gap: 1rem; }
 .orbitalLabel { font-size: 0.875rem; color: var(--text-muted); min-width: 30px; text-align: right; }
@@ -30,6 +30,6 @@
 .orbitalBox { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; color: var(--accent-primary); background: rgba(59,130,246,0.05); }
 .orbitalGap { font-size: 0.75rem; color: var(--text-muted); padding: 0.25rem 0; }
 .popupInfo { display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: var(--text-secondary); }
-.classification { font-weight: 700; font-family: 'Outfit'; font-size: 1rem; letter-spacing: 0.05em; }
+.classification { font-weight: 700; font-family: var(--font-outfit), sans-serif; font-size: 1rem; letter-spacing: 0.05em; }
 .classInert { color: #ef4444; }
 .classLabile { color: #10b981; }

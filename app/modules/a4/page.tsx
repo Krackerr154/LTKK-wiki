@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { ModuleLayout, ConceptOverview, KeyEquations, WorkedExamples, Misconceptions, InteractiveVisual, FormativeQuiz, Connections } from '../../components/ui/ModuleLayout';
+import { ModuleLayout, ConceptOverview, KeyEquations, Misconceptions, InteractiveVisual, FormativeQuiz, Connections } from '../../components/ui/ModuleLayout';
 import { LaTeX } from '../../components/ui/LaTeX';
 import { EquationBlock } from '../../components/ui/EquationBlock';
 import { Quiz } from '../../components/ui/Quiz';
@@ -15,7 +15,7 @@ export default function ModuleA4() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul A4" moduleTitle="Parameter Aktivasi" block="A">
@@ -53,12 +53,6 @@ export default function ModuleA4() {
             latex={'\\ln(k) = -\\frac{\\Delta V^\\ddagger}{RT} \\cdot P + \\ln(k_0)'}
           />
         </KeyEquations>
-
-        <WorkedExamples>
-          <p style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>
-            Gunakan Kalkulator Eyring interaktif di bawah ini untuk memasukkan data suhu-laju dan mengekstraksi parameter aktivasi. Kalkulator secara otomatis melakukan regresi linier dan menentukan mekanismenya.
-          </p>
-        </WorkedExamples>
 
         <Misconceptions>
           <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '8px', padding: '1rem', marginBottom: '1rem' }}>

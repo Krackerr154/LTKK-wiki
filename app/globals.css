@@ -38,13 +38,13 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-outfit), sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -110,6 +110,7 @@ a {
 
   .glass-panel,
   [class*="sidebar"],
+  [class*="navToggle"],
   [class*="backLink"],
   [class*="completeSection"],
   [class*="hero"],

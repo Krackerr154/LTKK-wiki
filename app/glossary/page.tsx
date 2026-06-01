@@ -19,7 +19,7 @@ export default function GlossaryPage() {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <Link href="/" className={styles.backLink}>
-            <ArrowLeft size={16} /><span>Kembali ke Kursus</span>
+            <ArrowLeft size={16} /><span>Kembali ke Beranda</span>
           </Link>
         </div>
       </header>

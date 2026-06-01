@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ModuleLayout.module.css';
-import { BookOpen, Calculator, Lightbulb, AlertTriangle, Puzzle, HelpCircle, Link2, CheckCircle } from 'lucide-react';
-import { useProgress, markModuleComplete } from '../../../lib/progress';
+import { BookOpen, Calculator, Lightbulb, AlertTriangle, Puzzle, HelpCircle, Link2, Menu, X } from 'lucide-react';
+import { WikiNav } from './WikiNav';
 
 interface ModuleSection {
   id: string;
@@ -16,6 +16,8 @@ interface ModuleLayoutProps {
   moduleCode: string;
   moduleTitle: string;
   block: 'A' | 'B';
+  partId?: string;
+  articleId?: string;
   children: React.ReactNode;
 }
 
@@ -33,61 +35,69 @@ export function SectionWrapper({ id, title, icon, children }: ModuleSection) {
   );
 }
 
-export function ConceptOverview({ children }: { children: React.ReactNode }) {
+type SectionComponent = (props: { children: React.ReactNode }) => React.JSX.Element;
+
+function withSectionId(component: SectionComponent, id: string): SectionComponent & { sectionId: string } {
+  const tagged = component as SectionComponent & { sectionId: string };
+  tagged.sectionId = id;
+  return tagged;
+}
+
+export const ConceptOverview = withSectionId(function ConceptOverview({ children }: { children: React.ReactNode }) {
   return (
     <SectionWrapper id="concept-overview" title="Ringkasan Konsep" icon={<BookOpen size={20} />}>
       {children}
     </SectionWrapper>
   );
-}
+}, 'concept-overview');
 
-export function KeyEquations({ children }: { children: React.ReactNode }) {
+export const KeyEquations = withSectionId(function KeyEquations({ children }: { children: React.ReactNode }) {
   return (
     <SectionWrapper id="key-equations" title="Persamaan Utama" icon={<Calculator size={20} />}>
       {children}
     </SectionWrapper>
   );
-}
+}, 'key-equations');
 
-export function WorkedExamples({ children }: { children: React.ReactNode }) {
+export const WorkedExamples = withSectionId(function WorkedExamples({ children }: { children: React.ReactNode }) {
   return (
     <SectionWrapper id="worked-examples" title="Contoh Soal" icon={<Lightbulb size={20} />}>
       {children}
     </SectionWrapper>
   );
-}
+}, 'worked-examples');
 
-export function Misconceptions({ children }: { children: React.ReactNode }) {
+export const Misconceptions = withSectionId(function Misconceptions({ children }: { children: React.ReactNode }) {
   return (
     <SectionWrapper id="misconceptions" title="Miskonsepsi Umum" icon={<AlertTriangle size={20} />}>
       {children}
     </SectionWrapper>
   );
-}
+}, 'misconceptions');
 
-export function InteractiveVisual({ children }: { children: React.ReactNode }) {
+export const InteractiveVisual = withSectionId(function InteractiveVisual({ children }: { children: React.ReactNode }) {
   return (
     <SectionWrapper id="interactive-visual" title="Visual Interaktif" icon={<Puzzle size={20} />}>
       {children}
     </SectionWrapper>
   );
-}
+}, 'interactive-visual');
 
-export function FormativeQuiz({ children }: { children: React.ReactNode }) {
+export const FormativeQuiz = withSectionId(function FormativeQuiz({ children }: { children: React.ReactNode }) {
   return (
     <SectionWrapper id="formative-quiz" title="Kuis Formatif" icon={<HelpCircle size={20} />}>
       {children}
     </SectionWrapper>
   );
-}
+}, 'formative-quiz');
 
-export function Connections({ children }: { children: React.ReactNode }) {
+export const Connections = withSectionId(function Connections({ children }: { children: React.ReactNode }) {
   return (
-    <SectionWrapper id="connections" title="Koneksi" icon={<Link2 size={20} />}>
+    <SectionWrapper id="connections" title="Topik Terkait" icon={<Link2 size={20} />}>
       {children}
     </SectionWrapper>
   );
-}
+}, 'connections');
 
 const SECTION_NAV = [
   { id: 'concept-overview', label: 'Ringkasan' },
@@ -96,42 +106,64 @@ const SECTION_NAV = [
   { id: 'misconceptions', label: 'Miskonsepsi' },
   { id: 'interactive-visual', label: 'Interaktif' },
   { id: 'formative-quiz', label: 'Kuis' },
-  { id: 'connections', label: 'Koneksi' },
-];
+  { id: 'connections', label: 'Topik Terkait' },
+] as const;
 
-export function ModuleLayout({ moduleCode, moduleTitle, block, children }: ModuleLayoutProps) {
+export function ModuleLayout({ moduleCode, moduleTitle, block, partId = '3', articleId: articleIdProp, children }: ModuleLayoutProps) {
   const blockClass = block === 'A' ? styles.blockA : styles.blockB;
-  
-  // Extract module id from moduleCode (e.g., "Modul A1" -> "a1")
-  const moduleId = moduleCode.replace(/^Modul\s+/i, '').toLowerCase();
-  const { completedModules } = useProgress();
-  const isCompleted = completedModules.includes(moduleId);
+  const [navOpen, setNavOpen] = useState(false);
+
+  // Extract article id from moduleCode (e.g., "Modul A1" -> "a1") unless given explicitly.
+  const articleId = articleIdProp ?? moduleCode.replace(/^Modul\s+/i, '').toLowerCase();
+
+  // Determine which sections are actually rendered so the table of contents
+  // only lists entries that exist on this page (e.g. A4 omits "Contoh").
+  // Match on a static `sectionId` tag rather than function identity, which
+  // is fragile across bundling/HMR boundaries.
+  const presentIds = new Set(
+    React.Children.toArray(children)
+      .map((child) => {
+        if (!React.isValidElement(child)) return null;
+        const type = child.type as { sectionId?: string };
+        return type?.sectionId ?? null;
+      })
+      .filter((id): id is string => Boolean(id))
+  );
+  const sectionNav = SECTION_NAV.filter((item) => presentIds.has(item.id));
 
   const scrollTo = (id: string) => {
+    setNavOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const handleMarkComplete = () => {
-    markModuleComplete(moduleId);
   };
 
   return (
     <div className={styles.layout}>
-      <aside className={styles.sidebar}>
-        <nav className={styles.sidebarNav}>
-          <div className={`${styles.sidebarLabel} ${blockClass}`}>
-            {moduleCode}
-          </div>
-          {SECTION_NAV.map((item) => (
-            <button
-              key={item.id}
-              className={styles.navItem}
-              onClick={() => scrollTo(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
-        </nav>
+      <button
+        type="button"
+        className={styles.navToggle}
+        onClick={() => setNavOpen((v) => !v)}
+        aria-expanded={navOpen}
+        aria-controls="module-sidebar"
+      >
+        {navOpen ? <X size={16} /> : <Menu size={16} />}
+        <span>{navOpen ? 'Tutup navigasi' : 'Navigasi & daftar isi'}</span>
+      </button>
+      <aside id="module-sidebar" className={`${styles.sidebar} ${navOpen ? styles.sidebarOpen : ''}`}>
+        <WikiNav activeId={articleId} partId={partId} />
+        <div className={styles.tocBlock}>
+          <div className={styles.tocLabel}>Di halaman ini</div>
+          <nav className={styles.sidebarNav}>
+            {sectionNav.map((item) => (
+              <button
+                key={item.id}
+                className={styles.navItem}
+                onClick={() => scrollTo(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+        </div>
       </aside>
       <div className={styles.mainContent}>
         <div className={styles.moduleHeader}>
@@ -139,23 +171,7 @@ export function ModuleLayout({ moduleCode, moduleTitle, block, children }: Modul
           <h1 className={styles.moduleTitle}>{moduleTitle}</h1>
         </div>
         {children}
-
-        {/* Mark Complete */}
-        <div className={styles.completeSection}>
-          {isCompleted ? (
-            <div className={styles.completedBadge}>
-              <CheckCircle size={20} />
-              <span>Modul Selesai</span>
-            </div>
-          ) : (
-            <button className={`${styles.completeBtn} ${blockClass}`} onClick={handleMarkComplete}>
-              <CheckCircle size={18} />
-              <span>Tandai Modul Selesai</span>
-            </button>
-          )}
-        </div>
       </div>
     </div>
   );
 }
-

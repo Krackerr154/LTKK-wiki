@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import styles from './ElectronCounter.module.css';
-import { LaTeX } from '../ui/LaTeX';
 
 interface Metal { symbol: string; group: number; ionicE: number; neutralE: number; label: string; }
 interface Ligand { name: string; symbol: string; neutralE: number; ionicE: number; charge: number; }

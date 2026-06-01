@@ -14,7 +14,7 @@
 }
 
 .title {
-  font-family: 'Outfit';
+  font-family: var(--font-outfit), sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -25,7 +25,7 @@
   border: 1px solid var(--border-light);
   color: var(--text-muted);
   font-size: 0.75rem;
-  font-family: 'Inter';
+  font-family: var(--font-inter), sans-serif;
   padding: 0.25rem 0.75rem;
   border-radius: 6px;
   cursor: pointer;
@@ -66,7 +66,7 @@
   background: rgba(255, 255, 255, 0.02);
   border: none;
   color: var(--text-secondary);
-  font-family: 'Inter';
+  font-family: var(--font-inter), sans-serif;
   font-size: 0.875rem;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -84,7 +84,7 @@
 }
 
 .stepNumber {
-  font-family: 'Outfit';
+  font-family: var(--font-outfit), sans-serif;
   font-weight: 700;
   font-size: 0.75rem;
   color: var(--accent-primary);

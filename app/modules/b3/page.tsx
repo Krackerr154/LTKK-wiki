@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { ModuleLayout, ConceptOverview, KeyEquations, WorkedExamples, Misconceptions, InteractiveVisual, FormativeQuiz, Connections } from '../../components/ui/ModuleLayout';
 import { LaTeX } from '../../components/ui/LaTeX';
 import { WorkedExample } from '../../components/ui/WorkedExample';
+import { ComplexStructure } from '../../components/ui/ComplexStructure';
 import { Quiz } from '../../components/ui/Quiz';
 import { ConnectionLinks } from '../../components/ui/ConnectionLinks';
 import { ElectronCounter } from '../../components/interactive/ElectronCounter';
@@ -15,7 +16,7 @@ export default function ModuleB3() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul B3" moduleTitle="Aturan 18-Elektron" block="B">
@@ -58,7 +59,17 @@ export default function ModuleB3() {
         <WorkedExamples>
           <WorkedExample
             title="Penghitungan Elektron untuk Ferosena"
-            problem={<p>Hitung elektron valensi untuk <LaTeX>{'Fe(\\eta^5\\text{-}Cp)_2'}</LaTeX> menggunakan metode ionik.</p>}
+            problem={
+              <div>
+                <p>Hitung elektron valensi untuk <LaTeX>{'Fe(\\eta^5\\text{-}Cp)_2'}</LaTeX> menggunakan metode ionik.</p>
+                <ComplexStructure
+                  geometry="sandwich"
+                  metal="Fe"
+                  ring="Cp⁻"
+                  caption={<>Ferosena: dua cincin Cp⁻ mengapit Fe (struktur sandwich, η⁵)</>}
+                />
+              </div>
+            }
             steps={[
               { title: 'Tentukan muatan', content: <p>Setiap Cp⁻ memiliki muatan -1. Dua Cp⁻ → muatan total -2. Kompleks bersifat netral → Fe harus +2.</p> },
               { title: 'Hitung elektron', content: <div><p>Fe²⁺ (Golongan 8, d⁶) = 6e⁻</p><p>2 × η⁵-Cp (2 × 6e⁻) = 12e⁻</p><p><strong>Total = 6 + 12 = 18e⁻ ✅</strong></p></div> },
@@ -66,7 +77,17 @@ export default function ModuleB3() {
           />
           <WorkedExample
             title="Penghitungan Elektron untuk Mn₂(CO)₁₀"
-            problem={<p>Hitung elektron valensi per pusat Mn menggunakan metode kovalen.</p>}
+            problem={
+              <div>
+                <p>Hitung elektron valensi per pusat Mn menggunakan metode kovalen.</p>
+                <ComplexStructure
+                  geometry="octahedral"
+                  metal="Mn"
+                  ligands={['CO', 'CO', 'CO', 'CO', 'CO', 'Mn']}
+                  caption={<>Tiap Mn berkoordinasi 5 CO + 1 ikatan Mn–Mn (oktahedral)</>}
+                />
+              </div>
+            }
             steps={[
               { title: 'Per pusat Mn', content: <div><p>Mn⁰ (Golongan 7) = 7e⁻</p><p>5 × CO (5 × 2e⁻) = 10e⁻</p><p>1 × ikatan Mn–Mn = 1e⁻</p><p><strong>Total = 7 + 10 + 1 = 18e⁻ ✅</strong></p></div> },
             ]}

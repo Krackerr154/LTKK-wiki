@@ -24,7 +24,7 @@ export default function ModuleB5() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul B5" moduleTitle="Metalosena (Senyawa Sandwich)" block="B">
@@ -73,7 +73,7 @@ export default function ModuleB5() {
                 border: `2px solid ${selectedMetal === i ? m.color : 'var(--border-light)'}`,
                 background: selectedMetal === i ? `${m.color}15` : 'rgba(255,255,255,0.03)',
                 color: selectedMetal === i ? m.color : 'var(--text-muted)',
-                cursor: 'pointer', fontFamily: "'Outfit', sans-serif", fontSize: '1rem', fontWeight: 700,
+                cursor: 'pointer', fontFamily: 'var(--font-outfit), sans-serif', fontSize: '1rem', fontWeight: 700,
                 transition: 'all 150ms',
               }}>
                 {m.metal}
@@ -100,8 +100,8 @@ export default function ModuleB5() {
           </div>
 
           <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${mc.color}40`, borderRadius: '12px', padding: '1.5rem', textAlign: 'center' }}>
-            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '1.25rem', color: mc.color, marginBottom: '0.5rem' }}>{mc.name}</h4>
-            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: '2rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{mc.electrons}e⁻</div>
+            <h4 style={{ fontFamily: 'var(--font-outfit), sans-serif', fontSize: '1.25rem', color: mc.color, marginBottom: '0.5rem' }}>{mc.name}</h4>
+            <div style={{ fontFamily: 'var(--font-outfit), sans-serif', fontSize: '2rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{mc.electrons}e⁻</div>
             <div style={{ fontSize: '0.875rem', fontWeight: 600, color: mc.color, marginBottom: '0.75rem' }}>{mc.stability}</div>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.875rem' }}>{mc.desc}</p>
           </div>

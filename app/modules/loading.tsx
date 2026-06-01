@@ -20,7 +20,7 @@ export default function Loading() {
       <p style={{
         color: 'var(--text-muted)',
         fontSize: '0.875rem',
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: 'var(--font-inter), sans-serif',
       }}>
         Memuat modul...
       </p>

@@ -21,7 +21,7 @@ export function ConnectionLinks({ buildsOn, feedsInto }: ConnectionLinksProps) {
     <div className={styles.container}>
       {buildsOn && buildsOn.length > 0 && (
         <div className={styles.group}>
-          <span className={styles.label}>Melanjutkan dari</span>
+          <span className={styles.label}>Prasyarat</span>
           <div className={styles.links}>
             {buildsOn.map((item) => (
               <Link key={item.moduleId} href={`/modules/${item.moduleId}`} className={styles.link}>
@@ -35,7 +35,7 @@ export function ConnectionLinks({ buildsOn, feedsInto }: ConnectionLinksProps) {
       )}
       {feedsInto && feedsInto.length > 0 && (
         <div className={styles.group}>
-          <span className={styles.label}>Berlanjut ke</span>
+          <span className={styles.label}>Topik Lanjutan</span>
           <div className={styles.links}>
             {feedsInto.map((item) => (
               <Link key={item.moduleId} href={`/modules/${item.moduleId}`} className={styles.link}>

@@ -32,7 +32,7 @@
 }
 
 .moduleCode {
-  font-family: 'Outfit';
+  font-family: var(--font-outfit), sans-serif;
   font-weight: 700;
   color: var(--accent-primary);
   margin-bottom: 0.5rem;
@@ -56,4 +56,22 @@
   color: var(--text-secondary);
   margin-bottom: 1rem;
   line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 1.25rem 1rem;
+  }
+
+  .backLink {
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .content {
+    padding: 2rem 1rem;
+  }
 }

@@ -1,24 +1,39 @@
 import type { Metadata } from "next";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "KI 3231 - LTKK Wiki",
-    template: "%s | KI 3231 - LTKK Wiki",
+    default: "KI 3231 - Logam Transisi & Kimia Kompleks",
+    template: "%s | KI 3231 - LTKK",
   },
   description: "Platform Edukasi Kimia Interaktif untuk Logam Transisi & Kimia Kompleks. Pelajari mekanisme reaksi, organologam, dan lainnya dengan kalkulator dan kuis interaktif.",
   metadataBase: new URL("https://ltkk.g-labs.my.id"),
   openGraph: {
-    title: "KI 3231 - LTKK Wiki",
+    title: "KI 3231 - Logam Transisi & Kimia Kompleks",
     description: "Platform Edukasi Kimia Interaktif untuk Logam Transisi & Kimia Kompleks",
     url: "https://ltkk.g-labs.my.id",
-    siteName: "LTKK Wiki",
+    siteName: "LTKK",
     type: "website",
     locale: "id_ID",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KI 3231 - LTKK Wiki",
+    title: "KI 3231 - Logam Transisi & Kimia Kompleks",
     description: "Platform Edukasi Kimia Interaktif untuk Logam Transisi & Kimia Kompleks",
   },
   robots: { index: true, follow: true },
@@ -33,12 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="id" className={`${inter.variable} ${outfit.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { ModuleLayout, ConceptOverview, KeyEquations, WorkedExamples, Misconceptions, InteractiveVisual, FormativeQuiz, Connections } from '../../components/ui/ModuleLayout';
 import { LaTeX } from '../../components/ui/LaTeX';
 import { WorkedExample } from '../../components/ui/WorkedExample';
+import { ComplexStructure } from '../../components/ui/ComplexStructure';
 import { Quiz } from '../../components/ui/Quiz';
 import { ConnectionLinks } from '../../components/ui/ConnectionLinks';
 import pageStyles from '../[moduleId]/page.module.css';
@@ -23,7 +24,7 @@ export default function ModuleB1() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul B1" moduleTitle="Karakteristik Umum dan Sejarah" block="B">
@@ -40,7 +41,15 @@ export default function ModuleB1() {
         <WorkedExamples>
           <WorkedExample
             title="Kompleks Klasik vs. Kompleks Organologam"
-            problem={<p>Klasifikasikan <LaTeX>{'[Co(NH_3)_6]Cl_3'}</LaTeX> dan <LaTeX>{'[Co(CO)_4]^-'}</LaTeX> sebagai klasik atau organologam.</p>}
+            problem={
+              <div>
+                <p>Klasifikasikan <LaTeX>{'[Co(NH_3)_6]Cl_3'}</LaTeX> dan <LaTeX>{'[Co(CO)_4]^-'}</LaTeX> sebagai klasik atau organologam.</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '1rem' }}>
+                  <ComplexStructure geometry="octahedral" metal="Co" ligands={['NH₃', 'NH₃', 'NH₃', 'NH₃', 'NH₃', 'NH₃']} caption={<><LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> — oktahedral, ikatan Co–N (klasik)</>} />
+                  <ComplexStructure geometry="tetrahedral" metal="Co" ligands={['CO', 'CO', 'CO', 'CO']} caption={<><LaTeX>{'[Co(CO)_4]^-'}</LaTeX> — tetrahedral, ikatan Co–C (organologam)</>} />
+                </div>
+              </div>
+            }
             steps={[
               { title: 'Analisis [Co(NH₃)₆]Cl₃', content: <p>Mengandung ikatan koordinasi Co–N (donor nitrogen). Tidak ada ikatan logam–karbon → <strong>kompleks koordinasi klasik</strong>.</p> },
               { title: 'Analisis [Co(CO)₄]⁻', content: <p>Mengandung ikatan kovalen Co–C langsung ke karbon monoksida. Co berada dalam keadaan oksidasi -1 (sangat rendah) → <strong>kompleks organologam</strong>.</p> },
@@ -70,7 +79,7 @@ export default function ModuleB1() {
                 </div>
                 <div style={{ flex: 1, paddingBottom: '0.5rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
-                    <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: '1.125rem', color: '#a78bfa' }}>{event.year}</span>
+                    <span style={{ fontFamily: 'var(--font-outfit), sans-serif', fontWeight: 700, fontSize: '1.125rem', color: '#a78bfa' }}>{event.year}</span>
                     <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{event.title}</span>
                   </div>
                   <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{event.desc}</p>

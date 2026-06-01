@@ -7,6 +7,18 @@ interface EnergyProfileDiagramProps {
   activationEnergy?: number;
 }
 
+// SVG viewbox dimensions (constant — hoisted so the scale helpers are
+// stable references and don't need to be listed as useMemo dependencies).
+const W = 600;
+const H = 350;
+const pad = { top: 40, right: 40, bottom: 60, left: 60 };
+const plotW = W - pad.left - pad.right;
+const plotH = H - pad.top - pad.bottom;
+
+// Map y: energy (0–100) to SVG y
+const yScale = (val: number) => pad.top + plotH - (val / 100) * plotH;
+const xScale = (frac: number) => pad.left + frac * plotW;
+
 /**
  * Interactive 2D potential energy profile (Energy vs. Reaction Coordinate).
  * - Slider: adjusts activation energy (peak height).
@@ -17,17 +29,6 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
   const [ea, setEa] = useState(initialEa);
   const [isTwoStep, setIsTwoStep] = useState(false);
   const [hoveredPoint, setHoveredPoint] = useState<string | null>(null);
-
-  // SVG viewbox dimensions
-  const W = 600;
-  const H = 350;
-  const pad = { top: 40, right: 40, bottom: 60, left: 60 };
-  const plotW = W - pad.left - pad.right;
-  const plotH = H - pad.top - pad.bottom;
-
-  // Map y: energy (0–100) to SVG y
-  const yScale = (val: number) => pad.top + plotH - (val / 100) * plotH;
-  const xScale = (frac: number) => pad.left + frac * plotW;
 
   const reactantE = 30;
   const productE = 15;
@@ -48,7 +49,7 @@ export function EnergyProfileDiagram({ activationEnergy: initialEa = 60 }: Energ
       const cmd = i === 0 ? 'M' : 'L';
       return `${cmd}${xScale(x)},${yScale(y)}`;
     }).join(' ');
-  }, [ea, reactantE, productE, peakE]);
+  }, [reactantE, productE, peakE]);
 
   const twoStepPath = useMemo(() => {
     const peak1E = reactantE + ea * 0.9;

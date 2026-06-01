@@ -6,6 +6,7 @@ import { ModuleLayout, ConceptOverview, KeyEquations, WorkedExamples, Misconcept
 import { LaTeX } from '../../components/ui/LaTeX';
 import { EquationBlock } from '../../components/ui/EquationBlock';
 import { WorkedExample } from '../../components/ui/WorkedExample';
+import { ComplexStructure } from '../../components/ui/ComplexStructure';
 import { Quiz } from '../../components/ui/Quiz';
 import { ConnectionLinks } from '../../components/ui/ConnectionLinks';
 import { DBlockPeriodicTable } from '../../components/interactive/DBlockPeriodicTable';
@@ -16,7 +17,7 @@ export default function ModuleA2() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul A2" moduleTitle="Kompleks Labil dan Inert" block="A">
@@ -49,7 +50,15 @@ export default function ModuleA2() {
         <WorkedExamples>
           <WorkedExample
             title="Jebakan Kestabilan Termodinamika vs. Kinetika"
-            problem={<p>Analisis kestabilan dan kelabilan <LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> dan <LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> dalam media asam.</p>}
+            problem={
+              <div>
+                <p>Analisis kestabilan dan kelabilan <LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> dan <LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> dalam media asam.</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '1rem' }}>
+                  <ComplexStructure geometry="squareplanar" metal="Ni" ligands={['CN', 'CN', 'CN', 'CN']} caption={<><LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> — square planar d⁸ (labil kinetik)</>} />
+                  <ComplexStructure geometry="octahedral" metal="Co" ligands={['NH₃', 'NH₃', 'NH₃', 'NH₃', 'NH₃', 'NH₃']} caption={<><LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> — oktahedral spin rendah d⁶ (inert kinetik)</>} />
+                </div>
+              </div>
+            }
             steps={[
               { title: 'Analisis [Ni(CN)₄]²⁻', content: <p><LaTeX>{'[Ni(CN)_4]^{2-}'}</LaTeX> memiliki <LaTeX>{'K_f \\approx 10^{30}'}</LaTeX> — <strong>sangat stabil secara termodinamika</strong>. Namun, sebagai kompleks square planar <LaTeX>{'d^8'}</LaTeX>, ia mengalami pertukaran ligan asosiatif dengan penghalang kinetik yang dapat diabaikan, menjadikannya <strong>labil secara kinetik</strong>.</p> },
               { title: 'Analisis [Co(NH₃)₆]³⁺', content: <p><LaTeX>{'[Co(NH_3)_6]^{3+}'}</LaTeX> tidak stabil secara termodinamika dalam asam (<LaTeX>{'K_{eq} \\approx 10^{25}'}</LaTeX> untuk penguraian). Namun, <LaTeX>{'Co^{3+}'}</LaTeX> adalah spin rendah <LaTeX>{'d^6'}</LaTeX> (<LaTeX>{'t_{2g}^6 e_g^0'}</LaTeX>) dengan CFSE maksimum (<LaTeX>{'-2.4\\Delta_o'}</LaTeX>). Hal ini membuatnya <strong>inert secara kinetik</strong>.</p> },

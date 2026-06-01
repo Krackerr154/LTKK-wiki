@@ -1,6 +1,6 @@
 # LTKK-wiki Implementation Plan
 **Project:** Interactive Chemistry Education Platform for KI 3231  
-**Target:** Transition Metals & Complex Chemistry (Part 3)  
+**Target:** Transition Metals & Complex Chemistry (full course — Parts 1, 2, 3)  
 **Created:** 2026-05-28  
 **Deployment:** NAT VPS (Port 3009)
 
@@ -8,6 +8,13 @@
 
 ## Overview
 This plan breaks down the LTKK-wiki project into **bite-sized, testable phases** designed for AI agent execution without context overflow. Each phase has clear entry/exit criteria and verification steps.
+
+The course is organized into **three parts** (see `KI_3231_Curriculum_new.md`):
+- **Part 1 — Coordination Chemistry, Bonding Theories & Electronic Spectroscopy** (Modules 1.1–1.9). *Planned.*
+- **Part 2 — Descriptive Inorganic Chemistry of Transition Metals** (Modules 2.1–2.5). *Planned.*
+- **Part 3 — Reaction Mechanisms & Organometallic Chemistry** (Blocks A & B, 13 modules). **✅ Done** (Phases 0–17).
+
+> **Routing note:** The site now opens on a **part selector** (`/`) → each part has an index at `/parts/[partId]` → articles live at `/modules/[id]`. Part 3 articles use ids `a1–a7`, `b1–b6`. Part 1 modules are reserved ids `c1–c9`; Part 2 modules are reserved ids `d1–d5` (already declared in `lib/modules.ts` with `available: false`). Flipping `available: true` after building a module page exposes it in search and the part index.
 
 ---
 
@@ -599,7 +606,161 @@ This plan breaks down the LTKK-wiki project into **bite-sized, testable phases**
 
 ---
 
-## Verification Strategy
+## Phase 17: Part-Based Restructure & Navigation ✅ COMPLETE
+**Goal:** Convert the single-course layout into a 3-part wiki with a part selector entry point.
+
+### Checklist
+- [x] **17.1** Restructure `lib/modules.ts` into a `WikiPart` model (parts → sections → articles), with `available` flags
+  - Test: Part 3 articles resolve; Parts 1 & 2 declared as planned outlines
+- [x] **17.2** Build `PartSelector` (home page) with 3 part cards, status badges, accent colors
+  - Test: `/` shows Bagian 1/2 (Segera Hadir) and Bagian 3 (Tersedia)
+- [x] **17.3** Build `/parts/[partId]` route + `PartIndex` (search for available parts, outline for coming-soon)
+  - Test: `/parts/1` shows outline notice; `/parts/3` shows search + article grid
+- [x] **17.4** `ModuleCard` handles unavailable state (locked, non-clickable)
+  - Test: Coming-soon modules render without a link
+- [x] **17.5** Repoint article back-links to `/parts/3`; add part links to in-article sidebar nav
+  - Test: Back-link returns to Part 3 index
+- [x] **17.6** Remove progression system; dynamic TOC; mobile sidebar toggle; remove "Wiki" wording
+  - Test: lint + build pass, mobile nav collapses
+
+**Exit Criteria:** Users choose a part before entering its module menu; Part 3 fully linked, Parts 1 & 2 show outlines.
+
+---
+
+---
+
+## Stage 6 — Part 1: Coordination Chemistry & Bonding (Phases 18-21) ✅ COMPLETE
+
+**Source:** `KI_3231_Curriculum_new.md` → PART 1. **Article ids:** `c1`–`c9`.
+**Per-module convention:** reuse the existing `ModuleLayout` sections (Concept Overview, Key Equations, Worked Examples, Misconceptions, Interactive Visual, Formative Quiz, Connections), `EquationBlock`, `WorkedExample` + `StepVisuals`, `Quiz`, `StructureDiagram`, and `ConnectionLinks`. Create page at `/app/modules/<id>/page.tsx`, then set `available: true` in `lib/modules.ts`.
+
+## Phase 18: Part 1 — Foundations (Modules 1.1–1.3) ✅ COMPLETE
+**Goal:** Werner's theory, isomerism, and Valence Bond Theory.
+
+### Checklist
+- [x] **18.1** Module 1.1 (`c1`) Senyawa Koordinasi & Teori Werner
+  - Content: primary/secondary valency, coordination numbers/geometries, denticity
+  - Interactive: **Werner precipitation simulator** (`WernerPrecipitation`) — pick `[Co(NH₃)₆]Cl₃`, `[Co(NH₃)₅Cl]Cl₂`, etc.; "Add AgNO₃" precipitates only outer-sphere Cl⁻ (count moles of AgCl)
+  - Worked example: deduce coordination formula from AgCl precipitation
+- [x] **18.2** Module 1.2 (`c2`) Isomerisme dalam Kompleks Koordinasi
+  - Content: structural (ionization, coordination, hydrate, linkage) + stereo (cis/trans, fac/mer, optical)
+  - Interactive: `TabbedExplorer` comparing cis/trans, fac/mer, and optical isomerism *(substituted for the 3D fac/mer viewer — no 3D engine in stack)*
+- [x] **18.3** Module 1.3 (`c3`) Teori Ikatan Valensi (VBT)
+  - Content: sp/sp³/dsp²/d²sp³/sp³d² hybridization, inner vs outer orbital, magnetism
+  - Interactive: `TabbedExplorer` comparing `[FeF₆]³⁻` (sp³d², high-spin) vs `[Fe(CN)₆]³⁻` (d²sp³, low-spin)
+  - Worked example: `[FeF₆]³⁻` vs `[Fe(CN)₆]³⁻`
+
+**Exit Criteria:** Modules 1.1–1.3 live, interactive, `available: true`. ✅
+
+---
+
+## Phase 19: Part 1 — Crystal/Ligand Field (Modules 1.4–1.5) ✅ COMPLETE
+**Goal:** CFT splitting and the factors governing Δ.
+
+### Checklist
+- [x] **19.1** Module 1.4 (`c4`) Teori Medan Kristal (CFT)
+  - Content: octahedral/tetrahedral/square-planar splitting, t2g/eg, high vs low spin, CFSE
+  - Interactive: **CFT splitting engine** (`CrystalFieldSplitter`) — geometry selector, d-count slider, spin toggle, live CFSE + unpaired + μ_eff readouts
+  - Worked example: d⁶ high-spin vs low-spin CFSE
+- [x] **19.2** Module 1.5 (`c5`) Faktor Penentu Pembelahan (Δ)
+  - Content: spectrochemical series, oxidation state, 3d/4d/5d, coordination number, hydration double-hump curve
+  - Interactive: `TabbedExplorer` over the four Δ factors *(spectrochemical/oxidation/period/coordination)*
+  - Worked example: `[Fe(ox)₃]³⁻` vs `[Ru(ox)₃]³⁻`
+
+**Exit Criteria:** Modules 1.4–1.5 live with working CFT engine. ✅
+
+---
+
+## Phase 20: Part 1 — Distortion & MO Theory (Modules 1.6–1.7) ✅ COMPLETE
+**Goal:** Jahn-Teller distortion and Ligand Field (MO) theory.
+
+### Checklist
+- [x] **20.1** Module 1.6 (`c6`) Distorsi Jahn-Teller
+  - Content: degeneracy, weak (t2g) vs strong (eg) distortion, tetragonal elongation/compression
+  - Interactive: `TabbedExplorer` over weak/strong distortion + elongation/compression cases
+- [x] **20.2** Module 1.7 (`c7`) Teori Medan Ligan (LFT)
+  - Content: MO construction, LGOs, σ-only, π-donor vs π-acceptor effect on Δo
+  - Interactive: `TabbedExplorer` over σ-only / π-donor / π-acceptor
+  - Worked example: `[Cr(CN)₆]³⁻` vs `[CrF₆]³⁻`
+
+**Exit Criteria:** Modules 1.6–1.7 live with MO/distortion visualizers. ✅
+
+---
+
+## Phase 21: Part 1 — Spectroscopy & SCO (Modules 1.8–1.9) ✅ COMPLETE
+**Goal:** Electronic spectroscopy, color, and spin crossover. Completes Part 1.
+
+### Checklist
+- [x] **21.1** Module 1.8 (`c8`) Spektroskopi Elektronik & Warna
+  - Content: d-d transitions, Laporte + spin selection rules, CT bands (LMCT/MLCT), complementary color, Beer-Lambert
+  - Interactive: `TabbedExplorer` over Laporte / spin / CT / complementary-color
+  - Worked example: Ti(III) d¹ Δo from absorption band + Jahn-Teller shoulder
+- [x] **21.2** Module 1.9 (`c9`) Senyawa Spin Crossover (SCO)
+  - Content: LS↔HS transition (d⁴–d⁷), temperature/pressure/LIESST triggers, transition profiles
+  - Interactive: `TabbedExplorer` over LS/HS, triggers, hysteresis profiles
+  - Worked example: `[Fe(Htrz)₃](TFA)₂` hysteresis width (18 K)
+- [x] **21.3** Set Part 1 `status: 'available'` in `lib/modules.ts`; add Part 1 glossary terms
+  - 18 Part 1 glossary terms added (Werner, dentisitas, VBT, CFT, Δₒ, spektrokimia, Jahn-Teller, LFT, Laporte, CT, SCO, etc.)
+
+**Exit Criteria:** Part 1 is 100% complete, all 9 modules functional and searchable. ✅
+
+---
+
+---
+
+## Stage 7 — Part 2: Descriptive Inorganic Chemistry (Phases 22-24) ✅ COMPLETE
+
+**Source:** `KI_3231_Curriculum_new.md` → PART 2. **Article ids:** `d1`–`d5`.
+Same per-module convention as Stage 6. Descriptive chemistry leans on tables and reaction visuals (reuse `HighlightTable`, color-coded reaction cards).
+
+## Phase 22: Part 2 — Periodicity & Metallurgy (Modules 2.1–2.2) ✅ COMPLETE
+**Goal:** Periodic trends and industrial extraction.
+
+### Checklist
+- [x] **22.1** Module 2.1 (`d1`) Tren Periodik & Karakteristik
+  - Content: physical properties, lanthanide contraction, oxidation states, reduction potentials
+  - Interactive: `TabbedExplorer` over physical/size/oxidation/reduction trends
+  - Worked example: Zn + Cu²⁺ displacement via E° (+1.10 V)
+- [x] **22.2** Module 2.2 (`d2`) Metalurgi & Ekstraksi Industri
+  - Content: Kroll (Ti), Blast Furnace (Fe), Mond (Ni), copper extraction/electro-refining
+  - Interactive: `TabbedExplorer` over Kroll/Blast Furnace/Mond/Copper
+  - Worked example: ΔG° of hematite vs siderite reduction
+
+**Exit Criteria:** Modules 2.1–2.2 live. ✅
+
+---
+
+## Phase 23: Part 2 — Descriptive Chemistry (Modules 2.3–2.4) ✅ COMPLETE
+**Goal:** 3d series and 4d/5d PGM descriptive chemistry.
+
+### Checklist
+- [x] **23.1** Module 2.3 (`d3`) Kimia Deskriptif Logam 3d (Sc–Zn)
+  - Content: element-by-element (Ti→Zn) colors, oxidation states, key reactions/tests
+  - Interactive: `TabbedExplorer` grouped by element pairs (Ti&V, Cr&Mn, Fe&Co, Ni/Cu/Zn)
+  - Worked example: dichromate–ethanol oxidation (orange→green)
+- [x] **23.2** Module 2.4 (`d4`) Kimia Deskriptif Logam 4d & 5d (PGM)
+  - Content: Pt (cisplatin, Magnus' green salt), Au (aqua regia), Hg (mercurous dimer, calomel, Nessler)
+  - Interactive: `TabbedExplorer` over Pt/Au/Hg
+  - Worked example: molar conductivity of Pt(IV) ammine-chloro complexes (`HighlightTable`)
+
+**Exit Criteria:** Modules 2.3–2.4 live. ✅
+
+---
+
+## Phase 24: Part 2 — Qualitative Analysis (Module 2.5) ✅ COMPLETE
+**Goal:** Systematic cation separation. Completes Part 2.
+
+### Checklist
+- [x] **24.1** Module 2.5 (`d5`) Analisis Kualitatif & Skema Pemisahan
+  - Content: Group 3 separation scheme (Fe³⁺, Al³⁺, Cr³⁺, Mn²⁺, Co²⁺, Ni²⁺, Zn²⁺), confirmatory tests (DMG for Ni, SCN for Co/Fe)
+  - Interactive: `TabbedExplorer` stepping through precipitation / HCl dissolution / Ni-Co residue / filtrate
+  - Worked example: identify an unknown Group 3 mixture (Ni via DMG)
+- [x] **24.2** Set Part 2 `status: 'available'`; add Part 2 glossary terms
+  - 7 Part 2 glossary terms added (kontraksi lantanida, Kroll, Mond, aqua regia, dimer merkuro, uji DMG, analisis kualitatif)
+
+**Exit Criteria:** Part 2 is 100% complete, all 5 modules functional and searchable. ✅
+
+---
 
 ### Per-Phase Testing
 Each phase must pass all its tests before moving to the next phase. If a test fails:
@@ -644,18 +805,26 @@ When handing off between agents or sessions:
 
 ## Success Criteria
 
-The project is complete when:
-- ? All 16 phases are checked off
-- ? All 12 modules are functional and interactive
-- ? Site is deployed and accessible at `https://ltkk-wiki.g-labs.my.id`
-- ? All calculators produce correct outputs
-- ? All animations play smoothly
-- ? All quizzes provide correct feedback
-- ? Progress persists across sessions
-- ? Site is mobile-responsive
-- ? Lighthouse score > 90
+### Part 3 (done)
+- ✅ Phases 0–17 checked off
+- ✅ All 13 Part 3 modules functional and interactive
+- ✅ Site deployed at `https://ltkk.g-labs.my.id`
+- ✅ All calculators correct, animations smooth, quizzes give feedback
+- ✅ Mobile-responsive, Lighthouse > 90, part selector live
+
+### Part 1 (Stage 6) ✅
+- ✅ Phases 18–21 checked off
+- ✅ All 9 modules (1.1–1.9 / `c1`–`c9`) live and interactive
+- ✅ Part 1 set `available: true`, included in search; 18 glossary terms added
+
+### Part 2 (Stage 7) ✅
+- ✅ Phases 22–24 checked off
+- ✅ All 5 modules (2.1–2.5 / `d1`–`d5`) live and interactive
+- ✅ Part 2 set `available: true`, included in search; 7 glossary terms added
+
+**Whole project complete when:** all three parts are `available`, every module is interactive and searchable, lint + build pass, and the site remains mobile-responsive with Lighthouse > 90.
 
 ---
 
-**Last Updated:** 2026-05-28  
-**Status:** Stage 5 Complete — All phases finished, production-ready
+**Last Updated:** 2026-06-01  
+**Status:** All three parts complete — 27 module pages (A1–A7, B1–B6, c1–c9, d1–d5), 35 static routes, lint + build clean.

@@ -15,6 +15,12 @@ import {
 import { LaTeX } from '../../components/ui/LaTeX';
 import { EquationBlock } from '../../components/ui/EquationBlock';
 import { WorkedExample } from '../../components/ui/WorkedExample';
+import {
+  HighlightTable,
+  StepReasoning,
+  ResultBox,
+  MiniReactionPath,
+} from '../../components/ui/StepVisuals';
 import { Quiz } from '../../components/ui/Quiz';
 import { ConnectionLinks } from '../../components/ui/ConnectionLinks';
 import { EnergyProfileDiagram } from '../../components/interactive/EnergyProfileDiagram';
@@ -25,9 +31,9 @@ export default function ModuleA1() {
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}>
+          <Link href="/parts/3" className={pageStyles.backLink}>
             <ArrowLeft size={16} />
-            <span>Kembali ke Kursus</span>
+            <span>Kembali ke Bagian 3</span>
           </Link>
         </div>
       </header>
@@ -102,78 +108,129 @@ export default function ModuleA1() {
                 <p>Untuk reaksi substitusi ligan:</p>
                 <LaTeX display>{'[ML_5X]^{n+} + Y^- \\rightarrow [ML_5Y]^{n+} + X^-'}</LaTeX>
                 <p>Laju awal berikut diukur pada 298 K:</p>
-                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '0.75rem', fontSize: '0.875rem' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>Percobaan</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>[ML₅X]ⁿ⁺ (M)</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>[Y⁻] (M)</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'var(--text-muted)' }}>Laju (M·s⁻¹)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                      <td style={{ padding: '0.5rem' }}>1</td>
-                      <td style={{ padding: '0.5rem' }}>1.0 × 10⁻³</td>
-                      <td style={{ padding: '0.5rem' }}>0.10</td>
-                      <td style={{ padding: '0.5rem' }}>1.5 × 10⁻⁵</td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                      <td style={{ padding: '0.5rem' }}>2</td>
-                      <td style={{ padding: '0.5rem' }}>2.0 × 10⁻³</td>
-                      <td style={{ padding: '0.5rem' }}>0.10</td>
-                      <td style={{ padding: '0.5rem' }}>3.0 × 10⁻⁵</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: '0.5rem' }}>3</td>
-                      <td style={{ padding: '0.5rem' }}>1.0 × 10⁻³</td>
-                      <td style={{ padding: '0.5rem' }}>0.20</td>
-                      <td style={{ padding: '0.5rem' }}>1.5 × 10⁻⁵</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <HighlightTable
+                  columns={[
+                    { header: 'Percobaan' },
+                    { header: <>[ML₅X]ⁿ⁺ (M)</> },
+                    { header: <>[Y⁻] (M)</> },
+                    { header: <>Laju (M·s⁻¹)</> },
+                  ]}
+                  rows={[
+                    { cells: ['1', '1.0 × 10⁻³', '0.10', '1.5 × 10⁻⁵'] },
+                    { cells: ['2', '2.0 × 10⁻³', '0.10', '3.0 × 10⁻⁵'] },
+                    { cells: ['3', '1.0 × 10⁻³', '0.20', '1.5 × 10⁻⁵'] },
+                  ]}
+                  caption="Data laju awal — bandingkan pasangan percobaan untuk mengisolasi pengaruh tiap reaktan."
+                />
               </div>
             }
             steps={[
               {
                 title: 'Bandingkan Percobaan 1 dan 2',
                 content: (
-                  <p>
-                    Konsentrasi <LaTeX>{'[Y^-]'}</LaTeX> dijaga konstan. Saat{' '}
-                    <LaTeX>{'[ML_5X]^{n+}'}</LaTeX> digandakan (1.0×10⁻³ → 2.0×10⁻³ M), laju
-                    menjadi dua kali lipat (1.5×10⁻⁵ → 3.0×10⁻⁵ M·s⁻¹). Reaksi ber<strong>orde pertama</strong> terhadap
-                    kompleks (<LaTeX>{'m = 1'}</LaTeX>).
-                  </p>
+                  <div>
+                    <p>
+                      Konsentrasi <LaTeX>{'[Y^-]'}</LaTeX> dijaga konstan, jadi setiap perubahan laju
+                      hanya disebabkan oleh perubahan <LaTeX>{'[ML_5X]^{n+}'}</LaTeX>.
+                    </p>
+                    <HighlightTable
+                      columns={[
+                        { header: 'Percobaan' },
+                        { header: <>[ML₅X]ⁿ⁺ (M)</> },
+                        { header: <>[Y⁻] (M)</> },
+                        { header: <>Laju (M·s⁻¹)</> },
+                      ]}
+                      rows={[
+                        { cells: ['1', '1.0 × 10⁻³', '0.10', '1.5 × 10⁻⁵'], highlight: 'blue' },
+                        { cells: ['2', '2.0 × 10⁻³', '0.10', '3.0 × 10⁻⁵'], highlight: 'blue' },
+                      ]}
+                    />
+                    <StepReasoning
+                      cause={{ label: <LaTeX>{'[ML_5X]'}</LaTeX>, factor: '× 2', trend: 'up' }}
+                      effect={{ label: 'Laju', factor: '× 2', trend: 'up' }}
+                      conclusion={
+                        <>
+                          Laju ∝ <LaTeX>{'[ML_5X]^1'}</LaTeX> → reaksi <strong>orde pertama</strong> terhadap
+                          kompleks (<LaTeX>{'m = 1'}</LaTeX>).
+                        </>
+                      }
+                      tone="blue"
+                    />
+                  </div>
                 ),
               },
               {
                 title: 'Bandingkan Percobaan 1 dan 3',
                 content: (
-                  <p>
-                    Konsentrasi <LaTeX>{'[ML_5X]^{n+}'}</LaTeX> dijaga konstan. Saat{' '}
-                    <LaTeX>{'[Y^-]'}</LaTeX> digandakan (0.10 → 0.20 M), laju tetap
-                    pada 1.5×10⁻⁵ M·s⁻¹. Reaksi ber<strong>orde nol</strong> terhadap ligan
-                    yang masuk (<LaTeX>{'n = 0'}</LaTeX>).
-                  </p>
+                  <div>
+                    <p>
+                      Sekarang <LaTeX>{'[ML_5X]^{n+}'}</LaTeX> dijaga konstan, sehingga perubahan laju
+                      hanya akibat perubahan <LaTeX>{'[Y^-]'}</LaTeX>.
+                    </p>
+                    <HighlightTable
+                      columns={[
+                        { header: 'Percobaan' },
+                        { header: <>[ML₅X]ⁿ⁺ (M)</> },
+                        { header: <>[Y⁻] (M)</> },
+                        { header: <>Laju (M·s⁻¹)</> },
+                      ]}
+                      rows={[
+                        { cells: ['1', '1.0 × 10⁻³', '0.10', '1.5 × 10⁻⁵'], highlight: 'amber' },
+                        { cells: ['3', '1.0 × 10⁻³', '0.20', '1.5 × 10⁻⁵'], highlight: 'amber' },
+                      ]}
+                    />
+                    <StepReasoning
+                      cause={{ label: <LaTeX>{'[Y^-]'}</LaTeX>, factor: '× 2', trend: 'up' }}
+                      effect={{ label: 'Laju', factor: '× 1', trend: 'same' }}
+                      conclusion={
+                        <>
+                          Laju tidak berubah → reaksi <strong>orde nol</strong> terhadap ligan yang masuk
+                          (<LaTeX>{'n = 0'}</LaTeX>).
+                        </>
+                      }
+                      tone="amber"
+                    />
+                  </div>
                 ),
               },
               {
                 title: 'Tuliskan hukum laju',
                 content: (
                   <div>
+                    <p>Gabungkan kedua orde parsial (<LaTeX>{'m = 1'}</LaTeX>, <LaTeX>{'n = 0'}</LaTeX>):</p>
                     <LaTeX display>{'\\text{Laju} = k[ML_5X]^{n+}'}</LaTeX>
+                    <ResultBox tone="info" label="Orde reaksi total">
+                      <LaTeX>{'m + n = 1 + 0 = 1'}</LaTeX> → kinetika orde pertama secara keseluruhan.
+                      Ligan masuk <LaTeX>{'Y^-'}</LaTeX> tidak muncul dalam hukum laju.
+                    </ResultBox>
                   </div>
                 ),
               },
               {
                 title: 'Kesimpulan Mekanistik',
                 content: (
-                  <p>
-                    Karena laju secara eksklusif bergantung pada konsentrasi kompleks dan tidak bergantung
-                    pada ligan yang masuk, maka RDS hanya melibatkan kompleks induk. Hal ini secara kuat
-                    menunjukkan <strong>mekanisme disosiatif (D)</strong> di mana tahap lambatnya adalah
-                    disosiasi gugus pergi X⁻.
-                  </p>
+                  <div>
+                    <p>
+                      Karena laju hanya bergantung pada kompleks dan tidak bergantung pada ligan yang masuk,
+                      tahap penentu laju (RDS) hanyalah pelepasan <LaTeX>{'X^-'}</LaTeX> — ligan masuk
+                      baru terlibat <em>setelah</em> RDS:
+                    </p>
+                    <MiniReactionPath
+                      nodes={[
+                        { formula: <>[ML₅X]</>, cn: 6, note: 'Kompleks awal' },
+                        { formula: <>[ML₅]</>, cn: 5, note: 'Zat antara' },
+                        { formula: <>[ML₅Y]</>, cn: 6, note: 'Produk' },
+                      ]}
+                      arrows={[
+                        { label: <>−X⁻ (lambat, RDS)</>, tone: 'red' },
+                        { label: <>+Y⁻ (cepat)</>, tone: 'green' },
+                      ]}
+                    />
+                    <ResultBox tone="success" label="Mekanisme: Disosiatif (D)">
+                      Penurunan bilangan koordinasi (6 → 5) pada tahap lambat adalah ciri khas jalur
+                      <strong> disosiatif (D)</strong>, konsisten dengan hukum laju orde pertama yang teramati.
+                    </ResultBox>
+                  </div>
                 ),
               },
             ]}

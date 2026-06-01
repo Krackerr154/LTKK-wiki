@@ -1,7 +1,7 @@
 .layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  max-width: 1200px;
+  grid-template-columns: 260px 1fr;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   gap: 3rem;
@@ -12,7 +12,36 @@
   .layout {
     grid-template-columns: 1fr;
     padding: 1rem;
-    gap: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+/* Mobile nav toggle — hidden on desktop */
+.navToggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navToggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .navToggle:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
   }
 }
 
@@ -21,11 +50,28 @@
   position: sticky;
   top: 2rem;
   height: fit-content;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-right: 0.5rem;
 }
 
 @media (max-width: 900px) {
   .sidebar {
     position: static;
+    max-height: none;
+    overflow-y: visible;
+    display: none;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+  }
+
+  .sidebarOpen {
+    display: flex;
   }
 }
 
@@ -43,29 +89,30 @@
   }
 }
 
+.tocBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.tocLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .sidebarLabel {
-  font-family: 'Outfit';
+  font-family: var(--font-outfit), sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid var(--border-light);
-}
-
-.sidebarLabel.blockA {
-  background: var(--gradient-block-a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border-bottom-color: rgba(59, 130, 246, 0.3);
-}
-
-.sidebarLabel.blockB {
-  background: var(--gradient-block-b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border-bottom-color: rgba(139, 92, 246, 0.3);
 }
 
 @media (max-width: 900px) {
@@ -79,7 +126,7 @@
   border: none;
   color: var(--text-muted);
   font-size: 0.875rem;
-  font-family: 'Inter';
+  font-family: var(--font-inter), sans-serif;
   text-align: left;
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
@@ -104,7 +151,7 @@
 
 .moduleCodeBadge {
   display: inline-block;
-  font-family: 'Outfit';
+  font-family: var(--font-outfit), sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: 0.1em;
@@ -184,60 +231,5 @@
 
 .sectionContent li {
   margin-bottom: 0.5rem;
-}
-
-/* Completion Section */
-.completeSection {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-light);
-  display: flex;
-  justify-content: center;
-}
-
-.completeBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 2rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-light);
-  background: rgba(255,255,255,0.03);
-  color: var(--text-secondary);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 200ms;
-}
-
-.completeBtn:hover {
-  transform: translateY(-1px);
-}
-
-.completeBtn.blockA:hover {
-  background: rgba(59,130,246,0.15);
-  border-color: rgba(59,130,246,0.4);
-  color: #60a5fa;
-}
-
-.completeBtn.blockB:hover {
-  background: rgba(139,92,246,0.15);
-  border-color: rgba(139,92,246,0.4);
-  color: #a78bfa;
-}
-
-.completedBadge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 2rem;
-  border-radius: 12px;
-  background: rgba(16,185,129,0.1);
-  border: 1px solid rgba(16,185,129,0.3);
-  color: #6ee7b7;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9375rem;
-  font-weight: 600;
 }
 

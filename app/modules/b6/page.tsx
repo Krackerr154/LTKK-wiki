@@ -2,22 +2,14 @@
 
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { useState } from 'react';
 import { ModuleLayout, ConceptOverview, KeyEquations, WorkedExamples, Misconceptions, InteractiveVisual, FormativeQuiz, Connections } from '../../components/ui/ModuleLayout';
 import { LaTeX } from '../../components/ui/LaTeX';
 import { WorkedExample } from '../../components/ui/WorkedExample';
+import { ComplexStructure } from '../../components/ui/ComplexStructure';
 import { Quiz } from '../../components/ui/Quiz';
 import { ConnectionLinks } from '../../components/ui/ConnectionLinks';
+import { WilkinsonCycle } from '../../components/interactive/WilkinsonCycle';
 import pageStyles from '../[moduleId]/page.module.css';
-
-const CYCLE_STEPS = [
-  { step: 1, title: 'Disosiasi Ligan', desc: 'PPh₃ terdisosiasi dari [RhCl(PPh₃)₃] untuk membuka situs koordinasi.', oxState: '+1', eCount: 14, type: 'Substitusi' },
-  { step: 2, title: 'Adisi Oksidatif H₂', desc: 'H₂ bertambah di seberang pusat Rh, membentuk kompleks dihidrida Rh(III).', oxState: '+3', eCount: 16, type: 'Adisi Oksidatif' },
-  { step: 3, title: 'Koordinasi Alkena', desc: 'Substrat alkena berkoordinasi dengan logam melalui ikatan π-nya.', oxState: '+3', eCount: 18, type: 'Substitusi' },
-  { step: 4, title: 'Penyisipan Migrasi', desc: 'Sebuah hidrida bermigrasi dan menyisip ke dalam alkena yang terkoordinasi, membentuk gugus alkil.', oxState: '+3', eCount: 16, type: 'Penyisipan' },
-  { step: 5, title: 'Eliminasi Reduktif', desc: 'Alkil dan hidrida yang tersisa bergabung dan terlepas sebagai produk terhidrogenasi (alkana).', oxState: '+1', eCount: 14, type: 'Eliminasi Reduktif' },
-  { step: 6, title: 'Regenerasi Katalis', desc: 'PPh₃ berkoordinasi kembali dan substrat kembali, meregenerasi katalis aktif 16e⁻.', oxState: '+1', eCount: 16, type: 'Regenerasi' },
-];
 
 const REACTION_TYPES = [
   { name: 'Adisi Oksidatif', delta_ox: '+2', delta_cn: '+2', requirement: '≤16e⁻, logam kaya elektron', example: '[IrCl(CO)(PPh₃)₂] + H₂ → [Ir(H)₂Cl(CO)(PPh₃)₂]' },
@@ -27,15 +19,11 @@ const REACTION_TYPES = [
 ];
 
 export default function ModuleB6() {
-  const [cycleStep, setCycleStep] = useState(0);
-  const [showReactionTypes, setShowReactionTypes] = useState(false);
-  const current = CYCLE_STEPS[cycleStep];
-
   return (
     <main className={pageStyles.main}>
       <header className={pageStyles.header}>
         <div className={pageStyles.headerContent}>
-          <Link href="/" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Kursus</span></Link>
+          <Link href="/parts/3" className={pageStyles.backLink}><ArrowLeft size={16} /><span>Kembali ke Bagian 3</span></Link>
         </div>
       </header>
       <ModuleLayout moduleCode="Modul B6" moduleTitle="Katalisis Organologam" block="B">
@@ -78,7 +66,15 @@ export default function ModuleB6() {
         <WorkedExamples>
           <WorkedExample
             title="Mengidentifikasi Langkah-Langkah Reaksi"
-            problem={<p>Klasifikasikan: <LaTeX>{'[IrCl(CO)(PPh_3)_2] + H_2 \\rightarrow [Ir(H)_2Cl(CO)(PPh_3)_2]'}</LaTeX></p>}
+            problem={
+              <div>
+                <p>Klasifikasikan: <LaTeX>{'[IrCl(CO)(PPh_3)_2] + H_2 \\rightarrow [Ir(H)_2Cl(CO)(PPh_3)_2]'}</LaTeX></p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '1rem' }}>
+                  <ComplexStructure geometry="squareplanar" metal="Ir" ligands={['CO', 'PPh₃', 'Cl', 'PPh₃']} caption={<>Reaktan: Ir(I) square planar, 16e⁻, CN = 4</>} />
+                  <ComplexStructure geometry="octahedral" metal="Ir" ligands={['H', 'PPh₃', 'CO', 'PPh₃', 'Cl', 'H']} caption={<>Produk: Ir(III) oktahedral, 18e⁻, CN = 6</>} />
+                </div>
+              </div>
+            }
             steps={[
               { title: 'Analisis reaktan', content: <p>Ir(I) (16e⁻, bilangan koordinasi 4).</p> },
               { title: 'Analisis produk', content: <p>Ir(III) (18e⁻, bilangan koordinasi 6).</p> },
@@ -99,51 +95,8 @@ export default function ModuleB6() {
         </Misconceptions>
 
         <InteractiveVisual>
-          <p style={{ marginBottom: '1rem' }}>Telusuri siklus katalitik Wilkinson untuk hidrogenasi alkena:</p>
-
-          {/* Cycle Step Display */}
-          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '1.5rem', marginBottom: '1rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Langkah {current.step} dari 6</span>
-              <span style={{ fontSize: '0.75rem', padding: '0.25rem 0.75rem', borderRadius: '20px', background: 'rgba(139,92,246,0.15)', color: '#a78bfa', fontWeight: 600 }}>{current.type}</span>
-            </div>
-            <h4 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '1.25rem', color: 'var(--text-primary)', marginBottom: '0.75rem' }}>{current.title}</h4>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>{current.desc}</p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <div style={{ background: 'rgba(59,130,246,0.08)', borderRadius: '8px', padding: '0.5rem 1rem', textAlign: 'center', flex: 1 }}>
-                <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>OS Rh</div>
-                <div style={{ fontWeight: 700, color: '#60a5fa', fontSize: '1.125rem' }}>{current.oxState}</div>
-              </div>
-              <div style={{ background: current.eCount === 18 ? 'rgba(16,185,129,0.08)' : current.eCount === 16 ? 'rgba(245,158,11,0.08)' : 'rgba(239,68,68,0.08)', borderRadius: '8px', padding: '0.5rem 1rem', textAlign: 'center', flex: 1 }}>
-                <div style={{ fontSize: '0.625rem', color: 'var(--text-muted)' }}>Jumlah VE</div>
-                <div style={{ fontWeight: 700, color: current.eCount === 18 ? '#6ee7b7' : current.eCount === 16 ? '#fbbf24' : '#fca5a5', fontSize: '1.125rem' }}>{current.eCount}e⁻</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Step navigation */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            {CYCLE_STEPS.map((_, i) => (
-              <button key={i} onClick={() => setCycleStep(i)} style={{
-                width: '36px', height: '36px', borderRadius: '50%',
-                border: `2px solid ${i === cycleStep ? '#8b5cf6' : 'var(--border-light)'}`,
-                background: i === cycleStep ? 'rgba(139,92,246,0.2)' : 'transparent',
-                color: i === cycleStep ? '#a78bfa' : 'var(--text-muted)',
-                cursor: 'pointer', fontWeight: 700, fontSize: '0.875rem', fontFamily: "'Outfit', sans-serif",
-                transition: 'all 150ms',
-              }}>
-                {i + 1}
-              </button>
-            ))}
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem' }}>
-            <button onClick={() => setCycleStep(p => (p - 1 + 6) % 6)} style={{ padding: '0.5rem 1.25rem', borderRadius: '8px', border: '1px solid var(--border-light)', background: 'transparent', color: 'var(--text-muted)', cursor: 'pointer', fontFamily: "'Inter', sans-serif", fontSize: '0.8125rem' }}>
-              ← Sebel.
-            </button>
-            <button onClick={() => setCycleStep(p => (p + 1) % 6)} style={{ padding: '0.5rem 1.25rem', borderRadius: '8px', border: '1px solid rgba(139,92,246,0.3)', background: 'rgba(139,92,246,0.15)', color: '#a78bfa', cursor: 'pointer', fontFamily: "'Inter', sans-serif", fontSize: '0.8125rem', fontWeight: 600 }}>
-              Lanjut →
-            </button>
-          </div>
+          <p style={{ marginBottom: '1rem' }}>Telusuri siklus katalitik Wilkinson untuk hidrogenasi alkena. Tekan <strong>Putar Siklus</strong> untuk melihat katalis bergerak melalui keenam langkah, atau klik nomor langkah pada diagram.</p>
+          <WilkinsonCycle />
         </InteractiveVisual>
 
         <FormativeQuiz>

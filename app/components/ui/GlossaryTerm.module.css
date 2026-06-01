@@ -56,7 +56,7 @@
 }
 
 .tooltipTerm {
-  font-family: 'Outfit';
+  font-family: var(--font-outfit), sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   color: var(--text-primary);

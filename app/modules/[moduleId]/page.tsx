@@ -12,9 +12,9 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
     <main className={styles.main}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <Link href="/" className={styles.backLink}>
+          <Link href="/parts/3" className={styles.backLink}>
             <ArrowLeft size={16} />
-            <span>Back to Course</span>
+            <span>Kembali ke Bagian 3</span>
           </Link>
           <div className={styles.moduleCode}>Module {moduleId.toUpperCase()}</div>
           <h1 className={styles.title}>Placeholder for {moduleId.toUpperCase()}</h1>

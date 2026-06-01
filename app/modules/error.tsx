@@ -37,7 +37,7 @@ export default function Error({
         ⚠️
       </div>
       <h2 style={{
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: 'var(--font-outfit), sans-serif',
         fontSize: '1.5rem',
         color: 'var(--text-primary)',
         marginBottom: '0.75rem',
@@ -60,7 +60,7 @@ export default function Error({
           background: 'rgba(59,130,246,0.15)',
           border: '1px solid rgba(59,130,246,0.3)',
           color: '#60a5fa',
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: 'var(--font-inter), sans-serif',
           fontSize: '0.875rem',
           fontWeight: 600,
           cursor: 'pointer',
