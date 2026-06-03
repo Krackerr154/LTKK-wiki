@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FactorIllustration } from './FactorIllustrations';
 import { ModuleLayout, ConceptOverview, KeyEquations, WorkedExamples, Misconceptions, InteractiveVisual, FormativeQuiz, Connections } from '../../components/ui/ModuleLayout';
 import { LaTeX } from '../../components/ui/LaTeX';
 import { EquationBlock } from '../../components/ui/EquationBlock';
@@ -86,12 +88,24 @@ export default function ModuleA6() {
               </button>
             ))}
           </div>
-          {activeFactor && (
-            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '1.5rem' }}>
-              <h4 style={{ fontFamily: 'Outfit, sans-serif', fontSize: '1.125rem', color: 'var(--text-primary)', marginBottom: '0.75rem' }}>{activeFactor.label}</h4>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>{activeFactor.content}</p>
-            </div>
-          )}
+          <div style={{ position: 'relative' }}>
+            <AnimatePresence mode="wait">
+              {activeFactor && (
+                <motion.div
+                  key={activeFactor.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-light)', borderRadius: '12px', padding: '1.5rem' }}
+                >
+                  <FactorIllustration activeTab={activeFactor.id} />
+                  <h4 style={{ fontFamily: 'Outfit, sans-serif', fontSize: '1.125rem', color: 'var(--text-primary)', marginBottom: '0.75rem' }}>{activeFactor.label}</h4>
+                  <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>{activeFactor.content}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </InteractiveVisual>
 
         <FormativeQuiz>
